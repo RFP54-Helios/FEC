@@ -4,7 +4,7 @@ Front End Capstone repository for RFP54's Team Helios!
 
 ## Git Workflow
 
-![Git Workflow Diagram]('docs/img/gitflow.png')
+![Git Workflow Diagram](docs/img/gitflow.png)
 
 [Lucid Chart](https://lucid.app/lucidchart/invitations/accept/inv_c4244f5b-aff7-4e56-9dfc-1a72d5248c76?viewport_loc=-635%2C558%2C2994%2C1437%2C0_0)
 

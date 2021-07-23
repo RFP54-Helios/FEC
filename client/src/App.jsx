@@ -1,9 +1,3 @@
-//render
-  //return
-    //Product Overview
-    //Related products
-    //Q&A
-    //Reviews and ratings
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Overview from './components/Overview.jsx';
@@ -15,10 +9,18 @@ let App = (props) => {
   return (
     <div>
       <h2>FEC</h2>
-      <Overview />
-      <Outfits />
-      <QandA />
-      <Ratings />
+      <div className='widget' id='overview'>
+        <Overview />
+      </div>
+      <div className='widget'>
+        <Outfits />
+      </div>
+      <div className='widget'>
+        <QandA />
+      </div>
+      <div className='widget'>
+        <Ratings />
+      </div>
     </div>
   )
 }

@@ -2,7 +2,32 @@
 
 Front End Capstone repository for RFP54's Team Helios!
 
+## Running the App Locally
+
+1. Make sure you've pulled the version you want to run (see Git Workflow)
+1. Install dependencies
+
+    ```bash
+    npm install
+    ```
+
+1. In one terminal, build the webpack bundle
+
+    ```bash
+    npm run watch
+    ```
+
+1. In another terminal, start the server
+
+    ```bash
+    npm start
+    ```
+
+1. Visit [localhost:3000](http://localhost:3000) in the browser
+
 ## Git Workflow
+
+How to contribute to this project.
 
 ![Git Workflow Diagram](docs/img/gitflow.png)
 
@@ -64,5 +89,17 @@ Avoid conflicts in PR
 1. Submit Pull Request
     1. base:main <- feature-name
     1. reference Trello ticket with link
-1. Code Review
-1.
+1. Have a team member complete a Code Review according to [Code Review Guidlines](https://learn-2.galvanize.com/cohorts/2778/blocks/94/content_files/Front%20End%20Capstone/exercises/code_reviews.md)
+    1. reviewer will look for errors
+    1. reviewer should test the code according to the below workflow
+
+### Pulling Features for Testing
+
+1. create new branch locally
+1. checkout new branch
+1. pull from origin feature-branch
+
+```bash
+git checkout -b feature-branch
+git pull origin feature-branch
+```

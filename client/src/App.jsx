@@ -9,7 +9,7 @@ let App = (props) => {
   return (
     <div>
       <h2>FEC</h2>
-      <div className='widget' id='overview'>
+      <div id='overview'>
         <Overview />
       </div>
       <div className='widget'>

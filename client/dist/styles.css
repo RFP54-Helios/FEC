@@ -35,6 +35,38 @@ body {
   margin: 60px 7.5%;
 }
 
+#ratings {
+  border: none;
+}
+
 h2 {
   margin: 30px;
+}
+
+.ratings-stars {
+  display: flex;
+  flex-direction: row;
+  height: 20px;
+}
+
+#ratings-container {
+  display: flex;
+  flex-direction: row;
+  height: 500px;
+}
+
+#ratings-container-left {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  height: 100%;
+  border: 2px solid black;
+}
+
+#ratings-container-right {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  height: 100%;
+  border: 2px solid black;
 }

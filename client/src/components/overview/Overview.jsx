@@ -3,7 +3,6 @@ import Gallery from './gallery/Gallery.jsx';
 import ProductInfo from './ProductInfo.jsx';
 import StyleSelector from './StyleSelector.jsx';
 import AddToCart from './AddToCart.jsx';
-require('dotenv').config();
 
 const Overview = () => {
   return (

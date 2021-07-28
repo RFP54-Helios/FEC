@@ -2,15 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Reviews = (props) => {
-  return(
+  // calculate total reviews based on metadata
+  let totalReviews = 0;
+  for (let rating in props.meta.ratings) {
+    totalReviews += Number(props.meta.ratings[rating]);
+  }
+  return (
     <div>
-      <h3>{props.reviews.count} reviews, sorted by </h3>
+      <h3>{totalReviews} reviews, sorted by </h3>
       <ReviewsList reviews={props.reviews} />
     </div>
   );
 }
 Reviews.propTypes = {
-  reviews: PropTypes.object.isRequired,
+  reviews: PropTypes.array.isRequired,
+  meta: PropTypes.object.isRequired,
 }
 
 const ReviewsList = (props) => {

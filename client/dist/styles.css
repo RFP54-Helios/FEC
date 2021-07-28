@@ -25,13 +25,6 @@ p, h1, h3, h4, h5, h6 {
   border: 5px solid black;
 }
 
-#overview {
-  border: 2px solid black;
-  height: 1000px;
-  width: 97vw;
-  padding-right: 15px;
-  margin: 0;
-}
 
 .widget {
   border: 2px solid black;
@@ -70,6 +63,16 @@ p, h1, h3, h4, h5, h6 {
   width: 70%;
   height: 100%;
   border: 2px solid black;
+}
+
+/* ----- Overview ----- */
+
+#overview {
+  border: 2px solid black;
+  height: 1000px;
+  width: 97vw;
+  padding-right: 15px;
+  margin: 0;
 }
 
 #overview-components {
@@ -136,4 +139,5 @@ p, h1, h3, h4, h5, h6 {
   margin: 20px 20px 20px 0;
 }
 
+/* ------------------- */
 

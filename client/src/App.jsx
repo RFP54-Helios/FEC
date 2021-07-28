@@ -4,13 +4,14 @@ import Overview from './components/overview/Overview.jsx';
 import Outfits from './components/Outfits.jsx';
 import QandA from './components/QandA.jsx';
 import Ratings from './components/Ratings/Ratings.jsx';
+import products from '/sampleProducts.js';
 
 let App = () => {
   return (
     <div>
       <h2>FEC</h2>
       <div id='overview'>
-        <Overview />
+        <Overview products={products} />
       </div>
       <div className='widget'>
         <Outfits />

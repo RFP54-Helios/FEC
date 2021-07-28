@@ -2,7 +2,7 @@ import React from 'react';
 
 const Outfits = (props) => {
   return(
-    <div>Outfits</div>
+    <div>Outfits!</div>
   )
 }
 

@@ -7,6 +7,7 @@ const Reviews = (props) => {
   for (let rating in props.meta.ratings) {
     totalReviews += Number(props.meta.ratings[rating]);
   }
+
   return (
     <div>
       <h3>{totalReviews} reviews, sorted by </h3>
@@ -25,7 +26,7 @@ const ReviewsList = (props) => {
       <h4>Reviews List</h4>
       <ul>
         {props.reviews.map(review => (
-          <li key={review.review_id}>
+          <li key={review.review_id} className="reviews-list-item">
             <ReviewsListItem review={review}/>
           </li>
         ))}
@@ -44,7 +45,7 @@ const ReviewsListItem = (props) => {
   } else {
     displayBody = props.review.body;
   }
-  
+
   return (
     <div>
       <h4>{props.review.summary}</h4>

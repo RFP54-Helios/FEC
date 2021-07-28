@@ -25,7 +25,7 @@ const ReviewsList = (props) => {
       <h4>Reviews List</h4>
       <ul>
         {props.reviews.map(review => (
-          <li>
+          <li key={review.review_id}>
             <ReviewsListItem review={review}/>
           </li>
         ))}

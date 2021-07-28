@@ -12,8 +12,8 @@ const Ratings = (props) => {
         <Stars starsCount={3.5} />
       </div>
       <div id='ratings-container-right'>
-        <Reviews 
-          reviews={ sampleReviews.results } 
+        <Reviews
+          reviews={ sampleReviews.results }
           meta={ sampleMeta }
         />
       </div>

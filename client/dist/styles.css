@@ -43,6 +43,7 @@ h2 {
   margin: 30px;
 }
 
+<<<<<<< Updated upstream
 .ratings-stars {
   display: flex;
   flex-direction: row;
@@ -70,3 +71,20 @@ h2 {
   height: 100%;
   border: 2px solid black;
 }
+=======
+#qa {
+  height: 500px;
+}
+
+.search {
+  height: 30px;
+  width: 700px;
+  font-size: 14px;
+  background-image: url(https://cdn2.hubspot.net/hubfs/4004166/bioticresearch_website_assets/images/search_icon.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding-left: 40px;
+  background-color: #fff;
+  border: 1px;
+}
+>>>>>>> Stashed changes

@@ -1,6 +1,8 @@
 import React from 'react';
 import Stars from './Stars.jsx';
 import Reviews from './Reviews.jsx';
+import sampleReviews from './sample-reviews.json';
+import sampleMeta from './sample-meta.json';
 
 const Ratings = (props) => {
   return (
@@ -10,7 +12,10 @@ const Ratings = (props) => {
         <Stars starsCount={3.5} />
       </div>
       <div id='ratings-container-right'>
-        <Reviews reviews={ {count: 5} } />
+        <Reviews
+          reviews={ sampleReviews.results }
+          meta={ sampleMeta }
+        />
       </div>
     </div>
   );

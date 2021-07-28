@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Overview from './components/overview/Overview.jsx';
-import Outfits from './components/Outfits.jsx';
+import Outfits from './components/RelatedItems/Outfits.jsx';
 import QandA from './components/QandA.jsx';
 import Ratings from './components/Ratings/Ratings.jsx';
+import items from './components/RelatedItems/sampleData.json';
 
 let App = () => {
   return (
@@ -13,7 +14,7 @@ let App = () => {
         <Overview />
       </div>
       <div className='widget'>
-        <Outfits />
+        <Outfits items = {items}/>
       </div>
       <div className='widget'>
         <QandA />

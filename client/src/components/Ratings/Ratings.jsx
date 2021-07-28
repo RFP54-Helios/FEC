@@ -1,6 +1,7 @@
 import React from 'react';
 import Stars from './Stars.jsx';
 import Reviews from './Reviews.jsx';
+import sampleData from './sample-data.json';
 
 const Ratings = (props) => {
   return (
@@ -10,7 +11,7 @@ const Ratings = (props) => {
         <Stars starsCount={3.5} />
       </div>
       <div id='ratings-container-right'>
-        <Reviews reviews={ {count: 5} } />
+        <Reviews reviews={ sampleData.results } />
       </div>
     </div>
   );

@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Overview from './components/overview/Overview.jsx';
 import Outfits from './components/Outfits.jsx';
-import QandA from './components/QandA.jsx';
+import QandA from './components/QandA/QandA.jsx';
 import Ratings from './components/Ratings/Ratings.jsx';
+import {questionList, answerList} from './components/QandA/sampledata.js';
 
 let App = () => {
   return (
@@ -15,8 +16,8 @@ let App = () => {
       <div className='widget'>
         <Outfits />
       </div>
-      <div className='widget'>
-        <QandA />
+      <div className='widget' id='qa'>
+        <QandA questionList={questionList} answerList={answerList}/>
       </div>
       <div className='widget' id='ratings'>
         <Ratings />

@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Overview from './components/Overview.jsx';
+import Overview from './components/overview/Overview.jsx';
 import Outfits from './components/Outfits.jsx';
 import QandA from './components/QandA/QandA.jsx';
 import Ratings from './components/Ratings/Ratings.jsx';
 import {questionList, answerList} from './components/QandA/sampledata.js';
 
-let App = (props) => {
+let App = () => {
   return (
     <div>
       <h2>FEC</h2>

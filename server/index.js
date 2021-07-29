@@ -7,9 +7,9 @@ const port = 3000
 
 const API_KEY = require('./config/config.js');
 
-app.get('/api/', (req, res) => {
+app.get('/hr-rfp/:params', (req, res) => {
   // forward request to API route
-  axios.get("https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/products", {
+  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2${req.originalUrl}`, {
     headers: {
       'Authorization': API_KEY
     }

@@ -11,11 +11,19 @@ import makeApiCall from './helperFunctions.js';
 
 let App = () => {
   // will make a axios request for product data
-  //store that data in state or context
-  makeApiCall('reviews/', {
+  // store that data in state or context
+  let queryParams = {
     product_id: 17069,
-    count: 15
+    count: 14
+  }
+  makeApiCall('reviews/', queryParams, (err, results) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(results);
+    }
   });
+
   return (
     <div>
       <h2>FEC</h2>

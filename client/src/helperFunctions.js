@@ -1,12 +1,12 @@
 import axios from 'axios';
 
-const makeApiCall = (route, params) => {
+const makeApiCall = (route, params, callback) => {
   axios.get(`http://localhost:3000/hr-rfp/${route}`, {params})
-  .then((res) => {
-    console.log(res.data);
+  .then(res => {
+    callback(null, res.data);
   })
   .catch(err => {
-    console.log(err);
+    callback(err);
   });
 }
 

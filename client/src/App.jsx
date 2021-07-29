@@ -7,21 +7,12 @@ import Ratings from './components/Ratings/Ratings.jsx';
 import items from './components/RelatedItems/sampleData.json';
 import QandA from './components/QandA/QandA.jsx';
 import {questionList, answerList} from './components/QandA/sampledata.js';
-
-const makeApiCall = (route, params) => {
-  axios.get(`http://localhost:3000/hr-rfp/${route}`, {params})
-  .then((res) => {
-    console.log(res.data);
-  })
-  .catch(err => {
-    console.log(err);
-  });
-}
+import makeApiCall from './helperFunctions.js';
 
 let App = () => {
   // will make a axios request for product data
   //store that data in state or context
-makeApiCall('products', {count: 20})
+  makeApiCall('products', {count: 20})
   return (
     <div>
       <h2>FEC</h2>

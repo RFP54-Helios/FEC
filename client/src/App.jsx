@@ -10,15 +10,17 @@ import {questionList, answerList} from './components/QandA/sampledata.js';
 import { getFromApi, postToApi } from './helperFunctions.js';
 
 let App = () => {
+  // get data from the API
   let queryParams = {
     product_id: 17069,
     count: 14
   }
+  // route can be 'products/17069/styles' for example
   getFromApi('reviews/', queryParams, (err, results) => {
     if (err) {
-      // store that data in state or context
       console.log(err);
     } else {
+      // store data in state or context
       console.log(results);
     }
   });

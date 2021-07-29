@@ -2,12 +2,11 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import ReactDOM from 'react-dom';
 import Overview from './components/overview/Overview.jsx';
-import Outfits from './components/Outfits.jsx';
-import QandA from './components/QandA/QandA.jsx';
+import Outfits from './components/RelatedItems/Outfits.jsx';
 import Ratings from './components/Ratings/Ratings.jsx';
-import products from '/sampleProducts.json';
-import styles from '/sampleStyles.json';
+import QandA from './components/QandA/QandA.jsx';
 import {questionList, answerList} from './components/QandA/sampledata.js';
+import { getFromApi, postToApi } from './helperFunctions.js';
 
 export const ProductContext = React.createContext([{}, () => {}]);
 
@@ -34,6 +33,21 @@ let App = () => {
   //   })
   // })
 
+  // get data from the API
+  let queryParams = {
+    product_id: 17069,
+    count: 14
+  }
+  // route can be 'products/17069/styles' for example
+  getFromApi('reviews/', queryParams, (err, results) => {
+    if (err) {
+      console.log(err);
+    } else {
+      // store data in state or context
+      console.log(results);
+    }
+  });
+
   return (
     <ProductContext.Provider value={[product, setProduct]}>
       <h2>FEC</h2>
@@ -41,7 +55,7 @@ let App = () => {
         <Overview />
       </div>
       <div className='widget'>
-        <Outfits />
+        <Outfits items = {items}/>
       </div>
       <div className='widget' id='qa'>
         <QandA questionList={questionList} answerList={answerList}/>

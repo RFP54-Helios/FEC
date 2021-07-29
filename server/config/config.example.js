@@ -1,4 +1,4 @@
 // Put your API key goes here!
-var API_KEY = 'YOUR_API_KEY_HERE';
+const API_KEY = 'YOUR_API_KEY_HERE';
 
-export { API_KEY };
+module.exports = API_KEY;

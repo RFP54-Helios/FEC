@@ -4,7 +4,7 @@ const app = express();
 app.use(express.static(path));
 const port = 3000
 
-import { API_KEY } from './config/config.js';
+const API_KEY = require('./config/config.js');
 
 app.get('/', (req, res) => {
   res.send('Hello World!')

@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import ReactDOM from 'react-dom';
 import Overview from './components/overview/Overview.jsx';
 import Outfits from './components/RelatedItems/Outfits.jsx';
@@ -8,6 +9,15 @@ import QandA from './components/QandA/QandA.jsx';
 import {questionList, answerList} from './components/QandA/sampledata.js';
 
 let App = () => {
+  // will make a axios request for product data
+  //store that data in state or context
+  axios.get('http://localhost:3000/api')
+  .then((res) => {
+    console.log(res.data);
+  })
+  .catch(err => {
+    console.log(err);
+  });
   return (
     <div>
       <h2>FEC</h2>

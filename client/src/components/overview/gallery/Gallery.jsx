@@ -2,9 +2,11 @@ import React from 'react';
 import Thumbnails from './Thumbnails';
 import Arrows from './Arrows';
 
-const Gallery = () => {
+const Gallery = (props) => {
   return(
-    <div id='gallery'>
+    <div
+      id='gallery'
+    >
       <Thumbnails id='thumbnails'/>
       <button id='expand'>[ ]</button>
       <Arrows id='arrows'/>

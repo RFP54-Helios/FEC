@@ -41,7 +41,7 @@ h2 {
 
 #overview {
   border: 2px solid black;
-  height: 1000px;
+  min-height: 1000px;
   width: 97vw;
   padding-right: 15px;
   margin: 0;
@@ -57,7 +57,6 @@ h2 {
   display: grid;
   grid-template-columns: 10px 100px auto 40px 10px;
   grid-template-rows: 10px 30px 1fr 1fr 50px 1fr 1fr;
-  background-image: url(https://images.hdqwalls.com/wallpapers/kanye-west-2020-6b.jpg);
   background-size: 100% 100%;
 }
 

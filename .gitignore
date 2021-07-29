@@ -3,3 +3,4 @@ client/dist/bundle.js
 .env
 coverage
 *.DS_Store
+server/config/config.js

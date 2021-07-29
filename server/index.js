@@ -5,22 +5,20 @@ const app = express();
 app.use(express.static(path));
 const port = 3000
 
+const { createProxyMiddleware } = require('http-proxy-middleware');
 const API_KEY = require('./config/config.js');
 
-app.get('/hr-rfp/:params', (req, res) => {
-  // forward request to API route
-  axios.get(`https://app-hrsei-api.herokuapp.com/api/fec2${req.originalUrl}`, {
-    headers: {
-      'Authorization': API_KEY
-    }
-  })
-  .then((response) => {
-    res.json(response.data)
-  })
-  .catch((error) => {
-    res.sendStatus(404)
-  })
-})
+const apiUrl = 'https://app-hrsei-api.herokuapp.com/api/fec2';
+
+const proxyOptions = {
+  target: apiUrl,
+  changeOrigin: true,
+  onProxyReq: (proxyReq, req, res) => {
+    proxyReq.setHeader('Authorization', API_KEY);
+  }
+}
+
+app.use('/hr-rfp', createProxyMiddleware(proxyOptions));
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)

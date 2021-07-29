@@ -12,7 +12,10 @@ import makeApiCall from './helperFunctions.js';
 let App = () => {
   // will make a axios request for product data
   //store that data in state or context
-  makeApiCall('products', {count: 20})
+  makeApiCall('reviews/', {
+    product_id: 17069,
+    count: 15
+  });
   return (
     <div>
       <h2>FEC</h2>

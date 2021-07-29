@@ -39,6 +39,55 @@ h2 {
   margin: 30px;
 }
 
+/* RELATED PRODUCTS & COMPARISON */
+
+.mainDiv {
+  height: 800px;
+}
+
+.img_container {
+  border: 1px solid black;
+  height: 320px;
+  width: 220px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  margin:20px;
+}
+.relatedItems{
+  display:flex;
+  flex-direction:row;
+
+  /* justify-content: space-between; */
+  /* width:1000px; */
+  /* position: absolute; */
+}
+.addOutfits {
+  margin-top:30px;
+  display:flex;
+  flex-direction:row;
+  /* justify-content: space-evenly; */
+
+}
+.titleRelated {
+  padding: 0px 0px 30px 51px;
+
+}
+.titleOutfit {
+  margin-left: 50px;
+  margin-top: 50px;
+
+}
+.star{
+ text-align: right;
+}
+
+.right-arrow {
+  align-self: center;
+  width: 50px;
+}
+
+/* END of RELATED ITEMS CSS */
 /* ---------------------- Ratings & Reviews ---------------------- */
 
 #ratings {

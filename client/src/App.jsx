@@ -7,17 +7,16 @@ import Ratings from './components/Ratings/Ratings.jsx';
 import items from './components/RelatedItems/sampleData.json';
 import QandA from './components/QandA/QandA.jsx';
 import {questionList, answerList} from './components/QandA/sampledata.js';
-import makeApiCall from './helperFunctions.js';
+import { getFromApi, postToApi } from './helperFunctions.js';
 
 let App = () => {
-  // will make a axios request for product data
-  // store that data in state or context
   let queryParams = {
     product_id: 17069,
     count: 14
   }
-  makeApiCall('reviews/', queryParams, (err, results) => {
+  getFromApi('reviews/', queryParams, (err, results) => {
     if (err) {
+      // store that data in state or context
       console.log(err);
     } else {
       console.log(results);

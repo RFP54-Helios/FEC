@@ -39,7 +39,7 @@ h2 {
   margin: 30px;
 }
 
-/* RELATED PRODUCTS & COMPARISON */
+/*------------ RELATED PRODUCTS & COMPARISON ------------*/
 
 .mainDiv {
   height: 800px;
@@ -47,8 +47,8 @@ h2 {
 
 .img_container {
   border: 1px solid black;
-  height: 320px;
-  width: 220px;
+  height: 350px;
+  width: 230px;
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
@@ -57,6 +57,7 @@ h2 {
 .relatedItems{
   display:flex;
   flex-direction:row;
+  overflow-x: scroll;
 
   /* justify-content: space-between; */
   /* width:1000px; */
@@ -85,9 +86,13 @@ h2 {
 .right-arrow {
   align-self: center;
   width: 50px;
+
+
 }
 
-/* END of RELATED ITEMS CSS */
+/*--------------- END of RELATED ITEMS CSS -----------------*/
+
+
 /* ---------------------- Ratings & Reviews ---------------------- */
 
 #ratings {

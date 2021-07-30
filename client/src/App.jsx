@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState, useEffect, useContext} from 'react';
+import axios from 'axios';
 import ReactDOM from 'react-dom';
 import Overview from './components/overview/Overview.jsx';
 import Outfits from './components/Outfits.jsx';

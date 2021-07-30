@@ -94,3 +94,83 @@ h2 {
   background-color: #fff;
   border: 1px;
 }
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner {
+  position: relative;
+  padding: 32px;
+  width: 100%;
+  max-width: 800px;
+  background-color: #fff;
+}
+
+.red-star, #alert {
+  color: red;
+}
+
+#type-answer {
+  display: block;
+  width:80%;
+  height: 80px;
+  margin: 8px;
+}
+
+.answer-name, .answer-email {
+  margin-top: 5px;
+  width: 200px;
+  height: 20px;
+}
+
+.popup-text, #alert {
+  font-size: 15px;
+  font-style: italic;
+}
+
+#submit-answer-btn {
+  margin-left: 280px;
+  margin-top:15px;
+  width: 100px;
+  height: 30px;
+  background-color: navy;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.close-btn {
+  margin-left: 50px;
+  width: 100px;
+  height: 30px;
+  background-color: navy;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+
+#answer-img {
+  width: 40px;
+  height: 40px;
+  border: 0.5px;
+  border-radius: 3px;
+}
+
+#input {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#upload-photo {
+  display: block;
+}
+/* ---------------------- End of Questions & Answers ---------------------- */

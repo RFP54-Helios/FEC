@@ -1,45 +1,60 @@
 /* eslint-disable react/jsx-key */
 import React, {useState} from 'react';
+import Addanswer from './addAnswer.jsx';
 
 const QandA = (props) => {
   const [searching, setSearching] = useState('');
   const [seeMoreQuestions, setSeeMoreQuestions] = useState(false);
   const toggleMoreQuestions = () => setSeeMoreQuestions(!seeMoreQuestions);
 
+  let moreQuestionsBtn;
+  if (props.questionList.results.length > 4) {
+    moreQuestionsBtn =
+  <div><button onClick={() => {toggleMoreQuestions();}}>More Answered Questions</button></div>
+  }
+  if (seeMoreQuestions===true) {
+    moreQuestionsBtn = null;
+  }
+
   return(
     <div id='qa'>
       <h3>Customer questions & answers</h3>
       <input className='search' type='text' value={searching} placeholder='Have a question? Search for answers…' onChange={() => setSearching(event.target.value)} />
 
-      {props.questionList.results.map(question =>
-        <Question question={question} />
+      {props.questionList.results.slice(0, 4).map(question =>
+        <QuestionList question={question} />
       )}
-      {/* {seeMoreQuestions===false ? <div><button onClick={() => {toggleMoreQuestions();}}>More Answered Questions</button></div> : null}
+      {moreQuestionsBtn}
       {seeMoreQuestions===true ? <Morequestions questions={props.questionList.results}/> : null}
 
-      <button>Ask your question</button> */}
+      <button>Ask your question</button>
     </div>
   )
 };
 
-const Question = (props) => {
+
+const QuestionList = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleOpen = () => setIsOpen(!isOpen);
   const [seeMoreAnswers, setSeeMoreAnswers] = useState(false);
   const toggleMoreAnswers = () => setSeeMoreAnswers(!seeMoreAnswers);
+  const [addAnswerPopup, setAddAnswerPopup] = useState(false);
 
-  let button;
+  let moreAnswersBtn;
     if (Object.values(props.question.answers).length > 2) {
-      button = <button onClick={() => { toggleOpen(); toggleMoreAnswers();}}>
+      moreAnswersBtn = <button onClick={() => { toggleOpen(); toggleMoreAnswers();}}>
       See more answers </button>
     }
     if (isOpen===true) {
-      button = null;
+      moreAnswersBtn = null;
     }
 
   return (
-      <dl>Q:{props.question.question_body} <a href='url'>Add answer</a>
+      <dl>Q:{props.question.question_body} <a onClick={() => setAddAnswerPopup(true)}>Add answer</a>
+      <Addanswer question={props.question.question_body} trigger={addAnswerPopup} setTrigger={setAddAnswerPopup}>
+      </Addanswer>
       <a>Helpful?<a href='url'>Yes({props.question.question_helpfulness})</a></a>
+      {props.question.reported ? <a>Reported</a> : <a>Report</a>}
 
       {Object.values(props.question.answers).slice(0, 2).map(answer => {
         return (
@@ -51,12 +66,13 @@ const Question = (props) => {
         </dt>
         )}
       )}
-      {button}
+      {moreAnswersBtn}
       {seeMoreAnswers===true ? <Moreanswers answers={props.question.answers} /> : null}
       {seeMoreAnswers===true ? <button onClick={() => {toggleMoreAnswers(); toggleOpen()}}>
       Collapse</button> : null}
       </dl>
   )};
+
 
 const Moreanswers = (props) => {
 
@@ -76,31 +92,16 @@ const Moreanswers = (props) => {
   )
 };
 
-// const Morequestions = (props) => {
 
-//   return (
-//     <div>
-//         {props.questions.map(question => {
-//         return (
-//           <dl>Q:{question.question_body} <a href='url'>Add answer</a>
-//           <a>Helpful?<a href='url'>Yes({question.question_helpfulness})</a></a>
+const Morequestions = (props) => {
 
-//           {Object.values(question.answers).map(answer => {
-//             return (
-//             <dt>A: {answer.body}
-//             <div>By {answer.answerer_name} on {answer.date}
-//             <a>Helpful? <a href='url'>Yes({answer.helpfulness})</a></a>
-//             <a href='url'>Report</a>
-//             </div>
-//             </dt>
-//             )
-//           })}
-//           </dl>
-//           )
-//         })}
-//     </div>
-//   )
-// };
-
+  return (
+    <div>
+    {props.questions.slice(4).map(question =>
+      <QuestionList question={question} />
+    )}
+    </div>
+  )
+};
 
 export default QandA;

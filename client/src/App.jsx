@@ -36,7 +36,7 @@ let App = () => {
         ratings: productData[2].ratings
       }))
     })
-  })
+  }, [product.product_id])
 
   return (
     <ProductContext.Provider value={[product, setProduct]}>
@@ -58,5 +58,7 @@ let App = () => {
     </ProductContext.Provider>
   );
 }
+
+export default App;
 
 ReactDOM.render(<App />, document.getElementById('app'));

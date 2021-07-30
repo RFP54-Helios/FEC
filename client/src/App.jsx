@@ -48,7 +48,9 @@ let App = () => {
       }}>
         {`${product.product_id}`}
       </button>
-      <p>{product.currentProduct.name}</p>
+      <h3>{product.currentProduct.name}</h3>
+      <h4>{product.currentProduct.slogan}</h4>
+      <p>{product.currentProduct.description}</p>
       <div id='overview'>
         <Overview />
       </div>

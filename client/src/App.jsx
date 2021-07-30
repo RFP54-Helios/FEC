@@ -5,7 +5,7 @@ import Overview from './components/overview/Overview.jsx';
 import Outfits from './components/RelatedItems/Outfits.jsx';
 import Ratings from './components/Ratings/Ratings.jsx';
 import QandA from './components/QandA/QandA.jsx';
-import { getProduct, postToApi } from './helperFunctions.js';
+import { getProduct, getStyles, getRatings, postToApi } from './helperFunctions.js';
 
 import items from './components/RelatedItems/sampleData.json';
 import {questionList, answerList} from './components/QandA/sampledata.js';
@@ -24,15 +24,16 @@ let App = () => {
 
   useEffect(() => {
     Promise.all([
-      getProduct(product.product_id)
+      getProduct(product.product_id),
+      getStyles(product.product_id),
+      getRatings(product.product_id)
     ])
     .then((productData) => {
       setProduct(prevState => ({
         ...prevState,
-        currentProduct: productData[0]
-        // ...prevState.product_id,
-        // ...prevState.styles,
-        // ...prevState.ratings
+        currentProduct: productData[0],
+        styles: productData[1].results,
+        ratings: productData[2].ratings
       }))
     })
   })

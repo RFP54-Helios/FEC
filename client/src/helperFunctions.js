@@ -26,6 +26,16 @@ export function getProduct(product_id) {
   return getFromApi(`products/${product_id}`);
 }
 
+// represents products/product_id/styles
+export function getStyles(product_id) {
+  return getFromApi(`products/${product_id}/styles`);
+}
+
+// represents reviews/meta?product_id=00000
+export function getRatings(product_id) {
+  return getFromApi(`reviews/meta?product_id=${product_id}`);
+}
+
 // to be added
 export function postToApi(queryOptions, callback) {
   queryOptions = {
@@ -43,20 +53,3 @@ export function postToApi(queryOptions, callback) {
     callback(err);
   });
 }
-
-// export function getReviews(product_id, params) {
-//   // get data from the API
-//   let queryParams = {
-//     product_id,
-//     count: 14,
-//   };
-//   // route can be 'products/17069/styles' for example
-//   getFromApi('reviews/', queryParams, (err, results) => {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       // store data in state or context
-//       console.log(results);
-//     }
-//   });
-// }

@@ -1,8 +1,9 @@
 import React, { useState, useContext, useEffect } from 'react';
 import Stars from './Stars.jsx';
 import Reviews from './Reviews.jsx';
+import sampleReviews from './sample-reviews.json';
+import sampleMeta from './sample-meta.json';
 import { ProductContext } from '../../App.jsx';
-
 import { getFromApi } from '../../helperFunctions.js';
 
 const Ratings = (props) => {
@@ -13,8 +14,8 @@ const Ratings = (props) => {
   // component level state
   const [ratings, setRatings] = useState({
     sort: 'relevant',
-    reviews: [],
-    meta: {}
+    reviews: sampleReviews.results,
+    meta: sampleMeta
   });
 
   // run on component render

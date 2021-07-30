@@ -198,6 +198,7 @@ h2 {
 
 .reviews-list-item {
   border: 2px solid black;
+  min-height: 100px;
 }
 
 /* ---------------------- Questions & Answers ---------------------- */

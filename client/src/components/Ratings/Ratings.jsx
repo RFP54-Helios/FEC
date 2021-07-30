@@ -17,9 +17,9 @@ const Ratings = (props) => {
     meta: {}
   });
 
-  // run on page load
+  // run on component render
+  // will re-render automatically with change of App level state
   useEffect(() => {
-    // store reviews in state
     Promise.all([
       getFromApi('reviews', {
         product_id: product.product_id,
@@ -29,6 +29,7 @@ const Ratings = (props) => {
       getFromApi(`reviews/meta?product_id=${product.product_id}`)
     ])
     .then(ratingResults => {
+      // store reviews in state
       setRatings(prevState => ({
         ...prevState,
         reviews: ratingResults[0].results,
@@ -39,8 +40,6 @@ const Ratings = (props) => {
       console.log(err);
     })
   });
-  // listen for changes
-  // useEffect(() => { }, [product.product_id])
 
   return (
     <div id='ratings-container'>
@@ -50,8 +49,7 @@ const Ratings = (props) => {
       </div>
       <div id='ratings-container-right'>
         <Reviews
-          reviews={ ratings.reviews }
-          meta={ ratings.meta }
+          ratings = { ratings }
         />
       </div>
     </div>

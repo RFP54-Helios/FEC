@@ -1,26 +1,44 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons'
+import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
+
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import items from './sampleData.json';
+import addOutfits from './addOutfits.jsx';
 
 
 const Outfits = (props) => {
-  const[arrow,setArrow] = useState(false);
-  const [index, setIndex] = useState(0);
+  const[isRightArrowVisible,setisRightArrowVisible] = useState(true);
+  const[isLeftArrowVisible,setisLeftArrowVisible] = useState(false);
+
+  const [click, setClick] = useState(0);
+
   const handleClick = () => {
-    setIndex(index+4);
-    setArrow(true);
+    setClick(click + 1);
+    // if(click + 4 >= items.length-1) {
+    //   setisRightArrowVisible(false);
+    // }
+    //   // setClick(click+4);
+    //   setisLeftArrowVisible(true);
+    // }
+    // setArrow(true);
   }
+
 
   return (
     <div>
       <div className = "titleRelated">RELATED PRODUCTS </div>
-      <div className="relatedItems"  >
+      <div className="relatedItems" >
+
+      {(click > 0) ? <FontAwesomeIcon icon={faAngleLeft} className = "right-arrow" onClick = {() => {setClick(click -1)}} />: ""}
+
         {props.items.map((item, i) => {
-          if(i < index || i > index +3) {
+          if(i < click  || i > click +3) {
             return "";
           }
+
+
           var price_style = {
             textDecoration:'line-through'
           };
@@ -38,6 +56,7 @@ const Outfits = (props) => {
 
           return (
             // eslint-disable-next-line react/jsx-key
+
             <div className="img_container" ><i className="far fa-star star"></i>
               <div><img src = {item.img}></img></div>
               <div>{item.category}</div>
@@ -46,19 +65,12 @@ const Outfits = (props) => {
                 <div>*****</div>
             </div>
           )
+
         })}
-   <FontAwesomeIcon icon={faAngleRight} className = "right-arrow" onClick={handleClick} />
-
+    { (click + 3  <= items.length-1) ? <FontAwesomeIcon icon={faAngleRight} className = "right-arrow" onClick={handleClick} /> : ""}
+    <addOutfits items = {items}/>
       </div>
-      <div className = "titleOutfit">YOUR OUTFIT</div>
-      <div className="addOutfits">
 
-        <div className="img_container"></div>
-        <div className="img_container"></div>
-        <div className="img_container"></div>
-        <div className="img_container"></div>
-        <FontAwesomeIcon icon={faAngleRight} className = "right-arrow" />
-      </div>
 
  </div>
   )

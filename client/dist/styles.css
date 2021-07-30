@@ -3,6 +3,11 @@ body {
   margin: 0;
 }
 
+p, h1, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
 #app {
   display: flex;
   flex-direction: column;
@@ -20,13 +25,6 @@ body {
   border: 5px solid black;
 }
 
-#overview {
-  border: 2px solid black;
-  height: 1000px;
-  width: 97vw;
-  padding-right: 15px;
-  margin: 0;
-}
 
 .widget {
   border: 2px solid black;
@@ -38,6 +36,81 @@ body {
 h2 {
   margin: 30px;
 }
+
+/* ---------------------- Overview ---------------------- */
+
+#overview {
+  border: 2px solid black;
+  min-height: 1000px;
+  width: 97vw;
+  padding-right: 15px;
+  margin: 0;
+}
+
+#overview-components {
+  display: grid;
+  height: 70%;
+  grid-template-columns: 4fr 2fr;
+}
+
+#gallery {
+  display: grid;
+  grid-template-columns: 10px 100px auto 40px 10px;
+  grid-template-rows: 10px 30px 1fr 1fr 50px 1fr 1fr;
+  background-size: 100% 100%;
+}
+
+#expand {
+  grid-column-start: 4;
+  grid-row-start: 2;
+}
+
+#thumbnails {
+  grid-column-start: 2;
+  grid-row: 2 / span 5;
+  border: 1px solid black;
+}
+
+#arrows {
+  display: flex;
+  justify-content: space-between;
+  grid-column: 3 / span 2;
+  grid-row-start: 5;
+  margin-left: 10px;
+}
+
+.arrow {
+  font-size: 48px;
+  vertical-align: middle;
+  background: transparent;
+  border: none;
+}
+
+.arrow:hover {
+  color: white;
+  cursor: pointer;
+  text-align: center;
+}
+
+#detail-components {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+}
+
+#rating {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  padding: 10px 10px 10px 0;
+}
+
+.social {
+  height: 50px;
+  width: 50px;
+  margin: 20px 20px 20px 0;
+}
+
+/* ---------------------- Overview - End ---------------------- */
 
 /* RELATED PRODUCTS & COMPARISON */
 
@@ -128,6 +201,7 @@ h2 {
 }
 
 /* ---------------------- Questions & Answers ---------------------- */
+
 #qa {
   height: 500px;
 }

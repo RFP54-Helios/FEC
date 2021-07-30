@@ -1,47 +1,64 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import ReactDOM from 'react-dom';
 import Overview from './components/overview/Overview.jsx';
 import Outfits from './components/RelatedItems/Outfits.jsx';
 import Ratings from './components/Ratings/Ratings.jsx';
-import items from './components/RelatedItems/sampleData.json';
 import QandA from './components/QandA/QandA.jsx';
+import { getProduct, getStyles, getRatings, postToApi } from './helperFunctions.js';
+
+import items from './components/RelatedItems/sampleData.json';
 import {questionList, answerList} from './components/QandA/sampledata.js';
-import { getFromApi, postToApi } from './helperFunctions.js';
+
+
+export const ProductContext = React.createContext([{}, () => {}]);
 
 let App = () => {
-  // get data from the API
-  let queryParams = {
+
+  const [product, setProduct] = useState({
     product_id: 17069,
-    count: 14
-  }
-  // route can be 'products/17069/styles' for example
-  getFromApi('reviews/', queryParams, (err, results) => {
-    if (err) {
-      console.log(err);
-    } else {
-      // store data in state or context
-      console.log(results);
-    }
-  });
+    currentProduct: {},
+    styles: [],
+    ratings: []
+  })
+
+  useEffect(() => {
+    Promise.all([
+      getProduct(product.product_id),
+      getStyles(product.product_id),
+      getRatings(product.product_id)
+    ])
+    .then((productData) => {
+      setProduct(prevState => ({
+        ...prevState,
+        currentProduct: productData[0],
+        styles: productData[1].results,
+        ratings: productData[2].ratings
+      }))
+    })
+  }, [product.product_id])
 
   return (
-    <div>
+    <ProductContext.Provider value={[product, setProduct]}>
       <h2>FEC</h2>
       <div id='overview'>
         <Overview />
       </div>
       <div className='widget'>
-        <Outfits items = {items}/>
+        <Outfits items={items}/>
       </div>
       <div className='widget' id='qa'>
-        <QandA questionList={questionList} answerList={answerList}/>
+        <QandA
+          questionList={questionList} answerList={answerList}
+        />
       </div>
       <div className='widget' id='ratings'>
         <Ratings />
       </div>
-    </div>
+    </ProductContext.Provider>
   );
 }
+
+export default App;
 
 ReactDOM.render(<App />, document.getElementById('app'));

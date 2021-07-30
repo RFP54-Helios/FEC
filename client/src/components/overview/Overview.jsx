@@ -8,7 +8,7 @@ import Rating from "./Rating.jsx";
 const Overview = (props) => {
   return (
     <div id="overview-components">
-      <Gallery />;
+      <Gallery />
       <div id="detail-components">
         <Rating />
         <ProductInfo id="info" />
@@ -20,15 +20,3 @@ const Overview = (props) => {
 };
 
 export default Overview;
-
-
-
-
-// const TrackList = () => {
-//   const [state, setState] = useContext(MusicPlayerContext);
-//   return (
-//     <button onClick={() => setState(state => ({ ...state, name: 'Clicked!' }))}>
-//       {state.name}
-//     </button>
-//   )
-// }

@@ -5,7 +5,7 @@ import Overview from './components/overview/Overview.jsx';
 import Outfits from './components/RelatedItems/Outfits.jsx';
 import Ratings from './components/Ratings/Ratings.jsx';
 import QandA from './components/QandA/QandA.jsx';
-import { getFromApi, postToApi } from './helperFunctions.js';
+import { getProduct, postToApi } from './helperFunctions.js';
 
 import items from './components/RelatedItems/sampleData.json';
 import {questionList, answerList} from './components/QandA/sampledata.js';
@@ -16,40 +16,26 @@ export const ProductContext = React.createContext([{}, () => {}]);
 let App = () => {
 
   const [product, setProduct] = useState({
-    currentProduct: {},
     product_id: 17069,
+    currentProduct: {},
     styles: [],
     ratings: []
   })
 
-  // useEffect(() => {
-  //   Promise.all([
-  //     axios.get(),
-  //     axios.get()
-  //   ])
-  //   .then((productData) => {
-  //     setProduct({
-  //       currentProduct: productData[0],
-  //       styles: productData[1],
-  //       ...prevData.ratings
-  //     })
-  //   })
-  // })
-
-  // get data from the API
-  let queryParams = {
-    product_id: 17069,
-    count: 14
-  }
-  // route can be 'products/17069/styles' for example
-  getFromApi('reviews/', queryParams, (err, results) => {
-    if (err) {
-      console.log(err);
-    } else {
-      // store data in state or context
-      console.log(results);
-    }
-  });
+  useEffect(() => {
+    Promise.all([
+      getProduct(product.product_id)
+    ])
+    .then((productData) => {
+      setProduct(prevState => ({
+        ...prevState,
+        currentProduct: productData[0]
+        // ...prevState.product_id,
+        // ...prevState.styles,
+        // ...prevState.ratings
+      }))
+    })
+  })
 
   return (
     <ProductContext.Provider value={[product, setProduct]}>

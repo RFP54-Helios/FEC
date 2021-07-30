@@ -5,6 +5,8 @@ Front End Capstone repository for RFP54's Team Helios!
 ## Running the App Locally
 
 1. Make sure you've pulled the version you want to run (see Git Workflow)
+1. Make a copy of the file 'server/config/config.example.js` and rename to 'config.js'
+1. Assign the `API_KEY` variable to your GitHub token
 1. Install dependencies
 
     ```bash

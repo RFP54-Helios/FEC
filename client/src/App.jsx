@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import ReactDOM from 'react-dom';
 import Overview from './components/overview/Overview.jsx';
 import Outfits from './components/RelatedItems/Outfits.jsx';
 import Ratings from './components/Ratings/Ratings.jsx';
@@ -60,5 +59,3 @@ let App = () => {
 }
 
 export default App;
-
-ReactDOM.render(<App />, document.getElementById('app'));

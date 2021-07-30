@@ -39,6 +39,7 @@ ReviewsList.propTypes = {
 }
 
 const ReviewsListItem = (props) => {
+  // move into helper function with testing
   let displayBody;
   if (props.review.body.length > 100) {
     displayBody = props.review.body.substr(0, 100) + ' ...';
@@ -48,8 +49,12 @@ const ReviewsListItem = (props) => {
 
   return (
     <div>
+      <p className="reviewer-name">{props.review.reviewer_name}</p>
       <h4>{props.review.summary}</h4>
       <p>{displayBody}</p>
+      <p>Helpful?</p>
+      <span className="review-helpfulness">Yes </span>
+      <p>({props.review.helpfulness})</p>
     </div>
   )
 }

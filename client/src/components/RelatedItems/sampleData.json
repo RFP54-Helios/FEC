@@ -1,0 +1,99 @@
+[
+  {
+    "id": 1,
+    "name": "Camo Onesie",
+    "img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3GWjCQj2KIlKMINpPWQGWVQnxUnLwXoHNWw&usqp=CAU",
+    "slogan": "Blend in to your crowd",
+    "description": "The So Fatigues will wake you up and fit you in. This high energy camo will have you blending in to even the wildest surroundings.",
+    "category": "Jackets",
+    "default_price": "140"
+  },
+  {
+    "id": 2,
+    "name": "Bright Future Sunglasses",
+    "img": "https://s.yimg.com/aah/computergear/nasa-vintage-worm-logo-t-shirt-fashion-ringer-14.gif",
+    "slogan": "You've got to wear shades",
+    "description": "Where you're going you might not need roads, but you definitely need some shades. Give those baby blues a rest and let the future shine bright on these timeless lenses.",
+    "category": "Accessories",
+    "default_price": "69"
+  },
+  {
+    "id": 3,
+    "name": "Morning Joggers",
+    "img":"https://dottedmusic.com/wp-content/uploads/2011/09/pants-220x200.png",
+    "slogan": "Make yourself a morning person",
+    "description": "Whether you're a morning person or not. Whether you're gym bound or not. Everyone looks good in joggers.",
+    "category": "Pants",
+    "default_price": "40"
+  },
+
+  {
+    "id": 4,
+    "name": "Jumpsuit",
+    "img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvbRHX91x8uy0k6Ou0LJnFgM8DGI1UXv2wUw&usqp=CAU",
+    "slogan": "Make yourself a happy person",
+    "description": "Whether you're a morning person or not. Whether you're gym bound or not. Everyone looks good in joggers.",
+    "category": "Jumpsut",
+    "default_price": "50",
+    "sale_price":"20"
+  },
+  {
+    "id": 5,
+    "name": "A",
+    "img":"https://aliradar.com/api/image?url=https%3A%2F%2Fae01.alicdn.com%2Fkf%2FHTB1dOpvmkKWBuNjy1zjq6AOypXa3%2F-.jpg_220x220.jpg_Q70.jpg",
+    "slogan": "Make yourself a happy person",
+    "description": "Whether you're a morning person or not. Whether you're gym bound or not. Everyone looks good in joggers.",
+    "category": "Jumpsut",
+    "default_price": "50",
+    "sale_price":"20"
+  },{
+    "id": 6,
+    "name": "B",
+    "img": "https://aliradar.com/api/image?url=https%3A%2F%2Fae01.alicdn.com%2Fkf%2FHTB1KUpuQmzqK1RjSZFHq6z3CpXaY%2F-.jpg_220x220.jpg_Q70.jpg_.webp",
+    "slogan": "Make yourself a happy person",
+    "description": "Whether you're a morning person or not. Whether you're gym bound or not. Everyone looks good in joggers.",
+    "category": "Jumpsut",
+    "default_price": "50",
+    "sale_price":"20"
+  },{
+    "id":7 ,
+    "name": "C",
+    "img":"https://sgi3.offerscdn.net/i/production/published/4/image/3756477.h200.w220.flpad.v19.bffffff.jpg",
+    "slogan": "Make yourself a happy person",
+    "description": "Whether you're a morning person or not. Whether you're gym bound or not. Everyone looks good in joggers.",
+    "category": "Jumpsut",
+    "default_price": "50",
+    "sale_price":"20"
+  },
+  {
+    "id":8 ,
+    "name": "D",
+    "img":"https://s.alicdn.com/@sc04/kf/H051934c1448f49a2a0f7b6fd7f1a3287B.png_220x220.png_.webp",
+    "slogan": "Make yourself a happy person",
+    "description": "Whether you're a morning person or not. Whether you're gym bound or not. Everyone looks good in joggers.",
+    "category": "Jumpsut",
+    "default_price": "50",
+    "sale_price":"20"
+  },
+  {
+    "id":9 ,
+    "name": "E",
+    "img":"https://s.alicdn.com/@sc04/kf/H051934c1448f49a2a0f7b6fd7f1a3287B.png_220x220.png_.webp",
+    "slogan": "Make yourself a happy person",
+    "description": "Whether you're a morning person or not. Whether you're gym bound or not. Everyone looks good in joggers.",
+    "category": "Jumpsut",
+    "default_price": "50",
+    "sale_price":"20"
+  },
+  {
+    "id":9 ,
+    "name": "F",
+    "img":"https://s.alicdn.com/@sc04/kf/H051934c1448f49a2a0f7b6fd7f1a3287B.png_220x220.png_.webp",
+    "slogan": "Make yourself a happy person",
+    "description": "Whether you're a morning person or not. Whether you're gym bound or not. Everyone looks good in joggers.",
+    "category": "Jumpsut",
+    "default_price": "50",
+    "sale_price":"20"
+  }
+]
+

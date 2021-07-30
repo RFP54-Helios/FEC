@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import ReactDOM from 'react-dom';
 import Overview from './components/overview/Overview.jsx';
 import Outfits from './components/RelatedItems/Outfits.jsx';
 import Ratings from './components/Ratings/Ratings.jsx';
@@ -41,6 +40,15 @@ let App = () => {
   return (
     <ProductContext.Provider value={[product, setProduct]}>
       <h2>FEC</h2>
+      <button onClick={() => {
+        setProduct(prevState => ({
+          ...prevState,
+          product_id: prevState.product_id + 1
+        }))
+      }}>
+        {`${product.product_id}`}
+      </button>
+      <p>{product.currentProduct.name}</p>
       <div id='overview'>
         <Overview />
       </div>
@@ -60,5 +68,3 @@ let App = () => {
 }
 
 export default App;
-
-ReactDOM.render(<App />, document.getElementById('app'));

@@ -57,6 +57,8 @@ h2 {
 .relatedItems{
   display:flex;
   flex-direction:row;
+  overflow-x: scroll;
+  margin-bottom: 40px;
 
   /* justify-content: space-between; */
   /* width:1000px; */
@@ -64,6 +66,7 @@ h2 {
 }
 .addOutfits {
   margin-top:30px;
+  /* margin-top:40px; */
   display:flex;
   flex-direction:row;
   /* justify-content: space-evenly; */

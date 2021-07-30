@@ -110,6 +110,20 @@ h2 {
   margin: 20px 20px 20px 0;
 }
 
+#style-thumbnail-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 60%;
+  margin: 10px 0;
+}
+
+.style-thumbnail {
+  height: 60px;
+  width: 60px;
+  border: 1px solid white;
+  border-radius: 35px;
+}
+
 /* ---------------------- Overview - End ---------------------- */
 
 /* RELATED PRODUCTS & COMPARISON */

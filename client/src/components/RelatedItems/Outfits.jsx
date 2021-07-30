@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons'
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
-
 import { faStar } from '@fortawesome/free-solid-svg-icons'
+// import {farFaStar } from '@fortawesome/pro-regular-svg-icons'
+
 import items from './sampleData.json';
-import addOutfits from './addOutfits.jsx';
+import AddOutfits from './AddOutfits.jsx';
 
 
 const Outfits = (props) => {
@@ -57,7 +58,7 @@ const Outfits = (props) => {
           return (
             // eslint-disable-next-line react/jsx-key
 
-            <div className="img_container" ><i className="far fa-star star"></i>
+            <div className="img_container" ><FontAwesomeIcon icon={faStar} className = "openModal"/>
               <div><img src = {item.img}></img></div>
               <div>{item.category}</div>
               <div>{item.name}</div>
@@ -68,8 +69,12 @@ const Outfits = (props) => {
 
         })}
     { (click + 3  <= items.length-1) ? <FontAwesomeIcon icon={faAngleRight} className = "right-arrow" onClick={handleClick} /> : ""}
-    <addOutfits items = {items}/>
+
       </div>
+
+      <AddOutfits items = {items}/>
+
+
 
 
  </div>

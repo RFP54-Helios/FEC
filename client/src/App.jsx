@@ -3,7 +3,7 @@ import axios from 'axios';
 import ReactDOM from 'react-dom';
 import Overview from './components/overview/Overview.jsx';
 import Outfits from './components/RelatedItems/Outfits.jsx';
-import addOutfits from './components/RelatedItems/addOutfits.jsx';
+import AddOutfits from './components/RelatedItems/AddOutfits.jsx';
 
 import Ratings from './components/Ratings/Ratings.jsx';
 import items from './components/RelatedItems/sampleData.json';

@@ -9,7 +9,6 @@ import axios from "axios";
 //   page: 2
 // }
 export function getFromApi(route, params, callback) {
-  debugger;
   console.log('getting route: ', route);
   return new Promise((resolve, reject) => {
     axios

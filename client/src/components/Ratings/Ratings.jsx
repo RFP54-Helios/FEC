@@ -21,6 +21,7 @@ const Ratings = (props) => {
   // run on component render
   // will re-render automatically with change of App level state
   useEffect(() => {
+    console.log('using effect');
     Promise.all([
       getFromApi('reviews', {
         product_id: product.product_id,
@@ -40,7 +41,7 @@ const Ratings = (props) => {
     .catch(err => {
       console.log(err);
     })
-  });
+  }, [product.product_id]);
 
   return (
     <div id='ratings-container'>

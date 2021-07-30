@@ -112,7 +112,8 @@ h2 {
 
 /* ---------------------- Overview - End ---------------------- */
 
-/* RELATED PRODUCTS & COMPARISON */
+
+/*------------ RELATED PRODUCTS & COMPARISON ------------*/
 
 .mainDiv {
   height: 800px;
@@ -120,12 +121,13 @@ h2 {
 
 .img_container {
   border: 1px solid black;
-  height: 320px;
-  width: 220px;
+  height: 350px;
+  width: 230px;
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
   margin:20px;
+  padding-left: 5px;
 }
 .relatedItems{
   display:flex;
@@ -139,7 +141,7 @@ h2 {
 }
 .addOutfits {
   margin-top:30px;
-  /* margin-top:40px; */
+  margin-top:40px;
   display:flex;
   flex-direction:row;
   /* justify-content: space-evenly; */
@@ -150,9 +152,9 @@ h2 {
 
 }
 .titleOutfit {
-  margin-left: 50px;
-  margin-top: 50px;
-
+   margin-left: 50px;
+  /* margin-top: 80px; */ */
+  text-align: center;
 }
 .star{
  text-align: right;
@@ -161,9 +163,35 @@ h2 {
 .right-arrow {
   align-self: center;
   width: 50px;
+  font-size: 1.3rem;
+}
+.addFavourite {
+  align-self: center;
+  align-content: center;
+  margin-top: 120px;
+
+}
+h3 {
+  margin-bottom: 180px;
+  align-self: center;
+}
+.closeOutfit {
+ /* align-self: flex-end;
+ align-content: flex-end; */
+ align-items: flex-end;
+  /* align-self: flex-end; */
+ /* margin-left: 120px; */
+ margin-left: 200px;
+  font-size: 1.3rem;
 }
 
-/* END of RELATED ITEMS CSS */
+.openModal {
+align-self: flex-end;
+}
+/*  */
+/*--------------- END of RELATED ITEMS CSS -----------------*/
+
+
 /* ---------------------- Ratings & Reviews ---------------------- */
 
 #ratings {

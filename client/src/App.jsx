@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import Overview from './components/overview/Overview.jsx';
 import Outfits from './components/RelatedItems/Outfits.jsx';
+import AddOutfits from './components/RelatedItems/AddOutfits.jsx';
+
 import Ratings from './components/Ratings/Ratings.jsx';
 import QandA from './components/QandA/QandA.jsx';
 import { getProduct, getStyles, getRatings, postToApi } from './helperFunctions.js';

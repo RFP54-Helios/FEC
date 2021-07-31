@@ -32,33 +32,6 @@ useEffect(() => {
 },[product.product_id])
 
 
-  //  getFromApi(`products/${product.product_id}/related`)
-  // .then(result => {
-  //   result.map(product => {
-  //     getProduct(product)
-  //     .then(res => {
-  //       setProductDetails({productDetails: res})
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     })
-  //   })
-  // })
-  // .catch(err => {
-  //   console.log(err);
-  // })
-
-  // items.map(product => {
-  //   getProduct(`product.${product}`)
-  //   .then(results => {
-  //     setRelated({product_details : results})
-  //   })
-  //   .catch(err => {
-  //     console.log(err)
-  //   })
-  // })
-
-
   return (
 
     <div>

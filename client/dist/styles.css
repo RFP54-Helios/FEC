@@ -188,6 +188,10 @@ addh3 {
 .openModal {
 align-self: flex-end;
 }
+.relatedThumbnail {
+  width:220px;
+  height: 230px;
+}
 /*  */
 /*--------------- END of RELATED ITEMS CSS -----------------*/
 

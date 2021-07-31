@@ -8,7 +8,7 @@ import Ratings from './components/Ratings/Ratings.jsx';
 import QandA from './components/QandA/QandA.jsx';
 import { getProduct, getStyles, getRatings, postToApi } from './helperFunctions.js';
 
-import items from './components/RelatedItems/sampleData.json';
+// import items from './components/RelatedItems/sampleData.json';
 import {questionList, answerList} from './components/QandA/sampledata.js';
 
 
@@ -57,7 +57,7 @@ let App = () => {
         <Overview />
       </div>
       <div className='widget'>
-        <Outfits items={items}/>
+        <Outfits />
       </div>
       <div className='widget' id='qa'>
         <QandA

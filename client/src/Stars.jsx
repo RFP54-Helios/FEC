@@ -1,40 +1,17 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { ProductContext } from "./App.jsx";
-import { getStarsArr, getRatings } from './helperFunctions.js'
+import { getStarsArr } from './helperFunctions.js'
 
 import { BsStar } from 'react-icons/bs';
 import { BsStarFill } from 'react-icons/bs';
 import { BsStarHalf } from 'react-icons/bs';
 
 const Stars = (props) => {
-  // App level state
-  const [product, setProduct] = useContext(ProductContext);
 
-  // component level state
-  const [ratings, setRatings] = useState([]);
-  const [starNumbers, setStarNumbers] = useState([]);
-
-  useEffect(() => {
-    // optional props - for related products
-    if (props.product_id) {
-      // get meta data from API
-      console.log(props.product_id);
-      getRatings(props.product_id)
-        .then(results => {
-          setRatings(results);
-          setStarNumbers(getStarsArr(results));
-        });
-      } else {
-        console.log(product.ratings);
-        setRatings(product.ratings);
-        setStarNumbers(getStarsArr(product.ratings));
-    }
-  }, [product.ratings]);
-
-  // arr of numbers representing full or empty stars
-  // [1, 1, 0, 0, 0] = 2 star rating
-  // let starNumbers = getStarsArr(ratings);
+  // arr of numbers representing star fills
+  // [1, 1, 0.5, 0, 0] = 2.5 star rating
+  // map to [full, full, half, empty, empty] star icon components
+  let starNumbers = getStarsArr(props.ratings);
 
   return (
     <div className='ratings-stars'>
@@ -49,6 +26,9 @@ const Stars = (props) => {
       })}
     </div>
   );
+}
+Stars.propTypes = {
+  ratings: PropTypes.array.isRequired,
 }
 
 export default Stars;

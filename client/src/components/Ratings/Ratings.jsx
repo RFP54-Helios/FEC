@@ -46,11 +46,11 @@ const Ratings = (props) => {
     <div id='ratings-container'>
       <div id='ratings-container-left'>
         <h3>Ratings & Reviews</h3>
-        <Stars starsCount={3.5} />
+        <Stars ratings={product.ratings} />
       </div>
       <div id='ratings-container-right'>
         <Reviews
-          ratings = { ratings }
+          ratings={ratings}
         />
       </div>
     </div>

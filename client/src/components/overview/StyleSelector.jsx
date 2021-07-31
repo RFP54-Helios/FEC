@@ -3,6 +3,9 @@ import { ProductContext } from "../../App.jsx";
 
 const StyleSelector = (props) => {
   const [product, setProduct] = useContext(ProductContext);
+  const handleStyleSelect = (index) => {
+    props.setCurrentStyle(product.styles[index])
+  }
   return (
     <>
       <div id='style-text'>
@@ -10,11 +13,13 @@ const StyleSelector = (props) => {
         <p>{props.currentStyle.name}</p>
       </div>
       <span id="style-thumbnail-container">
-        {product.styles.map((style, key) => (
+        {product.styles.map((style, i) => (
           <img
             className="style-thumbnail"
             src={style.photos[0].thumbnail_url}
-            key={key}
+            key={i}
+            index={i}
+            onClick={() => {handleStyleSelect(i)}}
           ></img>
         ))}
       </span>

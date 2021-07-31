@@ -3,21 +3,21 @@ import PropTypes from 'prop-types';
 
 const Reviews = (props) => {
   // calculate total reviews based on metadata
+  // move to a helper function for testing
   let totalReviews = 0;
-  for (let rating in props.meta.ratings) {
-    totalReviews += Number(props.meta.ratings[rating]);
+  for (let rating in props.ratings.meta.ratings) {
+    totalReviews += Number(props.ratings.meta.ratings[rating]);
   }
 
   return (
     <div>
-      <h3>{totalReviews} reviews, sorted by </h3>
-      <ReviewsList reviews={props.reviews} />
+      <h3>{totalReviews} reviews, sorted by {props.ratings.sort}</h3>
+      <ReviewsList ratings={props.ratings} />
     </div>
   );
 }
 Reviews.propTypes = {
-  reviews: PropTypes.array.isRequired,
-  meta: PropTypes.object.isRequired,
+  ratings: PropTypes.object.isRequired,
 }
 
 const ReviewsList = (props) => {
@@ -25,7 +25,7 @@ const ReviewsList = (props) => {
     <div>
       <h4>Reviews List</h4>
       <ul>
-        {props.reviews.map(review => (
+        {props.ratings.reviews.map(review => (
           <li key={review.review_id} className="reviews-list-item">
             <ReviewsListItem review={review}/>
           </li>
@@ -35,10 +35,11 @@ const ReviewsList = (props) => {
   );
 }
 ReviewsList.propTypes = {
-  reviews: PropTypes.array.isRequired,
+  ratings: PropTypes.object.isRequired,
 }
 
 const ReviewsListItem = (props) => {
+  // move into helper function with testing
   let displayBody;
   if (props.review.body.length > 100) {
     displayBody = props.review.body.substr(0, 100) + ' ...';
@@ -48,8 +49,12 @@ const ReviewsListItem = (props) => {
 
   return (
     <div>
+      <p className="reviewer-name">{props.review.reviewer_name}</p>
       <h4>{props.review.summary}</h4>
       <p>{displayBody}</p>
+      <p>Helpful?</p>
+      <span className="review-helpfulness">Yes </span>
+      <p>({props.review.helpfulness})</p>
     </div>
   )
 }

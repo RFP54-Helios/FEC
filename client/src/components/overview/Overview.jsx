@@ -24,8 +24,11 @@ const Overview = (props) => {
         setCurrentStyle={setCurrentStyle} />
       <div id="detail-components">
         <Rating />
-        <ProductInfo id="info" />
-        <StyleSelector id="styles" />
+        <ProductInfo id="info"
+          currentStyle={currentStyle}/>
+        <StyleSelector id="styles"
+          currentStyle={currentStyle}
+          setCurrentStyle={setCurrentStyle}/>
         <AddToCart id="cart" />
       </div>
     </div>

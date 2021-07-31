@@ -1,11 +1,14 @@
 import React, { useContext } from "react";
 import { ProductContext } from "../../App.jsx";
 
-const StyleSelector = () => {
+const StyleSelector = (props) => {
   const [product, setProduct] = useContext(ProductContext);
   return (
     <>
-      <h3>STYLE ></h3>
+      <div id='style-text'>
+        <h3>STYLE ></h3>
+        <p>{props.currentStyle.name}</p>
+      </div>
       <span id="style-thumbnail-container">
         {product.styles.map((style, key) => (
           <img

@@ -92,13 +92,14 @@ header {
   font-size: 48px;
   vertical-align: middle;
   background: transparent;
-  color: white;
+  color: grey;
   border: none;
 }
 
 .arrow:hover {
   cursor: pointer;
   text-align: center;
+  color: white;
 }
 
 #detail-components {
@@ -144,6 +145,37 @@ header {
   width: auto;
   margin: 10px 20px;
   border: 1px solid white;
+}
+
+.thumbnail:hover {
+ cursor: pointer;
+}
+
+#on-sale {
+  text-decoration: line-through;
+}
+
+#sale-price {
+  color: red;
+}
+
+#info-text h1, p {
+  margin: 8px 0;
+}
+
+#info-text p {
+  text-transform: uppercase;
+  margin-right: 3px;
+}
+
+#style-text {
+  display: flex;
+  align-items: baseline;
+}
+
+#style-text p {
+  text-transform: uppercase;
+  margin-left: 5px;
 }
 
 /* ---------------------- Overview - End ---------------------- */

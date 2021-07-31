@@ -9,30 +9,32 @@ const Gallery = ({ currentStyle, setCurrentStyle }) => {
   useEffect(() => {
     if (!currentStyle.photos.length) return;
     setCurrentImage({backgroundImage : `url(${currentStyle.photos[currentGalleryImageIndex].url})`, backgroundColor : 'black'});
-  }, [currentStyle])
+  }, [currentStyle, currentGalleryImageIndex])
 
   const handleLeftArrowClick = () => {
-    if (currentGalleryImageIndex - 1 < 0) return undefined;
     setGalleryImageIndex(currentGalleryImageIndex - 1)
   }
 
   const handleRightArrowClick = () => {
-    let lastPhotoIndex = currentStyle.photos.length - 1;
-    if (currentGalleryImageIndex + 1 > lastPhotoIndex) return undefined;
     setGalleryImageIndex(currentGalleryImageIndex + 1)
   }
+
+  const handleThumbnailClick = (key) => {
+    setGalleryImageIndex(key);
+  }
+
 
   return (
     <div id='gallery' style={currentImage}>
       <span id='carousel-thumbnails'>
         {currentStyle.photos.map((photoUrls, i) => {
           return (
-            <Thumbnails thumbnail={photoUrls.thumbnail_url} key={i} />
+            <Thumbnails handleClick={handleThumbnailClick} thumbnail={photoUrls.thumbnail_url} index={i} key={i} />
           )
         })}
       </span>
       <button id='expand'>[ ]</button>
-      <Arrows id='arrows' handleLeftClick={handleLeftArrowClick} handleRightClick={handleRightArrowClick} />
+      <Arrows id='arrows' handleLeftClick={handleLeftArrowClick} handleRightClick={handleRightArrowClick} imageIndex={currentGalleryImageIndex} lastIndex={currentStyle.photos.length - 1} />
     </div>
   );
 };

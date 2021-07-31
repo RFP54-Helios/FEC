@@ -62,7 +62,7 @@ header {
 }
 
 #expand {
-  grid-column-start: 4;
+  grid-column-start: -3;
   grid-row-start: 2;
 }
 
@@ -73,11 +73,19 @@ header {
 }
 
 #arrows {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 30px auto 30px;
   grid-column: 3 / span 2;
   grid-row-start: 5;
   margin-left: 10px;
+}
+
+#left-arrow {
+  grid-column-start: 1;
+}
+
+#right-arrow {
+  grid-column-start: 3;
 }
 
 .arrow {

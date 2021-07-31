@@ -17,20 +17,6 @@ const Overview = (props) => {
     setCurrentStyle(product.styles[0]);
   }, [product]);
 
-  // function handleGalleryArrowClick(plusOrMinus) {
-  //   //Normally you'd want to use a reducer for this, i suppose. Might be a bit overkill though
-  //   //plusOrMinus(the var passed to this function) should be either a posititive or negative 1, which will represent the previous or next image
-
-  //   setGalleryImage(current => current += plusOrMinus)
-  //   if (product.styles.length + 1 >= currentGalleryImage) {
-  //     //Rotate back to to the start and return undefined
-  //     setCurrentStyle(product.styles[0])
-  //     setGalleryImage(0)
-  //     return undefined;
-  //   }
-  //   if ()
-  // }
-
   return (
     <div id="overview-components">
       <Gallery

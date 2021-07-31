@@ -145,6 +145,7 @@ header {
   width: auto;
   margin: 10px 20px;
   border: 1px solid white;
+  object-fit: cover;
 }
 
 .thumbnail:hover {
@@ -176,6 +177,52 @@ header {
 #style-text p {
   text-transform: uppercase;
   margin-left: 5px;
+}
+
+
+#selectors {
+  display: grid;
+  grid-template-columns: 3fr 25px 2fr;
+  margin: 20px 0;
+}
+
+#form-buttons {
+  display: grid;
+  grid-template-columns: 4fr 25px .5fr;
+}
+
+#quantity {
+  grid-column-start: 3;
+}
+
+#favorite {
+  grid-column-start: 3;
+}
+
+#product-description {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  max-height: 30%;
+  max-width: 85vw;
+  padding: 50px 15% 0 15%;
+}
+
+#description-text {
+  height: fit-content;
+  max-height: 90%;
+  border-right: 2px solid grey;
+}
+
+#features {
+  max-height: 90%;
+}
+
+#overview ul {
+  list-style: none;
+}
+
+#overview ul li:before {
+  content: '\2714\0020';
 }
 
 /* ---------------------- Overview - End ---------------------- */

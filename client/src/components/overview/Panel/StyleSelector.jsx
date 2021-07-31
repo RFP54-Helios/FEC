@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ProductContext } from "../../App.jsx";
+import { ProductContext } from "../../../App.jsx";
 
 const StyleSelector = (props) => {
   const [product, setProduct] = useContext(ProductContext);

@@ -1,13 +1,13 @@
 import React, {useContext} from 'react';
-import { ProductContext } from "../../App.jsx";
+import { ProductContext } from "../../../App.jsx";
 
 const ProductInfo = (props) => {
   const [product, setProduct] = useContext(ProductContext);
   if (props.currentStyle.sale_price) {
     var price =
     <>
-      <p id='sale-price'>${props.currentStyle.sale_price}</p>
       <p id='on-sale'>${props.currentStyle.original_price}</p>
+      <p id='sale-price'>${props.currentStyle.sale_price}</p>
     </>
   } else {
     var price = <p>${props.currentStyle.original_price}</p>

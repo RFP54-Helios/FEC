@@ -67,7 +67,7 @@ export function calculateStars(ratings) {
 
   // round weightedAverage to nearest quarter
   let weightedAverage = totalRatings / totalCount
-  return Math.round(weightedAverage * 4) / 4;
+  return Math.round(weightedAverage * 2) / 2;
 }
 
 // return an array of stars
@@ -82,6 +82,9 @@ export function getStarsArr(ratings) {
     if (starsCount >= 1) {
       starsCount -= 1;
       arrStars.push(1);
+    } else if (starsCount > 0) {
+      starsCount -= 0.5;
+      arrStars.push(0.5);
     } else {
       arrStars.push(0);
     }

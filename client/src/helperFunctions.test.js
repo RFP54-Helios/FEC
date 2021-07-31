@@ -62,7 +62,6 @@ describe('get stars array', () => {
     let ratings = {1: "16", 2: "8", 3: "6", 4: "4", 5: "9"}
     let result = JSON.stringify(getStarsArr(ratings));
     expect(result).toBeDefined;
-    // expect(Array.isArray(result)).toBe(true);
   });
 
   it('should return 5 for a single 5 star review', () => {

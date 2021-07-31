@@ -8,7 +8,7 @@ import { getProduct, getStyles, getRatings, postToApi } from './helperFunctions.
 
 import items from './components/RelatedItems/sampleData.json';
 import {questionList, answerList} from './components/QandA/sampledata.js';
-
+import Stars from './Stars.jsx';
 
 export const ProductContext = React.createContext([{}, () => {}]);
 
@@ -48,6 +48,7 @@ let App = () => {
       }}>
         {`${product.product_id}`}
       </button>
+      <Stars />
       <h3>{product.currentProduct.name}</h3>
       <h4>{product.currentProduct.slogan}</h4>
       <p>{product.currentProduct.description}</p>

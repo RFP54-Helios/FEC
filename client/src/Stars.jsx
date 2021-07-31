@@ -7,14 +7,15 @@ import { BsStar } from 'react-icons/bs';
 import { BsStarFill } from 'react-icons/bs';
 import { BsStarHalf } from 'react-icons/bs';
 
-const Stars = (props) => {
+const Stars = () => {
   const [product, setProduct] = useContext(ProductContext);
 
+  // arr of numbers representing full or empty stars
+  // [1, 1, 0, 0, 0] = 2 star rating
   let starNumbers = getStarsArr(product.ratings);
 
   return (
     <div className='ratings-stars'>
-      <p>{props.starsCount}</p>
       {starNumbers.map(starNum => {
         if (starNum === 1) {
           return (<BsStarFill />)
@@ -24,9 +25,6 @@ const Stars = (props) => {
       })}
     </div>
   );
-}
-Stars.propTypes = {
-  starsCount: PropTypes.number.isRequired,
 }
 
 export default Stars;

@@ -1,5 +1,5 @@
 import React from 'react';
-import Stars from './Stars.jsx';
+import Stars from '../../Stars.jsx';
 import Reviews from './Reviews.jsx';
 import sampleReviews from './sample-reviews.json';
 import sampleMeta from './sample-meta.json';

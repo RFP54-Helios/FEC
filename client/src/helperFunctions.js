@@ -53,3 +53,19 @@ export function postToApi(queryOptions, callback) {
     callback(err);
   });
 }
+
+// Stars
+export function calculateStars(ratings) {
+  let totalCount = 0;
+  let totalRatings = 0;
+
+  for (let rating in ratings) {
+    let count = Number(ratings[rating]);
+    totalCount += count;
+    totalRatings += count * Number(rating);
+  }
+
+  // round weightedAverage to nearest quarter
+  let weightedAverage = totalRatings / totalCount
+  return Math.round(weightedAverage * 4) / 4;
+}

@@ -6,7 +6,7 @@
       {
           "review_id": 288940,
           "rating": 5,
-          "summary": "Best Review Ever!",
+          "summary": "(sample) Best Review Ever!",
           "recommend": true,
           "response": null,
           "body": "This Review is great, so is the person who made this module!",

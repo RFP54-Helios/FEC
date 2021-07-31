@@ -71,6 +71,18 @@ describe('get stars array', () => {
     expect(Array.isArray(result)).toBe(true);
   });
 
+  it('should an empty array for no ratings', () => {
+    let ratings = {}
+    let result = JSON.stringify(getStarsArr(ratings));
+    expect(result).toBe(JSON.stringify([0, 0, 0, 0, 0]));
+  });
+
+  it('should an empty array for an array of no ratings', () => {
+    let ratings = []
+    let result = JSON.stringify(getStarsArr(ratings));
+    expect(result).toBe(JSON.stringify([0, 0, 0, 0, 0]));
+  });
+
   it('should return 5 for a single 5 star review', () => {
     let ratings = {5: "1"}
     let result = JSON.stringify(getStarsArr(ratings));

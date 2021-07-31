@@ -37,7 +37,7 @@ useEffect(() => {
     <div>
 
       <AddRelated ids = {relatedId.ids}/>
-      {/* <AddOutfits /> */}
+      <AddOutfits />
  </div>
   )
 }

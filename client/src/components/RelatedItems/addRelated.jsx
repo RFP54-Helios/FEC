@@ -48,6 +48,11 @@ const AddRelated = (props) => {
   const handleClick = () => {
     setClick(click + 1);
   }
+
+  const handleItemClick = () => {
+    alert(event.target.dataset.data_id)
+  }
+
  if(productDetails.details.length === 0 ||
     productDetails.styles.length === 0 ||
     productDetails.details.length != productDetails.styles.length) {
@@ -99,17 +104,17 @@ const AddRelated = (props) => {
             return (
               // eslint-disable-next-line react/jsx-key
 
-              <div className="img_container" ><FontAwesomeIcon icon={faStar} className = "openModal"/>
-                <div><img src = {defaultStyle.photos[0].url}className = "relatedThumbnail" ></img></div>
+              <div className="img_container"  ><FontAwesomeIcon icon={faStar} className = "openModal"/>
+                <div>{defaultStyle.photos[0].url ? <img onClick = {handleItemClick} data_id = {item.product_id} src = {defaultStyle.photos[0].url} className = "relatedThumbnail" ></img> : <img data_id = {item.name} src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_1jx9qlGd7Sa2fu4OmG39Ygg3O3g31UWsRonvUoXhnxGXtYqd1qavX3lhTs1PhO2eWFI&usqp=CAU"></img>}</div>
                 <div>{item.category}</div>
                 <div>{item.name}</div>
                 <div>{sale_label}{price_label}</div>
-                  <div>*****</div>
+                  <div>★★★★★</div>
               </div>
             )
 
           })}
-      {/* { (click + 3  <= items.length-1) ? <FontAwesomeIcon icon={faAngleRight} className = "right-arrow" onClick={handleClick} /> : ""} */}
+      { (click + 3  <= productDetails.details.length-1) ? <FontAwesomeIcon icon={faAngleRight} className = "right-arrow" onClick={handleClick} /> : ""}
         </div>
    </div>
   )

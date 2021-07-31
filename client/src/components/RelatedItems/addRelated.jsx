@@ -50,7 +50,7 @@ const AddRelated = (props) => {
   }
 
   const handleItemClick = () => {
-    alert(event.target.dataset.data_id)
+    alert(event.target.dataset.id)
   }
 
  if(productDetails.details.length === 0 ||
@@ -105,7 +105,9 @@ const AddRelated = (props) => {
               // eslint-disable-next-line react/jsx-key
 
               <div className="img_container"  ><FontAwesomeIcon icon={faStar} className = "openModal"/>
-                <div>{defaultStyle.photos[0].url ? <img onClick = {handleItemClick} data_id = {item.product_id} src = {defaultStyle.photos[0].url} className = "relatedThumbnail" ></img> : <img data_id = {item.name} src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_1jx9qlGd7Sa2fu4OmG39Ygg3O3g31UWsRonvUoXhnxGXtYqd1qavX3lhTs1PhO2eWFI&usqp=CAU"></img>}</div>
+              <RelatedItemsImage url = {defaultStyle.photos[].url} id = {item.product_id} />
+
+                <div>{defaultStyle.photos[0].url ? <img onClick = {handleItemClick} data-id = {item.product_id} src = {defaultStyle.photos[0].url} className = "relatedThumbnail" ></img> : <img data-id = {item.name} src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_1jx9qlGd7Sa2fu4OmG39Ygg3O3g31UWsRonvUoXhnxGXtYqd1qavX3lhTs1PhO2eWFI&usqp=CAU"></img>}</div>
                 <div>{item.category}</div>
                 <div>{item.name}</div>
                 <div>{sale_label}{price_label}</div>

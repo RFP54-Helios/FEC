@@ -69,3 +69,23 @@ export function calculateStars(ratings) {
   let weightedAverage = totalRatings / totalCount
   return Math.round(weightedAverage * 4) / 4;
 }
+
+// return an array of stars
+// 1 = full
+// 0 = empty
+// 0.5 = half
+export function getStarsArr(ratings) {
+  let starsCount = calculateStars(ratings);
+  let arrStars = [];
+
+  for (let i = 0; i < 5; i++) {
+    if (starsCount >= 1) {
+      starsCount -= 1;
+      arrStars.push(1);
+    } else {
+      arrStars.push(0);
+    }
+  }
+
+  return arrStars;
+}

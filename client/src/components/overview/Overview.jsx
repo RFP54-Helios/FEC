@@ -1,12 +1,12 @@
-import React, { useContext, useState, useEffect } from 'react';
-import Gallery from './gallery/Gallery.jsx';
-import ProductInfo from './Panel/ProductInfo.jsx';
-import StyleSelector from './Panel/StyleSelector.jsx';
-import AddToCart from './Panel/AddToCart.jsx';
-import Rating from './Panel/Rating.jsx';
-import DescriptionText from './Description/DescriptionText.jsx';
-import Features from './Description/Features.jsx';
-import { ProductContext } from '../../App.jsx';
+import React, { useContext, useState, useEffect } from "react";
+import Gallery from "./gallery/Gallery.jsx";
+import ProductInfo from "./Panel/ProductInfo.jsx";
+import StyleSelector from "./Panel/StyleSelector.jsx";
+import AddToCart from "./Panel/AddToCart.jsx";
+import Rating from "./Panel/Rating.jsx";
+import DescriptionText from "./Description/DescriptionText.jsx";
+import Features from "./Description/Features.jsx";
+import { ProductContext } from "../../App.jsx";
 
 const Overview = (props) => {
   const [product, setProduct] = useContext(ProductContext);
@@ -19,21 +19,20 @@ const Overview = (props) => {
 
   return (
     <>
-      <div id='overview-components'>
-        <Gallery
-          currentStyle={currentStyle}
-          setCurrentStyle={setCurrentStyle} />
-        <div id='detail-components'>
+      <div id="overview-components">
+        <Gallery currentStyle={currentStyle} />
+        <div id="detail-components">
           <Rating />
-          <ProductInfo id='info'
-            currentStyle={currentStyle}/>
-          <StyleSelector id='styles'
+          <ProductInfo id="info" currentStyle={currentStyle} />
+          <StyleSelector
+            id="styles"
             currentStyle={currentStyle}
-            setCurrentStyle={setCurrentStyle}/>
+            setCurrentStyle={setCurrentStyle}
+          />
           <AddToCart />
         </div>
       </div>
-      <div id='product-description'>
+      <div id="product-description">
         <DescriptionText />
         <Features />
       </div>

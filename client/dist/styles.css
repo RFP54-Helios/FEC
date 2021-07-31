@@ -57,7 +57,8 @@ header {
   display: grid;
   grid-template-columns: 10px 100px auto 40px 10px;
   grid-template-rows: 10px 30px 1fr 1fr 50px 1fr 1fr;
-  background-size: 100% 100%;
+  background: transparent no-repeat center;
+  background-size: contain;
 }
 
 #expand {
@@ -83,11 +84,11 @@ header {
   font-size: 48px;
   vertical-align: middle;
   background: transparent;
+  color: white;
   border: none;
 }
 
 .arrow:hover {
-  color: white;
   cursor: pointer;
   text-align: center;
 }
@@ -119,7 +120,7 @@ header {
 .style-thumbnail {
   height: 60px;
   width: 60px;
-  border: 1px solid white;
+  border: 1px solid black;
   border-radius: 35px;
   margin: 10px 0;
 }

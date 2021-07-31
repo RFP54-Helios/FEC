@@ -11,24 +11,31 @@ import { ProductContext } from "../../App.jsx";
 const Overview = (props) => {
   const [product, setProduct] = useContext(ProductContext);
   const [currentStyle, setCurrentStyle] = useState({ photos: [] });
-  const [currentImage, setCurrentImage] = useState({backgroundColor : 'grey'})
 
   useEffect(() => {
     if (!product.styles.length) return;
     setCurrentStyle(product.styles[0]);
   }, [product]);
 
-  useEffect(() => {
-    if (!currentStyle.photos.length) return;
-    setCurrentImage({backgroundImage : `url(${currentStyle.photos[0].thumbnail_url})`});
-  }, [currentStyle])
+  // function handleGalleryArrowClick(plusOrMinus) {
+  //   //Normally you'd want to use a reducer for this, i suppose. Might be a bit overkill though
+  //   //plusOrMinus(the var passed to this function) should be either a posititive or negative 1, which will represent the previous or next image
+
+  //   setGalleryImage(current => current += plusOrMinus)
+  //   if (product.styles.length + 1 >= currentGalleryImage) {
+  //     //Rotate back to to the start and return undefined
+  //     setCurrentStyle(product.styles[0])
+  //     setGalleryImage(0)
+  //     return undefined;
+  //   }
+  //   if ()
+  // }
 
   return (
     <div id="overview-components">
       <Gallery
         currentStyle={currentStyle}
-        setCurrentStyle={setCurrentStyle}
-        style={currentImage} />
+        setCurrentStyle={setCurrentStyle} />
       <div id="detail-components">
         <Rating />
         <ProductInfo id="info" />

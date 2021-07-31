@@ -33,8 +33,8 @@ p, h1, h3, h4, h5, h6 {
   margin: 60px 7.5%;
 }
 
-h2 {
-  margin: 30px;
+header {
+  margin: 15px;
 }
 
 /* ---------------------- Overview ---------------------- */
@@ -57,11 +57,12 @@ h2 {
   display: grid;
   grid-template-columns: 10px 100px auto 40px 10px;
   grid-template-rows: 10px 30px 1fr 1fr 50px 1fr 1fr;
-  background-size: 100% 100%;
+  background: transparent no-repeat center;
+  background-size: contain;
 }
 
 #expand {
-  grid-column-start: 4;
+  grid-column-start: -3;
   grid-row-start: 2;
 }
 
@@ -72,24 +73,33 @@ h2 {
 }
 
 #arrows {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 30px auto 30px;
   grid-column: 3 / span 2;
   grid-row-start: 5;
   margin-left: 10px;
+}
+
+#left-arrow {
+  grid-column-start: 1;
+}
+
+#right-arrow {
+  grid-column-start: 3;
 }
 
 .arrow {
   font-size: 48px;
   vertical-align: middle;
   background: transparent;
+  color: grey;
   border: none;
 }
 
 .arrow:hover {
-  color: white;
   cursor: pointer;
   text-align: center;
+  color: white;
 }
 
 #detail-components {
@@ -108,6 +118,111 @@ h2 {
   height: 50px;
   width: 50px;
   margin: 20px 20px 20px 0;
+}
+
+#style-thumbnail-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 60%;
+}
+
+.style-thumbnail {
+  height: 60px;
+  width: 60px;
+  border: 1px solid black;
+  border-radius: 35px;
+  margin: 10px 0;
+}
+
+#carousel-thumbnails {
+  display: flex;
+  flex-direction: column;
+  grid-column-start: 2;
+}
+
+.thumbnail {
+  height:65px;
+  width: auto;
+  margin: 10px 20px;
+  border: 1px solid white;
+  object-fit: cover;
+}
+
+.thumbnail:hover {
+ cursor: pointer;
+}
+
+#on-sale {
+  text-decoration: line-through;
+}
+
+#sale-price {
+  color: red;
+}
+
+#info-text h1, p {
+  margin: 8px 0;
+}
+
+#info-text p {
+  text-transform: uppercase;
+  margin-right: 3px;
+}
+
+#style-text {
+  display: flex;
+  align-items: baseline;
+}
+
+#style-text p {
+  text-transform: uppercase;
+  margin-left: 5px;
+}
+
+
+#selectors {
+  display: grid;
+  grid-template-columns: 3fr 25px 2fr;
+  margin: 20px 0;
+}
+
+#form-buttons {
+  display: grid;
+  grid-template-columns: 4fr 25px .5fr;
+}
+
+#quantity {
+  grid-column-start: 3;
+}
+
+#favorite {
+  grid-column-start: 3;
+}
+
+#product-description {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  max-height: 30%;
+  max-width: 85vw;
+  padding: 50px 15% 0 15%;
+}
+
+#description-text {
+  height: fit-content;
+  max-height: 90%;
+  border-right: 2px solid grey;
+}
+
+#features {
+  max-height: 90%;
+}
+
+#overview ul {
+  list-style: none;
+}
+
+#overview ul li:before {
+  content: '\2714\0020';
 }
 
 /* ---------------------- Overview - End ---------------------- */
@@ -198,6 +313,21 @@ h2 {
 
 .reviews-list-item {
   border: 2px solid black;
+  margin: 5px;
+  padding: 5px;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.reviewer-name {
+  color: blue;
+}
+
+.review-helpfulness:hover {
+  color: blue;
 }
 
 /* ---------------------- Questions & Answers ---------------------- */

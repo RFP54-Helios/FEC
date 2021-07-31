@@ -1,21 +1,43 @@
-import React, {useContext} from "react";
-import Gallery from "./gallery/Gallery.jsx";
-import ProductInfo from "./ProductInfo.jsx";
-import StyleSelector from "./StyleSelector.jsx";
-import AddToCart from "./AddToCart.jsx";
-import Rating from "./Rating.jsx";
+import React, { useContext, useState, useEffect } from 'react';
+import Gallery from './gallery/Gallery.jsx';
+import ProductInfo from './Panel/ProductInfo.jsx';
+import StyleSelector from './Panel/StyleSelector.jsx';
+import AddToCart from './Panel/AddToCart.jsx';
+import Rating from './Panel/Rating.jsx';
+import DescriptionText from './Description/DescriptionText.jsx';
+import Features from './Description/Features.jsx';
+import { ProductContext } from '../../App.jsx';
 
 const Overview = (props) => {
+  const [product, setProduct] = useContext(ProductContext);
+  const [currentStyle, setCurrentStyle] = useState({ photos: [] });
+
+  useEffect(() => {
+    if (!product.styles.length) return;
+    setCurrentStyle(product.styles[0]);
+  }, [product]);
+
   return (
-    <div id="overview-components">
-      <Gallery />
-      <div id="detail-components">
-        <Rating />
-        <ProductInfo id="info" />
-        <StyleSelector id="styles" />
-        <AddToCart id="cart" />
+    <>
+      <div id='overview-components'>
+        <Gallery
+          currentStyle={currentStyle}
+          setCurrentStyle={setCurrentStyle} />
+        <div id='detail-components'>
+          <Rating />
+          <ProductInfo id='info'
+            currentStyle={currentStyle}/>
+          <StyleSelector id='styles'
+            currentStyle={currentStyle}
+            setCurrentStyle={setCurrentStyle}/>
+          <AddToCart />
+        </div>
       </div>
-    </div>
+      <div id='product-description'>
+        <DescriptionText />
+        <Features />
+      </div>
+    </>
   );
 };
 

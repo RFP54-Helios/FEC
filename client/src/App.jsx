@@ -39,20 +39,7 @@ let App = () => {
 
   return (
     <ProductContext.Provider value={[product, setProduct]}>
-      <h2>FEC</h2>
-      <button onClick={() => {
-        setProduct(prevState => ({
-          ...prevState,
-          product_id: prevState.product_id + 1
-        }))
-      }}>
-        {`${product.product_id}`}
-      </button>
-      <Stars />
-      <Stars product_id={product.product_id}/>
-      <h3>{product.currentProduct.name}</h3>
-      <h4>{product.currentProduct.slogan}</h4>
-      <p>{product.currentProduct.description}</p>
+      <header><h2>FEC</h2></header>
       <div id='overview'>
         <Overview />
       </div>

@@ -15,20 +15,20 @@ const Stars = (props) => {
 
   return (
     <div className='ratings-stars'>
-      {starNumbers.map(starNum => {
+      {starNumbers.map((starNum, index) => {
         if (starNum === 1) {
-          return (<BsStarFill />)
+          return (<BsStarFill key={index} />)
         } else if (starNum === 0.5) {
-          return (<BsStarHalf />)
+          return (<BsStarHalf key={index} />)
         } else {
-          return (<BsStar />)
+          return (<BsStar key={index} />)
         }
       })}
     </div>
   );
 }
-Stars.propTypes = {
-  ratings: PropTypes.array.isRequired,
-}
+// Stars.propTypes = {
+//   ratings: PropTypes.array.isRequired,
+// }
 
 export default Stars;

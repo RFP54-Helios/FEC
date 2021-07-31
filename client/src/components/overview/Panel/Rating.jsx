@@ -10,8 +10,8 @@ const Rating = (props) => {
     </div>
   )
 }
-Rating.propTypes = {
-  ratings: PropTypes.array.isRequired,
-}
+// Rating.propTypes = {
+//   ratings: PropTypes.array.isRequired,
+// }
 
 export default Rating;

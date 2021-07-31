@@ -203,7 +203,19 @@ h2 {
 /* ---------------------- Questions & Answers ---------------------- */
 
 #qa {
-  height: 500px;
+  padding: 5px;
+  background-color:white;
+  max-height: 500px;
+  max-width: 85%;
+  display: flex; /*added*/
+  flex-direction: column;
+}
+
+#body {
+  background-color:white;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex: 1; /* added */
 }
 
 .search {
@@ -216,6 +228,10 @@ h2 {
   padding-left: 40px;
   background-color: #fff;
   border: 1px;
+}
+
+.add-answer-click {
+  margin-left: 100px;
 }
 
 .popup {
@@ -236,6 +252,11 @@ h2 {
   width: 100%;
   max-width: 800px;
   background-color: #fff;
+}
+
+#answer-modal-title {
+  position: relative;
+  bottom: 10px;
 }
 
 .red-star, #alert {
@@ -288,7 +309,7 @@ h2 {
   border-radius: 3px;
 }
 
-#input {
+#select-photo {
   margin-top: 5px;
   margin-bottom: 5px;
 }
@@ -296,4 +317,11 @@ h2 {
 #upload-photo {
   display: block;
 }
+
+.answer-helpful-click {
+  margin-left: 150px;
+}
+
+
+
 /* ---------------------- End of Questions & Answers ---------------------- */

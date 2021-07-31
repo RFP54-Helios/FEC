@@ -1,7 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
+import { ProductContext } from "../../App.jsx";
 
 
 const Addanswer = (props) => {
+  const [product, setProduct] = useContext(ProductContext);
   const [name, setName] = useState("");
   const [body, setBody] = useState("");
   const [email, setEmail] = useState("");
@@ -24,8 +26,8 @@ const Addanswer = (props) => {
   return (props.trigger) ? (
     <div className='popup'>
       <div className='inner'>
-        <h4>Submit your Answer</h4>
-        <h4>Product Name: {props.question}</h4>
+        <h4 id='answer-modal-title'>Submit your Answer</h4>
+        <h3>{product.currentProduct.name}: {props.question}</h3>
         <form>
           <label><span class='red-star'>*</span>Your Answer:</label>
           <textarea maxlength='1000' id="type-answer" value={body} onChange={(e) => setBody(e.target.value)}></textarea>
@@ -76,7 +78,7 @@ const PhotoUploader = (props) => {
 
   return (
     <div className="photo-uploader">
-      <input type="file" name="image-upload" id='input' accept=".jpg, .jpeg, .png" onChange={handlePhoto}></input>
+      <input type="file" name="image-upload" id='select-photo' accept=".jpg, .jpeg, .png" onChange={handlePhoto}></input>
       {photoThumbnail.map(thumbnail => {
         return (
         <>

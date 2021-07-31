@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-import React, {useState, useEffect, useContext} from 'react';
-import axios from 'axios';
-import ReactDOM from 'react-dom';
-=======
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
->>>>>>> main
 import Overview from './components/overview/Overview.jsx';
 import Outfits from './components/RelatedItems/Outfits.jsx';
 import Ratings from './components/Ratings/Ratings.jsx';

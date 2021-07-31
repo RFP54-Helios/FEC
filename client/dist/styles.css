@@ -240,6 +240,21 @@ margin:5px 5px 310px 200px;
 
 .reviews-list-item {
   border: 2px solid black;
+  margin: 5px;
+  padding: 5px;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.reviewer-name {
+  color: blue;
+}
+
+.review-helpfulness:hover {
+  color: blue;
 }
 
 /* ---------------------- Questions & Answers ---------------------- */

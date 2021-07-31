@@ -39,7 +39,7 @@ let App = () => {
 
   return (
     <ProductContext.Provider value={[product, setProduct]}>
-      <h2>FEC</h2>
+      <header><h2>FEC</h2></header>
       <div id='overview'>
         <Overview />
       </div>

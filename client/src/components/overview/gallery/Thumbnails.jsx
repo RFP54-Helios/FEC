@@ -1,13 +1,7 @@
-import React, {useContext} from "react";
-import {ProductContext} from '../../../App.jsx';
+import React, { useContext, useEffect } from "react";
 
 const Thumbnails = (props) => {
-  const [product, setProduct] = useContext(ProductContext)
-  return (
-    <div id='thumbnails'>
-      <h3>Thumbnails</h3>
-    </div>
-  )
-}
+  return <img className='thumbnail' src={props.thumbnail}></img>
+};
 
 export default Thumbnails;

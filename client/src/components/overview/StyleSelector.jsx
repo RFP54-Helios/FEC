@@ -7,10 +7,11 @@ const StyleSelector = () => {
     <>
       <h3>STYLE ></h3>
       <span id="style-thumbnail-container">
-        {product.styles.map((style) => (
+        {product.styles.map((style, key) => (
           <img
             className="style-thumbnail"
             src={style.photos[0].thumbnail_url}
+            key={key}
           ></img>
         ))}
       </span>

@@ -8,8 +8,6 @@ import DescriptionText from './Description/DescriptionText.jsx';
 import Features from './Description/Features.jsx';
 import { ProductContext } from '../../App.jsx';
 
-// consider using context here, because prop drilling is slow
-
 const Overview = (props) => {
   const [product, setProduct] = useContext(ProductContext);
   const [currentStyle, setCurrentStyle] = useState({ photos: [] });

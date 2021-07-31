@@ -38,7 +38,7 @@ describe('stars calculator', () => {
     expect(result).toBe(2.5);
   });
 
-  it('should return 3.25 for Slackers Slacks', () => {
+  it('should return 3.5 for Slackers Slacks', () => {
     let ratings = {
       "1": "4",
       "2": "5",
@@ -50,13 +50,14 @@ describe('stars calculator', () => {
     expect(result).toBe(3.5);
   });
 
-  it('should return 3.75 for Heir Force Ones', () => {
+  it('should return 3.5 for Heir Force Ones', () => {
     let ratings = {1: "8", 2: "7", 3: "25", 4: "17", 5: "35"}
     let result = calculateStars(ratings);
     expect(result).toBe(3.5);
   });
 
 });
+
 
 describe('get stars array', () => {
   it('should be defined as a function', () => {
@@ -66,8 +67,8 @@ describe('get stars array', () => {
 
   it('should return an array', () => {
     let ratings = {1: "16", 2: "8", 3: "6", 4: "4", 5: "9"}
-    let result = JSON.stringify(getStarsArr(ratings));
-    expect(result).toBeDefined;
+    let result = getStarsArr(ratings);
+    expect(Array.isArray(result)).toBe(true);
   });
 
   it('should return 5 for a single 5 star review', () => {

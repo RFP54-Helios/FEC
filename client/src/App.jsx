@@ -8,7 +8,6 @@ import { getProduct, getStyles, getRatings, postToApi } from './helperFunctions.
 
 import items from './components/RelatedItems/sampleData.json';
 import {questionList, answerList} from './components/QandA/sampledata.js';
-import Stars from './Stars.jsx';
 
 export const ProductContext = React.createContext([{}, () => {}]);
 

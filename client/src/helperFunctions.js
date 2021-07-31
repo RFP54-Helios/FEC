@@ -70,7 +70,7 @@ export function calculateStars(ratings) {
   return Math.round(weightedAverage * 2) / 2;
 }
 
-// return an array of stars
+// return an array of star fill levels
 // 1 = full
 // 0 = empty
 // 0.5 = half

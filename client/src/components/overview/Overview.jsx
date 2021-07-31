@@ -24,7 +24,7 @@ const Overview = (props) => {
           currentStyle={currentStyle}
           setCurrentStyle={setCurrentStyle} />
         <div id='detail-components'>
-          <Rating />
+          <Rating ratings={product.ratings}/>
           <ProductInfo id='info'
             currentStyle={currentStyle}/>
           <StyleSelector id='styles'

@@ -9,7 +9,6 @@ import { getProduct, getStyles, getRatings, postToApi } from './helperFunctions.
 import items from './components/RelatedItems/sampleData.json';
 import {questionList, answerList} from './components/QandA/sampledata.js';
 
-
 export const ProductContext = React.createContext([{}, () => {}]);
 
 let App = () => {

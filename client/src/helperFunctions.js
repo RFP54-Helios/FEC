@@ -58,6 +58,9 @@ export function postToApi(queryOptions, callback) {
 // expected input shape: {1: "16", 2: "8", 3: "6", 4: "4", 5: "9"}
 // from `getRatings()` API helper function
 export function averageRating(ratings) {
+  // edge case: single rating
+  if (typeof ratings === 'number') return ratings;
+
   let totalCount = 0;
   let totalRatings = 0;
 

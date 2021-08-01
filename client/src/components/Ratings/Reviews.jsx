@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Stars from '../Stars.jsx'
 
 const Reviews = (props) => {
   // calculate total reviews based on metadata
@@ -50,6 +51,7 @@ const ReviewsListItem = (props) => {
 
   return (
     <>
+      <Stars ratings={props.review.rating} />
       <p className="reviewer-name">{props.review.reviewer_name}</p>
       <h4>{props.review.summary}</h4>
       <p>{displayBody}</p>

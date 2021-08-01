@@ -125,4 +125,10 @@ describe('get stars array', () => {
     expect(result).toBe(JSON.stringify([1, 1, 1, 0.5, 0]));
   });
 
+  it('should return the rating for a single rating', () => {
+    let ratings = 5
+    let result = JSON.stringify(getStarsArr(ratings));
+    expect(result).toBe(JSON.stringify([1, 1, 1, 1, 1]));
+  });
+
 });

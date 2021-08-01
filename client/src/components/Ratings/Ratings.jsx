@@ -4,7 +4,7 @@ import Reviews from './Reviews.jsx';
 import sampleReviews from './sample-reviews.json';
 import sampleMeta from './sample-meta.json';
 import { ProductContext } from '../../App.jsx';
-import { getFromApi } from '../../helperFunctions.js';
+import { getFromApi, averageRating } from '../../helperFunctions.js';
 
 const Ratings = (props) => {
 
@@ -46,7 +46,10 @@ const Ratings = (props) => {
     <div id='ratings-container'>
       <div id='ratings-container-left'>
         <h3>Ratings & Reviews</h3>
-        <Stars ratings={product.ratings} />
+        <div id='ratings-container-small'>
+          <p id='ratings-rating-large'>{averageRating(product.ratings)}</p>
+          <Stars ratings={product.ratings} />
+        </div>
       </div>
       <div id='ratings-container-right'>
         <Reviews

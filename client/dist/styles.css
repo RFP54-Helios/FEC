@@ -311,6 +311,18 @@ header {
   overflow-y: auto;
 }
 
+#ratings-container-small {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 8px;
+}
+
+#ratings-rating-large {
+  font-size: 4em;
+  margin: 0;
+}
+
 .reviews-list-item {
   border: 2px solid black;
   margin: 5px;

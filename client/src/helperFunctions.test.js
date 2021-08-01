@@ -174,13 +174,13 @@ describe('get progress array', () => {
   it('should return 4.5 for equal 4 & 5 star reviews', () => {
     let ratings = {4: "10", 5: "10"}
     let result = JSON.stringify(getProgressArr(ratings));
-    expect(result).toBe(JSON.stringify([50, 50, 0, 0, 0]));
+    expect(result).toBe(JSON.stringify([100, 100, 0, 0, 0]));
   });
 
   it('should return 2.5 for Morning Joggers', () => {
     let ratings = {1: "16", 2: "8", 3: "6", 4: "4", 5: "9"}
     let result = JSON.stringify(getProgressArr(ratings));
-    expect(result).toBe(JSON.stringify([21, 9, 14, 19, 37]));
+    expect(result).toBe(JSON.stringify([56, 25, 38, 50, 100]));
   });
 
   it('should return 3.5 for Slackers Slacks', () => {
@@ -192,13 +192,13 @@ describe('get progress array', () => {
       "5": "5"
     }
     let result = JSON.stringify(getProgressArr(ratings));
-    expect(result).toBe(JSON.stringify([16, 39, 16, 16, 13]));
+    expect(result).toBe(JSON.stringify([42, 100, 42, 42, 33]));
   });
 
   it('should return 3.5 for Heir Force Ones', () => {
     let ratings = {1: "8", 2: "7", 3: "25", 4: "17", 5: "35"}
     let result = JSON.stringify(getProgressArr(ratings));
-    expect(result).toBe(JSON.stringify([38, 18, 27, 8, 9]));
+    expect(result).toBe(JSON.stringify([100, 49, 71, 20, 23]));
   });
 
 });

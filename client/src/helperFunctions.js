@@ -107,17 +107,19 @@ export function getStarsArr(ratings) {
 // output shape: [21, 9, 14, 19, 37] (5 -> 1) stars order
 export function getProgressArr(ratings) {
 
-  // add up total number of ratings
-  let totalCount = 0;
-  for (let rating in ratings) {
-    totalCount += Number(ratings[rating]);
-  }
+  // find max
+  let max = 0;
+  Object.values(ratings).forEach(count => {
+    if (Number(count) > max) {
+      max = Number(count);
+    }
+  });
 
   // calculate % from 5 -> 1 star ratings
   let progresses = [];
   for (let i = 5; i > 0; i--) {
     // no ratings = 0%
-    let fraction = ratings[i] ? Number(ratings[i]) / totalCount : 0;
+    let fraction = ratings[i] ? Number(ratings[i]) / max : 0;
     // convert to %
     progresses.push(Math.round(100 * fraction));
   }

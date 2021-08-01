@@ -62,9 +62,14 @@ const ReviewsList = (props) => {
           </li>
         ))}
       </ul>
-      <button className="reviews-load-more" onClick={handleLoadMore}>
-        MORE REVIEWS
-      </button>
+      <div className="reviews-row">
+        <button className="reviews-btn" onClick={handleLoadMore}>
+          MORE REVIEWS
+        </button>
+        <button className="reviews-btn" onClick={() => { }}>
+          ADD A REVIEW
+        </button>
+      </div>
     </>
   );
 }
@@ -84,13 +89,19 @@ const ReviewsListItem = (props) => {
 
   return (
     <>
-      <Stars ratings={props.review.rating} />
-      <p className="reviewer-name">{props.review.reviewer_name}</p>
+      <div className="reviews-row-top">
+        <Stars ratings={props.review.rating} />
+        <p className="reviewer-name">{props.review.reviewer_name}</p>
+      </div>
       <h4>{props.review.summary}</h4>
       <p>{displayBody}</p>
-      <p>Helpful?</p>
-      <span className="review-helpfulness">Yes </span>
-      <p>({props.review.helpfulness})</p>
+      <div className="reviews-row">
+        <p>Helpful? </p>
+        <p className="review-helpfulness">Yes </p>
+        <p onClick={() => { }}>
+          ({props.review.helpfulness})
+        </p>
+      </div>
     </>
   )
 }

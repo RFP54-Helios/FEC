@@ -299,6 +299,7 @@ header {
   flex-direction: column;
   width: 30%;
   height: 100%;
+  gap: 15px;
 }
 
 #ratings-container-right {
@@ -318,6 +319,7 @@ header {
 
 #ratings-rating-large {
   font-size: 4em;
+  font-weight: bold;
   margin: 0;
 }
 
@@ -326,6 +328,7 @@ header {
   margin: 5px;
   padding: 5px;
   min-height: 100px;
+  width: 95%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -341,17 +344,35 @@ header {
 
 .reviewer-name {
   color: blue;
+  display: inline-block;
+}
+
+.review-helpfulness {
+  text-decoration: underline;
+  margin: 8px;
 }
 
 .review-helpfulness:hover {
   color: blue;
+  text-decoration: underline;
 }
 
-.reviews-load-more {
-  color: red;
-  width: 100px;
+.reviews-btn {
+  font-weight: bold;
+  width: 175px;
   height: 50px;
-  margin: 0 50px;
+  margin-left: 50px;
+}
+
+.reviews-row {
+  display: flex;
+}
+
+.reviews-row-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%
 }
 
 /* ---------------------- Questions & Answers ---------------------- */

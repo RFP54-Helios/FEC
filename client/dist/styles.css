@@ -295,12 +295,9 @@ header {
   align-self: center;
 }
 .removeOutfit {
- /* align-self: flex-end;
- align-content: flex-end; */
- align-items: flex-end;
-  /* align-self: flex-end; */
- /* margin-left: 120px; */
- margin-left: 200px;
+  position: absolute;
+  margin:5px 5px 300px 200px;
+
   font-size: 1.3rem;
 }
 
@@ -314,6 +311,7 @@ font-size: 1.3rem;
   width:226px;
   height: 230px;
   text-align: center;
+  background-color: rgb(187, 187, 187);
 }
 /*  */
 /*--------------- END of RELATED ITEMS CSS -----------------*/

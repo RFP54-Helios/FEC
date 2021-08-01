@@ -3,12 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons'
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
-// import Stars from '../Ratings/Stars.jsx';
 import RelatedItemsImage from './RelatedItemsImage.jsx';
-import AddOutfits from './AddOutfits.jsx';
-import Outfits from './AddOutfits.jsx'
+import AddOutfits from './addOutfits.jsx';
+import Outfits from './Outfits.jsx'
 import { ProductContext } from "../../App.jsx";
-import { getProduct, getFromApi, getStyles } from '../../helperFunctions.js';
+import { getProduct, getFromApi, getStyles, getRatings } from '../../helperFunctions.js';
 
 
 
@@ -20,7 +19,8 @@ const AddRelated = (props) => {
   //component level state
   const [productDetails, setProductDetails] = useState({
     details: [],
-    styles: []
+    styles: [],
+    ratings:[]
   })
 // to clear the previous data that is concatenated.
   const[relatedIds, setRelatedIds] = useState([]);
@@ -42,21 +42,21 @@ const AddRelated = (props) => {
      })
     }
     if (relatedIdsMatch == false) {
-      setProductDetails({details:[], styles:[]});
+      setProductDetails({details:[], styles:[], ratings:[]});
       setRelatedIds(props.ids);
       setClick(0);
     props.ids.forEach(id => {
       Promise.all([
         getProduct(id),
-        getStyles(id)
-
-
+        getStyles(id),
+        getRatings(id)
       ])
         .then((productData) => {
           setProductDetails(prevState => ({
             ...prevState,
             details: prevState.details.concat(productData[0]),
-            styles: prevState.styles.concat(productData[1])
+            styles: prevState.styles.concat(productData[1]),
+            ratings: prevState.ratings.concat(productData[2].ratings)
           }))
         })
     })
@@ -123,23 +123,13 @@ const AddRelated = (props) => {
               var sale_label = "";
               var price_label = <span>${defaultStyle.original_price}</span>;
             }
+
+            var rating = productDetails.ratings[i];
+
             return (
 
-              // <div>
-              //   <div className="img_container" ><FontAwesomeIcon icon={faStar} className="openModal" />
-              //     <div>{defaultStyle.photos[0].url ? <img onClick={handleItemClick} src={defaultStyle.photos[0].url} className="relatedThumbnail" ></img> : <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_1jx9qlGd7Sa2fu4OmG39Ygg3O3g31UWsRonvUoXhnxGXtYqd1qavX3lhTs1PhO2eWFI&usqp=CAU"></img>}</div> */
-              //     <div>{item.category}</div>
-              //     <div>{item.name}</div>
-              //     <div>{sale_label}{price_label}</div>
-              //     <div>★★★★★</div>
-              //   </div>
-
-              // </div>
-
-
               <div>
-
-              <RelatedItemsImage url = {defaultStyle.photos[0].url} id = {item.id}  category = {item.category} name = {item.name} sale_label = {sale_label}price_label = {price_label} ratings = {ratings} />
+              <RelatedItemsImage url = {defaultStyle.photos[0].url} id = {item.id}  category = {item.category} name = {item.name} sale_label = {sale_label}price_label = {price_label} ratings = {rating} />
               </div>
             )
 

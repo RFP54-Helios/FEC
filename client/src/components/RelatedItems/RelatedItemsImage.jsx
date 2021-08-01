@@ -8,8 +8,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { getProduct, getFromApi, getStyles } from '../../helperFunctions.js';
 import { FiStar } from 'react-icons/fi';
 import { BsStarFill } from 'react-icons/bs';
-
-
+import Stars from '../../Stars.jsx';
 
 const RelatedItemsImage = (props) => {
 
@@ -30,7 +29,7 @@ const RelatedItemsImage = (props) => {
         <div>{props.category}</div>
         <div>{props.name}</div>
         <div>{props.sale_label}{props.price_label}</div>
-        <div>*****</div>
+        <Stars ratings = {props.ratings} />
       </div>
     </div>
   )

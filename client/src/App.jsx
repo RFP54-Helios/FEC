@@ -49,7 +49,8 @@ let App = () => {
           setCurrentStyle={setCurrentStyle}/>
       </div>
       <div className='widget'>
-        <Outfits />
+        <Outfits currentStyle={currentStyle}
+          setCurrentStyle={setCurrentStyle} />
       </div>
       <div className='widget' id='qa'>
         <QandA

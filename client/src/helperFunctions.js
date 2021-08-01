@@ -60,6 +60,8 @@ export function postToApi(queryOptions, callback) {
 export function averageRating(ratings) {
   // edge case: single rating
   if (typeof ratings === 'number') return ratings;
+  // edge case: initial state
+  if (ratings.length === 0) return 0;
 
   let totalCount = 0;
   let totalRatings = 0;

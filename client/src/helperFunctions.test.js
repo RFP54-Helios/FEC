@@ -56,6 +56,18 @@ describe('stars calculator', () => {
     expect(result).toBe(3.5);
   });
 
+  it('should return the rating for a single rating', () => {
+    let ratings = 5
+    let result = averageRating(ratings);
+    expect(result).toBe(5);
+  });
+
+  it('should return 0 for no ratings initial state', () => {
+    let ratings = []
+    let result = averageRating(ratings);
+    expect(result).toBe(0);
+  });
+
 });
 
 

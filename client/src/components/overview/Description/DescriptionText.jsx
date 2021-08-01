@@ -1,11 +1,13 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import { ProductContext } from "../../../App.jsx";
 
 const DescriptionText = () => {
   const [product, setProduct] = useContext(ProductContext)
   const [isLoading, setLoadingStatus] = useState(true)
 
-  if(product.currentProduct.slogan) setLoadingStatus(false);
+  useEffect(() => {
+    if(product.currentProduct.slogan) setLoadingStatus(false);
+  })
 
   return (
     <div id='description-text'>

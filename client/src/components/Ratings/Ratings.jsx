@@ -1,4 +1,4 @@
-import Stars from '../../Stars.jsx';
+import Stars from '../Stars.jsx';
 import React, { useState, useContext, useEffect } from 'react';
 import Reviews from './Reviews.jsx';
 import sampleReviews from './sample-reviews.json';

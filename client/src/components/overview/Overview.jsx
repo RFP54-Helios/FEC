@@ -10,26 +10,26 @@ import { ProductContext } from '../../App.jsx';
 
 const Overview = (props) => {
   const [product, setProduct] = useContext(ProductContext);
-  const [currentStyle, setCurrentStyle] = useState({ photos: [] });
+
 
   useEffect(() => {
     if (!product.styles.length) return;
-    setCurrentStyle(product.styles[0]);
+    props.setCurrentStyle(product.styles[0]);
   }, [product]);
 
   return (
     <>
       <div id='overview-components'>
         <Gallery
-          currentStyle={currentStyle}
-          setCurrentStyle={setCurrentStyle} />
+          currentStyle={props.currentStyle}
+          setCurrentStyle={props.setCurrentStyle} />
         <div id='detail-components'>
           <Rating ratings={product.ratings}/>
           <ProductInfo id='info'
-            currentStyle={currentStyle}/>
+            currentStyle={props.currentStyle}/>
           <StyleSelector id='styles'
-            currentStyle={currentStyle}
-            setCurrentStyle={setCurrentStyle}/>
+            currentStyle={props.currentStyle}
+            setCurrentStyle={props.setCurrentStyle}/>
           <AddToCart />
         </div>
       </div>

@@ -19,6 +19,7 @@ let App = () => {
     styles: [],
     ratings: []
   })
+  const [currentStyle, setCurrentStyle] = useState({ photos: [] });
 
   useEffect(() => {
     Promise.all([
@@ -40,7 +41,9 @@ let App = () => {
     <ProductContext.Provider value={[product, setProduct]}>
       <header><h2>FEC</h2></header>
       <div id='overview'>
-        <Overview />
+        <Overview
+          currentStyle={currentStyle}
+          setCurrentStyle={setCurrentStyle}/>
       </div>
       <div className='widget'>
         <Outfits items={items}/>

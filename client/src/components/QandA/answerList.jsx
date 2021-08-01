@@ -15,10 +15,15 @@ const AnswerList = (props) => {
     .catch(err => console.log(err));
   };
 
+  let answerer_name;
+  if (props.answer.answerer_name === 'Seller') {
+    answerer_name = <a><strong>{props.answer.answerer_name}</strong></a>
+  } else { answerer_name = <a>{props.answer.answerer_name}</a>}
+
   return (
-    <dt><bold>A:</bold>&nbsp;&nbsp;{props.answer.body}
+    <dt><a><strong>A:</strong></a>&nbsp;&nbsp;{props.answer.body}
     <div>
-      <a className='answerer-info'>By {props.answer.answerer_name} on {Moment(props.answer.date).utc().format('MM/DD/YYYY')}</a>
+      <a className='answerer-info'>By {answerer_name} on {Moment(props.answer.date).utc().format('MM/DD/YYYY')}</a>
     <a class='answer-helpful-click'>&nbsp;&nbsp;|&nbsp;&nbsp;Helpful?&nbsp;</a>
     {answerHelpful ? <a href='url' className='answer-helpful-link' onClick={(e) => { e.preventDefault(); handleUpdateAnswerHelpfulness(props.answer.id); setAnswerHelpful(false);}}>Yes({props.answer.helpfulness})</a> : <a>Yes({props.answer.helpfulness})</a>}
        <a>&nbsp;&nbsp;|&nbsp;&nbsp;</a>

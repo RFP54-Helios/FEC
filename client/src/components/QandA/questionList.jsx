@@ -13,7 +13,6 @@ const QuestionList = (props) => {
   const [addAnswerPopup, setAddAnswerPopup] = useState(false);
   const [questionHelpful, setQuestionHelpful] = useState(false);
 
-
   let moreAnswersBtn;
     if (Object.values(props.question.answers).length > 2) {
       moreAnswersBtn = <a className='see-more-answers-click' onClick={() => { toggleOpen(); toggleMoreAnswers();}}>
@@ -22,6 +21,12 @@ const QuestionList = (props) => {
     if (isOpen===true) {
       moreAnswersBtn = null;
     }
+
+  let sortedAnswerList;
+  sortedAnswerList= Object.values(props.question.answers).sort(function(a, b) {
+    return b.helpfulness - a.helpfulness;
+   })
+
 
     const handleUpdateQuestionHelpfulness = () => {
       axios
@@ -34,7 +39,7 @@ const QuestionList = (props) => {
 
   return (
 
-      <dl>Q:&nbsp;&nbsp;{props.question.question_body}
+      <dl><a><strong>Q:</strong></a>&nbsp;&nbsp;{props.question.question_body}
       <a>&nbsp;&nbsp;|&nbsp;&nbsp;</a>
       <a>Helpful?&nbsp;</a>
       {questionHelpful ? <a>Yes({props.question.question_helpfulness})</a> :
@@ -47,11 +52,11 @@ const QuestionList = (props) => {
       <Addanswer questionBody={props.question.question_body} questionId={props.question.question_id}
       trigger={addAnswerPopup} setTrigger={setAddAnswerPopup}>
       </Addanswer>
-      {Object.values(props.question.answers).slice(0, 2).map(answer =>
+      {sortedAnswerList.slice(0, 2).map(answer =>
       <AnswerList answer={answer} />
       )}
       {moreAnswersBtn}
-      {seeMoreAnswers===true ? <ViewMoreAnswers answers={props.question.answers} /> : null}
+      {seeMoreAnswers===true ? <ViewMoreAnswers answers={sortedAnswerList} /> : null}
       {seeMoreAnswers===true ? <a className='see-more-answers-collapse' onClick={() => {toggleMoreAnswers(); toggleOpen()}}>
       &raquo;&nbsp;Collapse</a> : null}
       </dl>

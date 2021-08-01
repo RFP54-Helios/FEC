@@ -16,7 +16,8 @@ const QandA = (props) => {
 
   if (questionData.length > 4) {
     moreQuestionsBtn =
-    <div><button className='see-more-questions' onClick={() => {toggleMoreQuestions();}}>More Answered Questions</button></div>
+    <div><button className='see-more-questions' onClick={() => {toggleMoreQuestions();}}>
+    More Answered Questions</button></div>
   }
   if (seeMoreQuestions===true) {
     moreQuestionsBtn = null;
@@ -25,13 +26,15 @@ const QandA = (props) => {
 
   useEffect(() => {
     axios
-    .get(`http://localhost:3000/hr-rfp//qa/questions/?product_id=${product.product_id}`, { params: { count: 20 } })
+    .get(`http://localhost:3000/hr-rfp//qa/questions/?product_id=${product.product_id}`,
+    { params: { count: 20 } })
     .then(res => {
       setQuestionData(res.data.results)
     })
     .catch(err => console.log(err));
   });
 
+  console.log(questionData);
 
   return(
     <div id='qa'>

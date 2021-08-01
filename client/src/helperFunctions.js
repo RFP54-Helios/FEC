@@ -101,3 +101,26 @@ export function getStarsArr(ratings) {
 
   return arrStars;
 }
+
+// return an array of progress percentages
+// expected input shape: {1: "16", 2: "8", 3: "6", 4: "4", 5: "9"}
+// output shape: [21, 9, 14, 19, 37] (5 -> 1) stars order
+export function getProgressArr(ratings) {
+
+  // add up total number of ratings
+  let totalCount = 0;
+  for (let rating in ratings) {
+    totalCount += Number(ratings[rating]);
+  }
+
+  // calculate % from 5 -> 1 star ratings
+  let progresses = [];
+  for (let i = 5; i > 0; i--) {
+    // no ratings = 0%
+    let fraction = ratings[i] ? Number(ratings[i]) / totalCount : 0;
+    // convert to %
+    progresses.push(Math.round(100 * fraction));
+  }
+
+  return progresses;
+}

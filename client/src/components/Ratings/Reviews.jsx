@@ -63,7 +63,7 @@ const ReviewsList = (props) => {
         ))}
       </ul>
       <button className="reviews-load-more" onClick={handleLoadMore}>
-        Load More
+        MORE REVIEWS
       </button>
     </>
   );

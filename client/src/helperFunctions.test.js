@@ -1,5 +1,6 @@
 import { averageRating } from './helperFunctions.js';
 import { getStarsArr } from './helperFunctions.js';
+import { getProgressArr } from './helperFunctions.js';
 
 describe('stars calculator', () => {
   it('should be defined as a function', () => {
@@ -141,6 +142,63 @@ describe('get stars array', () => {
     let ratings = 5
     let result = JSON.stringify(getStarsArr(ratings));
     expect(result).toBe(JSON.stringify([1, 1, 1, 1, 1]));
+  });
+
+});
+
+
+describe('get progress array', () => {
+  it('should be defined as a function', () => {
+    expect(getProgressArr).toBeDefined;
+    expect(typeof getProgressArr).toBe('function');
+  });
+
+  it('should return an array', () => {
+    let ratings = {1: "16", 2: "8", 3: "6", 4: "4", 5: "9"}
+    let result = getProgressArr(ratings);
+    expect(Array.isArray(result)).toBe(true);
+  });
+
+  it('should return 5 for a single 5 star review', () => {
+    let ratings = {5: "1"}
+    let result = JSON.stringify(getProgressArr(ratings));
+    expect(result).toBe(JSON.stringify([100, 0, 0, 0, 0]));
+  });
+
+  it('should return 5 for many 5 star reviews', () => {
+    let ratings = {5: "100"}
+    let result = JSON.stringify(getProgressArr(ratings));
+    expect(result).toBe(JSON.stringify([100, 0, 0, 0, 0]));
+  });
+
+  it('should return 4.5 for equal 4 & 5 star reviews', () => {
+    let ratings = {4: "10", 5: "10"}
+    let result = JSON.stringify(getProgressArr(ratings));
+    expect(result).toBe(JSON.stringify([50, 50, 0, 0, 0]));
+  });
+
+  it('should return 2.5 for Morning Joggers', () => {
+    let ratings = {1: "16", 2: "8", 3: "6", 4: "4", 5: "9"}
+    let result = JSON.stringify(getProgressArr(ratings));
+    expect(result).toBe(JSON.stringify([21, 9, 14, 19, 37]));
+  });
+
+  it('should return 3.5 for Slackers Slacks', () => {
+    let ratings = {
+      "1": "4",
+      "2": "5",
+      "3": "5",
+      "4": "12",
+      "5": "5"
+    }
+    let result = JSON.stringify(getProgressArr(ratings));
+    expect(result).toBe(JSON.stringify([16, 39, 16, 16, 13]));
+  });
+
+  it('should return 3.5 for Heir Force Ones', () => {
+    let ratings = {1: "8", 2: "7", 3: "25", 4: "17", 5: "35"}
+    let result = JSON.stringify(getProgressArr(ratings));
+    expect(result).toBe(JSON.stringify([38, 18, 27, 8, 9]));
   });
 
 });

@@ -4,7 +4,7 @@ import Reviews from './Reviews.jsx';
 import sampleReviews from './sample-reviews.json';
 import sampleMeta from './sample-meta.json';
 import { ProductContext } from '../../App.jsx';
-import { getFromApi, averageRating } from '../../helperFunctions.js';
+import { getFromApi, averageRating, getProgressArr } from '../../helperFunctions.js';
 
 const Ratings = (props) => {
 
@@ -48,8 +48,13 @@ const Ratings = (props) => {
         <h3>Ratings & Reviews</h3>
         <div id='ratings-container-small'>
           <p id='ratings-rating-large'>{averageRating(product.ratings)}</p>
-          <Stars ratings={product.ratings} />
+          <Stars
+            ratings={product.ratings}
+          />
         </div>
+      <ReviewProgressBars
+        ratings={product.ratings}
+      />
       </div>
       <div id='ratings-container-right'>
         <Reviews
@@ -59,6 +64,26 @@ const Ratings = (props) => {
         />
       </div>
     </div>
+  );
+}
+
+
+let ReviewProgressBars = (props) => {
+
+  let progresses = getProgressArr(props.ratings);
+
+  return (
+    <>
+      <h4>100% of reviewers recommend this product</h4>
+      <>
+        {progresses.map((progress, index) => (
+          <div className='review-progress'>
+            <label>{index + 1} stars</label>
+            <progress key={index} value={progress} max='100'></progress>
+          </div>
+        ))}
+      </>
+    </>
   );
 }
 

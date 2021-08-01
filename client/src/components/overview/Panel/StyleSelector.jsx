@@ -8,7 +8,7 @@ const StyleSelector = (props) => {
   }
   return (
     <>
-      <div id='style-text'>
+      <div id='style-text' aria-label="styleCollectionThumbnails">
         <h3>STYLE ></h3>
         <p>{props.currentStyle.name}</p>
       </div>

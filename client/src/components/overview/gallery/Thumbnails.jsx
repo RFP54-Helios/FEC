@@ -8,6 +8,7 @@ const Thumbnails = (props) => {
       }}
       className="thumbnail"
       src={props.thumbnail}
+      aria-label="imageGalleryThumbnails"
     ></img>
   );
 };

@@ -1,8 +1,6 @@
 import Stars from '../Stars.jsx';
 import React, { useState, useContext, useEffect } from 'react';
 import Reviews from './Reviews.jsx';
-import sampleReviews from './sample-reviews.json';
-import sampleMeta from './sample-meta.json';
 import { ProductContext } from '../../App.jsx';
 import { getFromApi, averageRating, getProgressArr } from '../../helperFunctions.js';
 
@@ -78,7 +76,7 @@ let ReviewProgressBars = (props) => {
       <>
         {progresses.map((progress, index) => (
           <div className='review-progress'>
-            <label>{index + 1} stars</label>
+            <label>{5 - index} stars</label>
             <progress key={index} value={progress} max='100'></progress>
           </div>
         ))}

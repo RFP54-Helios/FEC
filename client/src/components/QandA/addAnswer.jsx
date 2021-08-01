@@ -1,5 +1,6 @@
 import React, {useState, useContext} from 'react';
 import { ProductContext } from "../../App.jsx";
+import axios from 'axios';
 
 
 const Addanswer = (props) => {
@@ -10,24 +11,26 @@ const Addanswer = (props) => {
   const [photo, setPhoto] = useState([]);
 
 
-  // const submitForm = () => {
-  //   const formData = new FormData();
-  //   formData.append("name", name);
-  //   formData.append("file", selectedFile);
+  const submitForm = () => {
+    // const formData = new FormData();
+    // formData.append("name", name);
+    // formData.append("body", body);
+    // formData.append("email", email);
+    // formData.append("file", selectedFile);
 
-  //   axios
-  //     .post(UPLOAD_URL, formData)
-  //     .then((res) => {
-  //       alert("File Upload success");
-  //     })
-  //     .catch((err) => alert("File Upload Error"));
-  // };
+    axios
+      .post(`http://localhost:3000/hr-rfp/qa/questions/${props.questionId}/answers`, {body: body, name: name, email: email})
+      .then((res) => {
+        alert("File Upload success");
+      })
+      .catch((err) => alert("File Upload Error"));
+  };
 
   return (props.trigger) ? (
     <div className='popup'>
       <div className='inner'>
         <h4 id='answer-modal-title'>Submit your Answer</h4>
-        <h3>{product.currentProduct.name}: {props.question}</h3>
+        <h3>{product.currentProduct.name}: {props.questionBody}</h3>
         <form>
           <label><span class='red-star'>*</span>Your Answer:</label>
           <textarea maxlength='1000' id="type-answer" value={body} onChange={(e) => setBody(e.target.value)}></textarea>
@@ -40,8 +43,7 @@ const Addanswer = (props) => {
           <label>Upload your photos:</label>
           <PhotoUploader photo={photo} setPhoto={setPhoto} />
 
-
-          <button id='submit-answer-btn'>Submit</button>
+          <button id='submit-answer-btn' onClick={(e) => { e.preventDefault(); submitForm(); props.setTrigger(); }}>Submit</button>
           <button className='close-btn' onClick={() => props.setTrigger()}>close</button>
 
         </form>

@@ -1,5 +1,6 @@
 import React, {useState, useContext, useEffect} from 'react';
-import QandAList from './q&aList.jsx';
+import QuestionList from './questionList.jsx';
+import AddQuestion from './addQuestion.jsx';
 import { ProductContext } from "../../App.jsx";
 import axios from 'axios';
 
@@ -9,17 +10,18 @@ const QandA = (props) => {
   const [searching, setSearching] = useState('');
   const [seeMoreQuestions, setSeeMoreQuestions] = useState(false);
   const toggleMoreQuestions = () => setSeeMoreQuestions(!seeMoreQuestions);
+  const [addQuestionPopup, setAddQuestionPopup] = useState(false);
   let moreQuestions = questionData.slice(4);
   let moreQuestionsBtn;
 
   if (questionData.length > 4) {
     moreQuestionsBtn =
-  <div><button onClick={() => {toggleMoreQuestions();}}>More Answered Questions</button></div>
+    <div><button className='see-more-questions' onClick={() => {toggleMoreQuestions();}}>More Answered Questions</button></div>
   }
   if (seeMoreQuestions===true) {
     moreQuestionsBtn = null;
   }
-  // http://localhost:3000/hr-rfp/qa/questions/:question_id=104613
+
 
   useEffect(() => {
     axios
@@ -37,13 +39,14 @@ const QandA = (props) => {
       <input className='search' type='text' value={searching} placeholder='Have a question? Search for answers…' onChange={() => setSearching(event.target.value)} />
       <div id='body'>
       {questionData.slice(0, 4).map(question =>
-        <QandAList question={question} />
+        <QuestionList question={question} />
       )}
-
       {moreQuestionsBtn}
       {seeMoreQuestions===true ? <ViewMoreQuestions questions={moreQuestions} /> : null}
       </div>
-      <button>Ask your question</button>
+      <button className='ask-question-btn' onClick={(e) => {e.preventDefault(); setAddQuestionPopup(true)}}>Ask your question</button>
+      <AddQuestion trigger={addQuestionPopup} setTrigger={setAddQuestionPopup}>
+      </AddQuestion>
     </div>
   )
 };
@@ -59,8 +62,8 @@ const ViewMoreQuestions = (props) => {
   return (
     <>
     <div>
-    {twoQuestions.map(question =>
-      <QandAList question={question}/>
+    {props.questions.map(question =>
+      <QuestionList question={question}/>
     )}
     </div>
     {moreQBtn ? <button onClick={() => { toggleMoreQBtn(); }}>See more questions</button> : null}

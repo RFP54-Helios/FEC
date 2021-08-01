@@ -10,19 +10,20 @@ const Reviews = (props) => {
   }
 
   return (
-    <div>
-      <h3>{totalReviews} reviews, sorted by {props.ratings.sort}</h3>
+    <>
+      <h3>{totalReviews} reviews, sorted by {props.sortBy}</h3>
       <ReviewsList ratings={props.ratings} />
-    </div>
+    </>
   );
 }
 Reviews.propTypes = {
   ratings: PropTypes.object.isRequired,
+  sortBy: PropTypes.string.isRequired,
 }
 
 const ReviewsList = (props) => {
   return (
-    <div>
+    <>
       <h4>Reviews List</h4>
       <ul>
         {props.ratings.reviews.map(review => (
@@ -31,7 +32,7 @@ const ReviewsList = (props) => {
           </li>
         ))}
       </ul>
-    </div>
+    </>
   );
 }
 ReviewsList.propTypes = {
@@ -48,14 +49,14 @@ const ReviewsListItem = (props) => {
   }
 
   return (
-    <div>
+    <>
       <p className="reviewer-name">{props.review.reviewer_name}</p>
       <h4>{props.review.summary}</h4>
       <p>{displayBody}</p>
       <p>Helpful?</p>
       <span className="review-helpfulness">Yes </span>
       <p>({props.review.helpfulness})</p>
-    </div>
+    </>
   )
 }
 ReviewsListItem.propTypes = {

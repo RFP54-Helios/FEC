@@ -12,8 +12,8 @@ const Ratings = (props) => {
   const [product, setProduct] = useContext(ProductContext);
 
   // component level state
+  const [sortBy, setSortBy] = useState('relevant')
   const [ratings, setRatings] = useState({
-    sort: 'relevant',
     reviews: sampleReviews.results,
     meta: sampleMeta
   });
@@ -25,7 +25,7 @@ const Ratings = (props) => {
       getFromApi('reviews', {
         product_id: product.product_id,
         count: 6,
-        sort: ratings.sort
+        sort: sortBy
       }),
       getFromApi(`reviews/meta?product_id=${product.product_id}`)
     ])
@@ -51,6 +51,7 @@ const Ratings = (props) => {
       <div id='ratings-container-right'>
         <Reviews
           ratings={ratings}
+          sortBy={sortBy}
         />
       </div>
     </div>

@@ -14,8 +14,8 @@ const Ratings = (props) => {
   // component level state
   const [sortBy, setSortBy] = useState('relevant')
   const [ratings, setRatings] = useState({
-    reviews: sampleReviews.results,
-    meta: sampleMeta
+    reviews: [],
+    meta: {}
   });
 
   // run on component render
@@ -52,6 +52,7 @@ const Ratings = (props) => {
         <Reviews
           ratings={ratings}
           sortBy={sortBy}
+          product_id={product.product_id}
         />
       </div>
     </div>

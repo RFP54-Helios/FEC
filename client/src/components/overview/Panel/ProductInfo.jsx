@@ -16,7 +16,7 @@ const ProductInfo = (props) => {
     <div id='info-text'>
       <p>{product.currentProduct.category}</p>
       <h1>{product.currentProduct.name}</h1>
-      <p>{price}</p>
+      {price}
       <img className='social' src='https://facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png?w=512&h=512'></img>
     </div>
   )

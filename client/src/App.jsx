@@ -11,7 +11,6 @@ import { getProduct, getStyles, getRatings, postToApi } from './helperFunctions.
 // import items from './components/RelatedItems/sampleData.json';
 import {questionList, answerList} from './components/QandA/sampledata.js';
 
-
 export const ProductContext = React.createContext([{}, () => {}]);
 
 let App = () => {
@@ -22,6 +21,7 @@ let App = () => {
     styles: [],
     ratings: []
   })
+  const [currentStyle, setCurrentStyle] = useState({ photos: [] });
 
   useEffect(() => {
     Promise.all([
@@ -42,20 +42,11 @@ let App = () => {
 
   return (
     <ProductContext.Provider value={[product, setProduct]}>
-      <h2>FEC</h2>
-      <button onClick={() => {
-        setProduct(prevState => ({
-          ...prevState,
-          product_id: prevState.product_id + 1
-        }))
-      }}>
-        {`${product.product_id}`}
-      </button>
-      <h3>{product.currentProduct.name}</h3>
-      <h4>{product.currentProduct.slogan}</h4>
-      <p>{product.currentProduct.description}</p>
+      <header><h2>FEC</h2></header>
       <div id='overview'>
-        <Overview />
+        <Overview
+          currentStyle={currentStyle}
+          setCurrentStyle={setCurrentStyle}/>
       </div>
       <div className='widget'>
         <Outfits />

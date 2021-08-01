@@ -22,7 +22,7 @@ const Overview = (props) => {
       <div id="overview-components">
         <Gallery currentStyle={currentStyle} />
         <div id="detail-components">
-          <Rating />
+          <Rating ratings={product.ratings} />
           <ProductInfo id="info" currentStyle={currentStyle} />
           <StyleSelector
             id="styles"

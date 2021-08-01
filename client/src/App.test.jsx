@@ -11,13 +11,13 @@ describe('State', () => {
     expect(getByText(/FEC/i)).toBeInTheDocument();
   })
 
-  it('Should update state when a related item is clicked', () => {
-    const {getByText} = render(<App />)
+  // it('Should update state when a related item is clicked', () => {
+  //   const {getByText} = render(<App />)
 
-    expect(getByText(/17069/)).toBeInTheDocument();
-    fireEvent.click(getByText(/17069/));
-    expect(getByText(/17070/)).toBeInTheDocument();
-  })
+  //   expect(getByText(/17069/)).toBeInTheDocument();
+  //   fireEvent.click(getByText(/17069/));
+  //   expect(getByText(/17070/)).toBeInTheDocument();
+  // })
 
   it('Should display the correct name of the current product', () => {
     const {getByText} = render(<App />);

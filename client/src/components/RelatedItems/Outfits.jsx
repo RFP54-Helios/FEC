@@ -5,8 +5,8 @@ import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { ProductContext } from "../../App.jsx";
 // import items from './sampleData.json';
-import AddOutfits from './AddOutfits.jsx';
-import AddRelated from './AddRelated.jsx';
+import AddOutfits from './addOutfits.jsx';
+import AddRelated from './addRelated.jsx';
 import { getProduct, getFromApi } from '../../helperFunctions.js';
 
 

@@ -43,7 +43,7 @@ const Ratings = (props) => {
   return (
     <div id='ratings-container'>
       <div id='ratings-container-left'>
-        <h3>Ratings & Reviews</h3>
+        <h2 className='ratings-h2'>Ratings & Reviews</h2>
         <div id='ratings-container-small'>
           <p id='ratings-rating-large'>{averageRating(product.ratings)}</p>
           <Stars

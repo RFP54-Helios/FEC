@@ -13,7 +13,7 @@ const Reviews = (props) => {
 
   return (
     <>
-      <h3>{totalReviews} reviews, sorted by {props.sortBy}</h3>
+      <h3 className='ratings-h3'>{totalReviews} reviews, sorted by {props.sortBy}</h3>
       <ReviewsList
         ratings={props.ratings}
         product_id={props.product_id}

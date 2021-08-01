@@ -54,8 +54,10 @@ export function postToApi(queryOptions, callback) {
   });
 }
 
-// Stars
-export function calculateStars(ratings) {
+// return a weighted average of input `ratings` object
+// expected input shape: {1: "16", 2: "8", 3: "6", 4: "4", 5: "9"}
+// from `getRatings()` API helper function
+export function averageRating(ratings) {
   let totalCount = 0;
   let totalRatings = 0;
 
@@ -65,7 +67,7 @@ export function calculateStars(ratings) {
     totalRatings += count * Number(rating);
   }
 
-  // round weightedAverage to nearest quarter
+  // round weightedAverage to nearest half
   let weightedAverage = totalRatings / totalCount
   return Math.round(weightedAverage * 2) / 2;
 }
@@ -74,8 +76,10 @@ export function calculateStars(ratings) {
 // 1 = full
 // 0 = empty
 // 0.5 = half
+// expected input shape: {1: "16", 2: "8", 3: "6", 4: "4", 5: "9"}
+// output shape: [1, 1, 0.5, 0, 0]
 export function getStarsArr(ratings) {
-  let starsCount = calculateStars(ratings);
+  let starsCount = averageRating(ratings);
   let arrStars = [];
 
   for (let i = 0; i < 5; i++) {

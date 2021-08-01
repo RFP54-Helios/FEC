@@ -179,7 +179,7 @@ h2 {
   margin-bottom: 180px;
   align-self: center;
 }
-.closeOutfit {
+.removeOutfit {
  /* align-self: flex-end;
  align-content: flex-end; */
  align-items: flex-end;
@@ -192,6 +192,7 @@ h2 {
 .openModal {
 position: absolute;
 margin:5px 5px 310px 200px;
+font-size: 1.3rem;
 
 }
 .relatedThumbnail {

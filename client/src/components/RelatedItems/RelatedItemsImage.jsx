@@ -6,6 +6,9 @@ import AddRelated from './addRelated.jsx';
 import { ProductContext } from "../../App.jsx";
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { getProduct, getFromApi, getStyles } from '../../helperFunctions.js';
+import { FiStar } from 'react-icons/fi';
+import { BsStarFill } from 'react-icons/bs';
+
 
 
 const RelatedItemsImage = (props) => {
@@ -22,12 +25,12 @@ const RelatedItemsImage = (props) => {
 
   return (
     <div>
-      <div className="img_container" ><FontAwesomeIcon icon={faStar} className="openModal" />
+      <div className="img_container" ><FiStar className="openModal" />
         <div>{props.url ?<img onClick={handleItemClick} src={props.url} className="relatedThumbnail" ></img> : <img onClick={handleItemClick} src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_1jx9qlGd7Sa2fu4OmG39Ygg3O3g31UWsRonvUoXhnxGXtYqd1qavX3lhTs1PhO2eWFI&usqp=CAU"></img>}</div>
         <div>{props.category}</div>
         <div>{props.name}</div>
         <div>{props.sale_label}{props.price_label}</div>
-        <div>★★★★★</div>
+        <div>*****</div>
       </div>
     </div>
   )

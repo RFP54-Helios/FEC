@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons'
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
-// import items from './sampleData.json';
+import Stars from '../Ratings/Stars.jsx';
 import RelatedItemsImage from './RelatedItemsImage.jsx';
 import AddOutfits from './AddOutfits.jsx';
 import Outfits from './AddOutfits.jsx'
@@ -49,6 +49,7 @@ const AddRelated = (props) => {
       Promise.all([
         getProduct(id),
         getStyles(id)
+
 
       ])
         .then((productData) => {
@@ -138,7 +139,7 @@ const AddRelated = (props) => {
 
               <div>
 
-              <RelatedItemsImage url = {defaultStyle.photos[0].url} id = {item.id}  category = {item.category} name = {item.name} sale_label = {sale_label}price_label = {price_label} />
+              <RelatedItemsImage url = {defaultStyle.photos[0].url} id = {item.id}  category = {item.category} name = {item.name} sale_label = {sale_label}price_label = {price_label} ratings = {ratings} />
               </div>
             )
 

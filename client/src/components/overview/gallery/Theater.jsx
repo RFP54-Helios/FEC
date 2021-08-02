@@ -4,11 +4,6 @@ import addZoom from './addZoom';
 
 const Theater = (props) => {
   let style = {
-    height: '90%',
-    width: '90%',
-    margin: 'auto',
-    marginTop: '35px',
-    backgroundColor: 'black',
     backgroundSize: 'contain',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
@@ -17,7 +12,12 @@ const Theater = (props) => {
 
   return (
     <div className="modal">
-      <div style={style} id="zoom-img" onClick={(e) => addZoom('zoom-img')}>
+      <div id="modal-content">
+        <div
+          style={style}
+          id="zoom-img"
+          onClick={(e) => addZoom('zoom-img')}
+        ></div>
         <button
           id="modal-close"
           onClick={() => props.toggleExpandedView(false)}

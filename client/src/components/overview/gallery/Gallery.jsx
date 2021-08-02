@@ -3,7 +3,6 @@ import Arrows from './Arrows';
 import Thumbnails from './Thumbnails';
 import Theater from './Theater';
 
-
 const Gallery = ({ expandedView, toggleExpandedView, currentStyle }) => {
   const [currentImage, setCurrentImage] = useState(
     'https://i.gifer.com/YCZH.gif'
@@ -29,12 +28,16 @@ const Gallery = ({ expandedView, toggleExpandedView, currentStyle }) => {
 
   return (
     <>
-      <div id="gallery">
-        <img
-          id="gallery-image"
-          src={currentImage}
-          onClick={() => toggleExpandedView(true)}
-        />
+      <div
+        id="gallery"
+        style={{
+          backgroundImage: `url(${currentImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+        onClick={() => toggleExpandedView(true)}
+      >
         <span id="carousel-thumbnails">
           {currentStyle.photos.map((photoUrls, i) => {
             return (

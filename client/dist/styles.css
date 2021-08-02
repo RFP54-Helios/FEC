@@ -224,7 +224,7 @@ img {
 
 .thumbnail {
   height: 65px;
-  width: auto;
+  width: 65px;
   margin: 10px 20px;
   border: 1px solid white;
   background-size: cover;

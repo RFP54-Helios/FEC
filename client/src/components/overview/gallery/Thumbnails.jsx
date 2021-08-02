@@ -2,14 +2,14 @@ import React, { useContext, useEffect } from "react";
 
 const Thumbnails = (props) => {
   return (
-    <img
+    <button
       onClick={() => {
         props.handleClick(props.index);
       }}
       className="thumbnail"
-      src={props.thumbnail}
+      style={{backgroundImage: `url(${props.thumbnail})`}}
       aria-label="imageGalleryThumbnails"
-    ></img>
+    ></button>
   );
 };
 

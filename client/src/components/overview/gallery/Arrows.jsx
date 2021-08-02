@@ -34,7 +34,7 @@ const Arrows = (props) => {
             props.handleLeftClick();
           }}
         >
-          ‹
+          &lt;
         </button>
       ) : null}
       {!isRightmost ? (
@@ -46,7 +46,7 @@ const Arrows = (props) => {
             props.handleRightClick();
           }}
         >
-          ›
+          &gt;
         </button>
       ) : null}
     </div>

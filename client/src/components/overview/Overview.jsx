@@ -22,7 +22,8 @@ const Overview = (props) => {
       <div id="overview-components">
         <Gallery
           currentStyle={props.currentStyle}
-          onClick={() => toggleExpandedView(!expandedView)}
+          expandedView={expandedView}
+          toggleExpandedView={toggleExpandedView}
         />
         <div id="detail-components">
           <Rating ratings={product.ratings} />

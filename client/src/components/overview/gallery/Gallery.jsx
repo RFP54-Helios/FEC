@@ -3,15 +3,16 @@ import Arrows from './Arrows';
 import Thumbnails from './Thumbnails';
 import Theater from './Theater';
 
-const Gallery = ({ currentStyle }) => {
-  const [currentImage, setCurrentImage] = useState({ backgroundColor: 'grey' });
+
+const Gallery = ({ expandedView, toggleExpandedView, currentStyle }) => {
+  const [currentImage, setCurrentImage] = useState(
+    'https://i.gifer.com/YCZH.gif'
+  );
   const [galleryImageIndex, setGalleryImageIndex] = useState(0);
 
   useEffect(() => {
     if (!currentStyle.photos.length) return;
-    setCurrentImage({
-      backgroundImage: `url(${currentStyle.photos[galleryImageIndex].url})`,
-    });
+    setCurrentImage(currentStyle.photos[galleryImageIndex].url);
   }, [currentStyle, galleryImageIndex]);
 
   const handleLeftArrowClick = () => {
@@ -28,7 +29,12 @@ const Gallery = ({ currentStyle }) => {
 
   return (
     <>
-      <div id="gallery" style={currentImage}>
+      <div id="gallery">
+        <img
+          id="gallery-image"
+          src={currentImage}
+          onClick={() => toggleExpandedView(true)}
+        />
         <span id="carousel-thumbnails">
           {currentStyle.photos.map((photoUrls, i) => {
             return (
@@ -41,7 +47,9 @@ const Gallery = ({ currentStyle }) => {
             );
           })}
         </span>
-        <button id="expand">[ ]</button>
+        <button id="expand" onClick={() => toggleExpandedView(true)}>
+          [ ]
+        </button>
         <Arrows
           id="arrows"
           handleLeftClick={handleLeftArrowClick}
@@ -50,7 +58,17 @@ const Gallery = ({ currentStyle }) => {
           lastIndex={currentStyle.photos.length - 1}
         />
       </div>
-      {expandedView ? <Theater /> : null}
+      {expandedView ? (
+        <Theater
+          image={currentStyle.photos[galleryImageIndex].url}
+          currentStyle={currentStyle}
+          handleLeftClick={handleLeftArrowClick}
+          handleRightClick={handleRightArrowClick}
+          toggleExpandedView={toggleExpandedView}
+          imageIndex={galleryImageIndex}
+          lastIndex={currentStyle.photos.length - 1}
+        />
+      ) : null}
     </>
   );
 };

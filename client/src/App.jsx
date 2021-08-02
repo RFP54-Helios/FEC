@@ -39,7 +39,7 @@ let App = () => {
 
   return (
     <ProductContext.Provider value={[product, setProduct]}>
-      <header><h2>FEC</h2></header>
+      <header><h2>Atelier</h2></header>
       <div id='overview'>
         <Overview
           currentStyle={currentStyle}

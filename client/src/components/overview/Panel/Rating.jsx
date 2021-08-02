@@ -1,5 +1,5 @@
-import React, { useRef, useEffect } from 'react';
-import Stars from '../../../Stars.jsx';
+import React from 'react';
+import Stars from '../../Stars.jsx';
 
 const Rating = ({ ratings }) => {
   return (

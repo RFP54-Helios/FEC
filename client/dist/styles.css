@@ -371,7 +371,7 @@ p {
 #ratings-container {
   display: flex;
   flex-direction: row;
-  height: 500px;
+  height: 600px;
 }
 
 #ratings-container-left {
@@ -379,7 +379,7 @@ p {
   flex-direction: column;
   width: 30%;
   height: 100%;
-  border: 2px solid black;
+  gap: 15px;
 }
 
 #ratings-container-right {
@@ -387,27 +387,80 @@ p {
   flex-direction: column;
   width: 70%;
   height: 100%;
-  border: 2px solid black;
   overflow-y: auto;
 }
 
+#ratings-container-small {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 8px;
+}
+
+#ratings-rating-large {
+  font-size: 4em;
+  font-weight: bold;
+  margin: 0 15px 0 0;
+}
+
 .reviews-list-item {
-  border: 2px solid black;
+  border-bottom: 2px solid black;
   margin: 5px;
-  padding: 5px;
+  padding: 35px 0;
   min-height: 100px;
+  width: 95%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-start;
 }
 
+.review-progress {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
 .reviewer-name {
   color: blue;
+  display: inline-block;
+}
+
+.review-helpfulness {
+  text-decoration: underline;
+  margin: 8px;
 }
 
 .review-helpfulness:hover {
   color: blue;
+  text-decoration: underline;
+}
+
+.reviews-btn {
+  font-weight: bold;
+  width: 175px;
+  height: 50px;
+  margin-left: 50px;
+}
+
+.reviews-row {
+  display: flex;
+}
+
+.reviews-row-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%
+}
+
+.ratings-h3 {
+  margin: 70px 0 0 45px;
+}
+
+.ratings-h2 {
+  margin: 0 0 15px 0;
 }
 
 /* ---------------------- Questions & Answers ---------------------- */

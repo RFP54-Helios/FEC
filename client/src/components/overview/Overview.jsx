@@ -1,39 +1,37 @@
-import React, { useContext, useState, useEffect } from 'react';
-import Gallery from './gallery/Gallery.jsx';
-import ProductInfo from './Panel/ProductInfo.jsx';
-import StyleSelector from './Panel/StyleSelector.jsx';
-import AddToCart from './Panel/AddToCart.jsx';
-import Rating from './Panel/Rating.jsx';
-import DescriptionText from './Description/DescriptionText.jsx';
-import Features from './Description/Features.jsx';
-import { ProductContext } from '../../App.jsx';
+import React, { useContext, useState, useEffect } from "react";
+import Gallery from "./gallery/Gallery.jsx";
+import ProductInfo from "./Panel/ProductInfo.jsx";
+import StyleSelector from "./Panel/StyleSelector.jsx";
+import AddToCart from "./Panel/AddToCart.jsx";
+import Rating from "./Panel/Rating.jsx";
+import DescriptionText from "./Description/DescriptionText.jsx";
+import Features from "./Description/Features.jsx";
+import { ProductContext } from "../../App.jsx";
 
 const Overview = (props) => {
   const [product, setProduct] = useContext(ProductContext);
-  const [currentStyle, setCurrentStyle] = useState({ photos: [] });
 
   useEffect(() => {
     if (!product.styles.length) return;
-    setCurrentStyle(product.styles[0]);
+    props.setCurrentStyle(product.styles[0]);
   }, [product]);
 
   return (
     <>
       <div id='overview-components'>
         <Gallery
-          currentStyle={currentStyle}
-          setCurrentStyle={setCurrentStyle} />
+          currentStyle={props.currentStyle}/>
         <div id='detail-components'>
-          <Rating />
+          <Rating ratings={product.ratings}/>
           <ProductInfo id='info'
-            currentStyle={currentStyle}/>
+            currentStyle={props.currentStyle}/>
           <StyleSelector id='styles'
-            currentStyle={currentStyle}
-            setCurrentStyle={setCurrentStyle}/>
+            currentStyle={props.currentStyle}
+            setCurrentStyle={props.setCurrentStyle}/>
           <AddToCart />
         </div>
       </div>
-      <div id='product-description'>
+      <div id="product-description">
         <DescriptionText />
         <Features />
       </div>

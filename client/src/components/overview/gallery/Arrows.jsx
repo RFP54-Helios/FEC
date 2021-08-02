@@ -24,27 +24,29 @@ const Arrows = (props) => {
   });
 
   return (
-    <div id="arrows">
+    <div id="arrows" aria-label="img_nav">
       {!isLeftmost ? (
         <button
           className="arrow"
           id="left-arrow"
+          aria-label="previous"
           onClick={() => {
             props.handleLeftClick();
           }}
         >
-          ‹
+          &lt;
         </button>
       ) : null}
       {!isRightmost ? (
         <button
           className="arrow"
           id="right-arrow"
+          aria-label="next"
           onClick={() => {
             props.handleRightClick();
           }}
         >
-          ›
+          &gt;
         </button>
       ) : null}
     </div>

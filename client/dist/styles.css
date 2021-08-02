@@ -3,7 +3,12 @@ body {
   margin: 0;
 }
 
-p, h1, h3, h4, h5, h6 {
+p,
+h1,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   padding: 0;
 }
@@ -25,7 +30,6 @@ p, h1, h3, h4, h5, h6 {
   border: 5px solid black;
 }
 
-
 .widget {
   border: 2px solid black;
   height: 1000px;
@@ -35,6 +39,11 @@ p, h1, h3, h4, h5, h6 {
 
 header {
   margin: 15px;
+}
+
+img {
+  max-height: 100%;
+  max-width: 100%;
 }
 
 /* ---------------------- Overview ---------------------- */
@@ -57,8 +66,13 @@ header {
   display: grid;
   grid-template-columns: 10px 100px auto 40px 10px;
   grid-template-rows: 10px 30px 1fr 1fr 50px 1fr 1fr;
-  background: transparent no-repeat center;
-  background-size: contain;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+#gallery-image {
+  position: relative;
+  object-fit: cover;
 }
 
 #expand {
@@ -72,12 +86,64 @@ header {
   border: 1px solid black;
 }
 
-#arrows {
+#gallery #arrows {
   display: grid;
   grid-template-columns: 30px auto 30px;
   grid-column: 3 / span 2;
   grid-row-start: 5;
   margin-left: 10px;
+}
+
+.modal {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+#modal-content {
+  display: grid;
+  grid-template-columns: 1fr 55px;
+  grid-template-rows: 30px 1fr 30px 1fr;
+  height: 90%;
+  width: 90%;
+  margin: auto;
+  margin-top: 35px;
+  background-color: black;
+}
+
+#modal-close {
+  grid-column-start: 2;
+  grid-row-start: 1;
+  color: white;
+  background-color: transparent;
+  border: none;
+}
+
+#modal-close:hover {
+  background-color: grey;
+  font-weight: bold;
+}
+
+#modal-content #arrows {
+  display: grid;
+  grid-template-columns: 30px auto 30px;
+  grid-row-start: 3;
+  grid-column: 1 / 4;
+  width: 100%;
+}
+
+#zoom-img {
+  grid-row: 1 / 5;
+  grid-column: 1 / 3;
 }
 
 #left-arrow {
@@ -92,14 +158,28 @@ header {
   font-size: 48px;
   vertical-align: middle;
   background: transparent;
-  color: grey;
-  border: none;
+  color: black;
+  border: white;
 }
 
 .arrow:hover {
   cursor: pointer;
   text-align: center;
+  color: grey;
+}
+
+#modal-content .arrow {
+  font-size: 48px;
+  vertical-align: middle;
+  background: transparent;
   color: white;
+  border: black;
+}
+
+#modal-content .arrow:hover {
+  cursor: pointer;
+  text-align: center;
+  color: grey;
 }
 
 #detail-components {
@@ -138,18 +218,21 @@ header {
   display: flex;
   flex-direction: column;
   grid-column-start: 2;
+  grid-row: 2 / span 6;
+  position: relative;
 }
 
 .thumbnail {
-  height:65px;
+  height: 65px;
   width: auto;
   margin: 10px 20px;
   border: 1px solid white;
-  object-fit: cover;
+  background-size: cover;
+  background-position: center;
 }
 
 .thumbnail:hover {
- cursor: pointer;
+  cursor: pointer;
 }
 
 #on-sale {
@@ -160,7 +243,8 @@ header {
   color: red;
 }
 
-#info-text h1, p {
+#info-text h1,
+p {
   margin: 8px 0;
 }
 
@@ -179,7 +263,6 @@ header {
   margin-left: 5px;
 }
 
-
 #selectors {
   display: grid;
   grid-template-columns: 3fr 25px 2fr;
@@ -188,7 +271,7 @@ header {
 
 #form-buttons {
   display: grid;
-  grid-template-columns: 4fr 25px .5fr;
+  grid-template-columns: 4fr 25px 0.5fr;
 }
 
 #quantity {
@@ -396,7 +479,7 @@ thead td {
 #ratings-container {
   display: flex;
   flex-direction: row;
-  height: 500px;
+  height: 600px;
 }
 
 #ratings-container-left {
@@ -404,7 +487,7 @@ thead td {
   flex-direction: column;
   width: 30%;
   height: 100%;
-  border: 2px solid black;
+  gap: 15px;
 }
 
 #ratings-container-right {
@@ -412,27 +495,80 @@ thead td {
   flex-direction: column;
   width: 70%;
   height: 100%;
-  border: 2px solid black;
   overflow-y: auto;
 }
 
+#ratings-container-small {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 8px;
+}
+
+#ratings-rating-large {
+  font-size: 4em;
+  font-weight: bold;
+  margin: 0 15px 0 0;
+}
+
 .reviews-list-item {
-  border: 2px solid black;
+  border-bottom: 2px solid black;
   margin: 5px;
-  padding: 5px;
+  padding: 35px 0;
   min-height: 100px;
+  width: 95%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-start;
 }
 
+.review-progress {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
 .reviewer-name {
   color: blue;
+  display: inline-block;
+}
+
+.review-helpfulness {
+  text-decoration: underline;
+  margin: 8px;
 }
 
 .review-helpfulness:hover {
   color: blue;
+  text-decoration: underline;
+}
+
+.reviews-btn {
+  font-weight: bold;
+  width: 175px;
+  height: 50px;
+  margin-left: 50px;
+}
+
+.reviews-row {
+  display: flex;
+}
+
+.reviews-row-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%
+}
+
+.ratings-h3 {
+  margin: 70px 0 0 45px;
+}
+
+.ratings-h2 {
+  margin: 0 0 15px 0;
 }
 
 /* ---------------------- Questions & Answers ---------------------- */

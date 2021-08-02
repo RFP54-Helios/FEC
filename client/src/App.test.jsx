@@ -8,7 +8,7 @@ describe('State', () => {
 
   it('Should render', () => {
     const { getByText } = render(<App />);
-    expect(getByText(/FEC/i)).toBeInTheDocument();
+    expect(getByText(/Atelier/i)).toBeInTheDocument();
   })
 
   // it('Should update state when a related item is clicked', () => {

@@ -1,24 +1,72 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {cleanup, render, fireEvent, act} from '@testing-library/react';
-import { renderHook } from '@testing-library/react-hooks';
 import '@testing-library/jest-dom';
-import { getProduct, getStyles, getRatings } from '../../../helperFunctions.js';
-import DescriptionText from './DescriptionText.jsx';
+
 import { ProductContext } from "../../../App.jsx";
+import DescriptionText from './DescriptionText.jsx';
+import Features from './Features.jsx';
 
-describe.only('Slogan', () => {
-  afterEach(cleanup);
 
-  const wrapper = (children) => {
-    <ProductContext.Provider>
-      {children}
-    </ProductContext.Provider>
+describe('Context: Static Data', () => {
+  const product = {
+    currentProduct: {
+      "name":"Morning Joggers",
+      "slogan":"Make yourself a morning person","description":"Whether you're a morning person or not.  Whether you're gym bound or not.  Everyone looks good in joggers.",
+      "category":"Pants",
+      "default_price":"40.00",
+      "features":[
+        {"feature":"Fabric","value":"100% Cotton"},{"feature":"Cut","value":"Skinny"}
+      ]
+    }
   }
+  const setProduct = jest.fn();
 
-  it('Should render the correct slogan', async () => {
+  describe('Slogan and Description', () => {
+    afterEach(cleanup);
 
-    const { getByText } = render(<DescriptionText/>, wrapper);
-    await waitForElementToBeRemoved(() => getByText(/Thinking of a slogan.../i))
-    expect(getByText(/Make yourself a morning person/i)).toBeInTheDocument()
+    it('Should render the correct slogan for the default product', () => {
+
+      const { getByText } = render(
+        <ProductContext.Provider value={[product, setProduct]}>
+          <DescriptionText />
+        </ProductContext.Provider>
+      );
+
+      expect(getByText(/Make yourself a morning person/i)).toBeInTheDocument()
+    })
+
+    it('Should render the correct description for the default product', () => {
+      const { getByText } = render(
+        <ProductContext.Provider value={[product, setProduct]}>
+          <DescriptionText />
+        </ProductContext.Provider>
+      );
+
+      expect(getByText(/Whether you're a morning person/i)).toBeInTheDocument()
+    })
+  })
+
+  describe('Features', () => {
+    it('Should render the correct feature keys for the default product', () => {
+      const { getByText } = render(
+        <ProductContext.Provider value={[product, setProduct]}>
+          <Features />
+        </ProductContext.Provider>
+      );
+
+      expect(getByText(/Fabric/i)).toBeInTheDocument();
+      expect(getByText(/Cut/i)).toBeInTheDocument();
+    })
+
+    it('Should render the correct feature values for the default product', () => {
+      const { getByText } = render(
+        <ProductContext.Provider value={[product, setProduct]}>
+          <Features />
+        </ProductContext.Provider>
+      );
+
+      expect(getByText(/100% Cotton/i)).toBeInTheDocument();
+      expect(getByText(/Skinny/i)).toBeInTheDocument();
+    })
   })
 })

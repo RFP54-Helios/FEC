@@ -1,10 +1,8 @@
-import Stars from '../../Stars.jsx';
+import Stars from '../Stars.jsx';
 import React, { useState, useContext, useEffect } from 'react';
 import Reviews from './Reviews.jsx';
-import sampleReviews from './sample-reviews.json';
-import sampleMeta from './sample-meta.json';
 import { ProductContext } from '../../App.jsx';
-import { getFromApi } from '../../helperFunctions.js';
+import { getFromApi, averageRating, getProgressArr } from '../../helperFunctions.js';
 
 const Ratings = (props) => {
 
@@ -12,10 +10,10 @@ const Ratings = (props) => {
   const [product, setProduct] = useContext(ProductContext);
 
   // component level state
+  const [sortBy, setSortBy] = useState('relevant')
   const [ratings, setRatings] = useState({
-    sort: 'relevant',
-    reviews: sampleReviews.results,
-    meta: sampleMeta
+    reviews: [],
+    meta: {}
   });
 
   // run on component render
@@ -25,7 +23,7 @@ const Ratings = (props) => {
       getFromApi('reviews', {
         product_id: product.product_id,
         count: 6,
-        sort: ratings.sort
+        sort: sortBy
       }),
       getFromApi(`reviews/meta?product_id=${product.product_id}`)
     ])
@@ -45,15 +43,45 @@ const Ratings = (props) => {
   return (
     <div id='ratings-container'>
       <div id='ratings-container-left'>
-        <h3>Ratings & Reviews</h3>
-        <Stars ratings={product.ratings} />
+        <h2 className='ratings-h2'>Ratings & Reviews</h2>
+        <div id='ratings-container-small'>
+          <p id='ratings-rating-large'>{averageRating(product.ratings)}</p>
+          <Stars
+            ratings={product.ratings}
+          />
+        </div>
+      <ReviewProgressBars
+        ratings={product.ratings}
+      />
       </div>
       <div id='ratings-container-right'>
         <Reviews
           ratings={ratings}
+          sortBy={sortBy}
+          product_id={product.product_id}
         />
       </div>
     </div>
+  );
+}
+
+
+let ReviewProgressBars = (props) => {
+
+  let progresses = getProgressArr(props.ratings);
+
+  return (
+    <>
+      <h4>100% of reviewers recommend this product</h4>
+      <>
+        {progresses.map((progress, index) => (
+          <div className='review-progress'>
+            <label>{5 - index} stars</label>
+            <progress key={index} value={progress} max='100'></progress>
+          </div>
+        ))}
+      </>
+    </>
   );
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { getStarsArr } from './helperFunctions.js'
+import { getStarsArr } from '../helperFunctions.js'
 
 import { BsStar } from 'react-icons/bs';
 import { BsStarFill } from 'react-icons/bs';

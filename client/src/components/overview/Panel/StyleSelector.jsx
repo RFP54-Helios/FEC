@@ -1,14 +1,17 @@
-import React, { useContext } from "react";
-import { ProductContext } from "../../../App.jsx";
+import React, { useContext } from 'react';
+import { ProductContext } from '../../../App.jsx';
 
 const StyleSelector = (props) => {
   const [product, setProduct] = useContext(ProductContext);
+
+  // pass the index of the chosen style and change state at the overview level
   const handleStyleSelect = (index) => {
-    props.setCurrentStyle(product.styles[index])
-  }
+    props.setCurrentStyle(product.styles[index]);
+  };
+
   return (
     <>
-      <div id='style-text' aria-label="styleCollectionThumbnails">
+      <div id="style-text" aria-label="styleCollectionThumbnails">
         <h3>STYLE ></h3>
         <p>{props.currentStyle.name}</p>
       </div>
@@ -19,7 +22,9 @@ const StyleSelector = (props) => {
             src={style.photos[0].thumbnail_url}
             key={i}
             index={i}
-            onClick={() => {handleStyleSelect(i)}}
+            onClick={() => {
+              handleStyleSelect(i);
+            }}
           ></img>
         ))}
       </span>

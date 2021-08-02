@@ -1,3 +1,4 @@
+// This is borrowed functionality for image zooming in expanded view
 // CREDITS TO https://www.cssscript.com/image-zoom-pan-hover-detail-view/
 var addZoom = function (target) {
   // (A) FETCH CONTAINER + IMAGE

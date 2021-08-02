@@ -3,6 +3,7 @@ import Arrows from './Arrows.jsx';
 import addZoom from './addZoom';
 
 const Theater = (props) => {
+  // inline styling to handle url from props, API call
   let style = {
     backgroundSize: 'contain',
     backgroundPosition: 'center',

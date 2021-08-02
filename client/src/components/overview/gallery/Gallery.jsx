@@ -10,18 +10,22 @@ const Gallery = ({ expandedView, toggleExpandedView, currentStyle }) => {
   const [galleryImageIndex, setGalleryImageIndex] = useState(0);
 
   useEffect(() => {
+    // update state if the API call has resolved
     if (!currentStyle.photos.length) return;
     setCurrentImage(currentStyle.photos[galleryImageIndex].url);
   }, [currentStyle, galleryImageIndex]);
 
+  // decrement image index in array
   const handleLeftArrowClick = () => {
     setGalleryImageIndex(galleryImageIndex - 1);
   };
 
+  // increment image index in array
   const handleRightArrowClick = () => {
     setGalleryImageIndex(galleryImageIndex + 1);
   };
 
+  // move to photos index where thumbnail resides
   const handleThumbnailClick = (key) => {
     setGalleryImageIndex(key);
   };
@@ -36,7 +40,7 @@ const Gallery = ({ expandedView, toggleExpandedView, currentStyle }) => {
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
         }}
-        onClick={() => toggleExpandedView(true)}
+        // onClick={() => toggleExpandedView(true)}
       >
         <span id="carousel-thumbnails">
           {currentStyle.photos.map((photoUrls, i) => {

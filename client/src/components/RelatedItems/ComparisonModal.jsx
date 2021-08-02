@@ -10,7 +10,7 @@ const Modal = (props) => {
     return null;
   }
   return (
-    <div className="modal">
+    <div className="comparison_modal">
       <div className="modal-content">
         <div className="modal-header">
           <h4 className="modal-title">Comparing</h4>

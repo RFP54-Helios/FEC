@@ -316,7 +316,7 @@ font-size: 1.3rem;
   border: 1px solid black;
 }
 
-.modal {
+.comparison_modal {
   position: fixed;
   z-index:9999;
   left:0;

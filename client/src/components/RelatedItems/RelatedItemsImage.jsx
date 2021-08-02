@@ -8,7 +8,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { getProduct, getFromApi, getStyles } from '../../helperFunctions.js';
 import { FiStar } from 'react-icons/fi';
 import { BsStarFill } from 'react-icons/bs';
-import Stars from '../../Stars.jsx';
+import Stars from '../Stars.jsx';
 import Modal from './ComparisonModal.jsx';
 import Price from './Price.jsx';
 

@@ -6,7 +6,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { ProductContext } from "../../App.jsx";
 import Outfits from './Outfits.jsx';
-import Stars from '../../Stars.jsx';
+import Stars from '../Stars.jsx';
 import Price from './Price.jsx';
 
 const AddOutfits = (props) => {

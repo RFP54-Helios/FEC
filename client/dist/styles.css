@@ -466,12 +466,25 @@ p {
 /* ---------------------- Questions & Answers ---------------------- */
 
 #qa {
-  height: 500px;
+  padding: 5px;
+  padding-right: 1px;
+  background-color:white;
+  max-height: 520px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#body {
+  background-color: white;
+  overflow-y: auto;
+  overflow-x:visible;
+  flex: 1;
 }
 
 .search {
   height: 30px;
-  width: 700px;
+  width: 70%;
   font-size: 14px;
   background-image: url(https://cdn2.hubspot.net/hubfs/4004166/bioticresearch_website_assets/images/search_icon.png);
   background-repeat: no-repeat;
@@ -480,3 +493,151 @@ p {
   background-color: #fff;
   border: 1px;
 }
+
+.question-head {
+margin-top: 7px;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner {
+  position: relative;
+  padding: 32px;
+  width: 100%;
+  max-width: 800px;
+  background-color: #fff;
+}
+
+#answer-modal-title {
+  position: relative;
+  bottom: 10px;
+}
+
+.red-star, #alert {
+  color: red;
+}
+
+#type-answer {
+  width:80%;
+  height: 100px;
+  margin: 8px;
+}
+
+.answer-name, .answer-email {
+  margin-top: 5px;
+  width: 280px;
+  height: 20px;
+}
+
+.popup-text, #alert, .error {
+  font-size: 15px;
+  font-style: italic;
+}
+
+#submit-answer-btn, #submit-question-btn {
+  margin-left: 20px;
+  margin-top:15px;
+  width: 100px;
+  cursor:pointer;
+  height: 30px;
+  background-color: rgb(238, 238, 44);
+  color: black;
+  border: none;
+  border-radius: 10px;
+}
+
+#submit-answer-btn:hover {
+  background-color: rgb(238, 215, 9);
+}
+
+#submit-question-btn:hover {
+  background-color: rgb(238, 215, 9);
+}
+
+.close-btn {
+  margin-left: 570px;
+  width: 100px;
+  height: 30px;
+  background-color: transparent;
+  border: 3px solid #E8E8E8;
+  border-radius: 10px;
+  color: black;
+  cursor:pointer;
+}
+
+.close-btn:hover {
+  background-color:#dbd7d7;
+}
+
+#answer-img {
+  width: 40px;
+  height: 40px;
+  border: 0.5px;
+  border-radius: 3px;
+}
+
+#select-photo {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.answerer-info {
+  color:rgb(90, 86, 86);
+  margin-left: 23px;
+}
+
+#answerer-posted-img {
+  width: 80px;
+  height: 80px;
+  border: 0.5px;
+  border-radius: 3px;
+}
+
+.see-more-answers-click, .question-helpful-click,
+.add-answer-click,.answer-report-click,
+.answer-helpful-link, .see-more-answers-collapse {
+  color:rgb(25, 67, 192);
+}
+
+.see-more-answers-click:hover {
+  color:darkorange;
+  cursor:pointer;
+}
+
+.see-more-answers-collapse:hover {
+  color:darkorange;
+  cursor:pointer;
+}
+
+.see-more-questions {
+  height:25px;
+  margin-left:20px;
+  cursor:pointer;
+}
+
+.ask-question-btn {
+  height:28px;
+  width: 30%;
+  cursor: pointer;
+  background-color: transparent;
+  border: 3px solid #E8E8E8;
+  border-radius: 10px;
+  color: black;
+  margin-left: 300px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.ask-question-btn:hover {
+  background-color:rgb(231, 228, 228);
+}
+/* ---------------------- End of Questions & Answers ---------------------- */

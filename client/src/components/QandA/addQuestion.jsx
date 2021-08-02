@@ -12,9 +12,9 @@ const AddQuestion = (props) => {
     axios
       .post(`http://localhost:3000/hr-rfp/qa/questions`, {body: body, name: name, email: email, product_id: product.product_id})
       .then((res) => {
-        alert("File Upload success");
+        alert("Question posted!");
       })
-      .catch((err) => alert("File Upload Error"));
+      .catch((err) => alert("Post failed..."));
   };
 
 
@@ -33,8 +33,8 @@ const AddQuestion = (props) => {
           <label><span class='red-star'>*</span>Your email:</label>
           <input type='text' class='answer-email' value={email} maxlength='60' placeholder='Why did you like the product or not?' onChange={(e) => setEmail(e.target.value)}></input>
           <p class='popup-text'>For authentication reasons, you will not be emailed</p>
-          <button id='submit-answer-btn' onClick={(e) => { e.preventDefault(); submitForm(); props.setTrigger(); }}>Submit question</button>
           <button className='close-btn' onClick={() => props.setTrigger()}>close</button>
+          <button id='submit-question-btn' onClick={(e) => { e.preventDefault(); submitForm(); props.setTrigger(); }}>Post</button>
         </form>
       </div>
     </div>

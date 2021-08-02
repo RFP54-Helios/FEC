@@ -11,9 +11,8 @@ const QandA = (props) => {
   const [seeMoreQuestions, setSeeMoreQuestions] = useState(false);
   const toggleMoreQuestions = () => setSeeMoreQuestions(!seeMoreQuestions);
   const [addQuestionPopup, setAddQuestionPopup] = useState(false);
-  let moreQuestions = questionData.slice(4);
-  let moreQuestionsBtn;
 
+  let moreQuestionsBtn;
   if (questionData.length > 4) {
     moreQuestionsBtn =
     <div><button className='see-more-questions' onClick={() => {toggleMoreQuestions();}}>
@@ -23,25 +22,38 @@ const QandA = (props) => {
     moreQuestionsBtn = null;
   }
 
+  let searchResult;
+  if (searching.length < 3) {
+    searchResult = questionData;
+  } else {
+    moreQuestionsBtn = null;
+    searchResult = questionData.filter((question) => {
+      const questionContent = question.question_body.toLowerCase();
+      return questionContent.includes(searching);
+    });
+  }
+  let moreQuestions = searchResult.slice(4);
+  // let sortedQuestionList;
+  // sortedQuestionList= Object.values(questionData).sort(function(a, b) {
+  //   return b.question_helpfulness - a.question_helpfulness;
+  //  })
 
   useEffect(() => {
     axios
     .get(`http://localhost:3000/hr-rfp//qa/questions/?product_id=${product.product_id}`,
-    { params: { count: 20 } })
+    { params: { count: 30 } })
     .then(res => {
       setQuestionData(res.data.results)
     })
     .catch(err => console.log(err));
   });
 
-  console.log(questionData);
-
   return(
     <div id='qa'>
       <h3>Customer questions & answers</h3>
       <input className='search' type='text' value={searching} placeholder='Have a question? Search for answers…' onChange={() => setSearching(event.target.value)} />
       <div id='body'>
-      {questionData.slice(0, 4).map(question =>
+      {searchResult.slice(0, 4).map(question =>
         <QuestionList question={question} />
       )}
       {moreQuestionsBtn}

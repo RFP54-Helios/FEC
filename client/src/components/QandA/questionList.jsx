@@ -38,14 +38,14 @@ const QuestionList = (props) => {
     };
 
   return (
-
-      <dl><a><strong>Q:</strong></a>&nbsp;&nbsp;{props.question.question_body}
+      <div className='question-head'><a><strong>Q:</strong></a>&nbsp;&nbsp;{props.question.question_body}
       <a>&nbsp;&nbsp;|&nbsp;&nbsp;</a>
       <a>Helpful?&nbsp;</a>
       {questionHelpful ? <a>Yes({props.question.question_helpfulness})</a> :
       <a href='url' className='question-helpful-click' onClick={(e) =>
       { e.preventDefault(); handleUpdateQuestionHelpfulness(); setQuestionHelpful(true); }}>
         Yes({props.question.question_helpfulness})</a>}
+        <a>&nbsp;&nbsp;|&nbsp;&nbsp;</a>
       <a href='url' className='add-answer-click' onClick={(e) =>
         {e.preventDefault(); setAddAnswerPopup(true)}}>Add answer
       </a>
@@ -58,8 +58,8 @@ const QuestionList = (props) => {
       {moreAnswersBtn}
       {seeMoreAnswers===true ? <ViewMoreAnswers answers={sortedAnswerList} /> : null}
       {seeMoreAnswers===true ? <a className='see-more-answers-collapse' onClick={() => {toggleMoreAnswers(); toggleOpen()}}>
-      &raquo;&nbsp;Collapse</a> : null}
-      </dl>
+      &raquo;&nbsp;Collapse answers</a> : null}
+      </div>
 
   )};
 

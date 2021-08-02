@@ -334,9 +334,10 @@ header {
 
 #qa {
   padding: 5px;
+  padding-right: 1px;
   background-color:white;
-  max-height: 500px;
-  max-width: 85%;
+  max-height: 520px;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -344,13 +345,13 @@ header {
 #body {
   background-color: white;
   overflow-y: auto;
-  overflow-x: hidden;
+  overflow-x:visible;
   flex: 1;
 }
 
 .search {
   height: 30px;
-  width: 700px;
+  width: 70%;
   font-size: 14px;
   background-image: url(https://cdn2.hubspot.net/hubfs/4004166/bioticresearch_website_assets/images/search_icon.png);
   background-repeat: no-repeat;
@@ -360,8 +361,8 @@ header {
   border: 1px;
 }
 
-.add-answer-click {
-  margin-left: 100px;
+.question-head {
+margin-top: 7px;
 }
 
 .popup {
@@ -396,13 +397,13 @@ header {
 #type-answer {
   display: block;
   width:80%;
-  height: 80px;
+  height: 100px;
   margin: 8px;
 }
 
 .answer-name, .answer-email {
   margin-top: 5px;
-  width: 200px;
+  width: 280px;
   height: 20px;
 }
 
@@ -411,27 +412,39 @@ header {
   font-style: italic;
 }
 
-#submit-answer-btn {
-  margin-left: 280px;
+#submit-answer-btn, #submit-question-btn {
+  margin-left: 20px;
   margin-top:15px;
-  width: 150px;
+  width: 100px;
   cursor:pointer;
   height: 30px;
-  background-color: navy;
-  color: white;
+  background-color: rgb(238, 238, 44);
+  color: black;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
+}
+
+#submit-answer-btn:hover {
+  background-color: rgb(238, 215, 9);
+}
+
+#submit-question-btn:hover {
+  background-color: rgb(238, 215, 9);
 }
 
 .close-btn {
-  margin-left: 50px;
+  margin-left: 570px;
   width: 100px;
   height: 30px;
-  background-color: navy;
-  border: none;
-  border-radius: 5px;
-  color: white;
+  background-color: transparent;
+  border: 3px solid #E8E8E8;
+  border-radius: 10px;
+  color: black;
   cursor:pointer;
+}
+
+.close-btn:hover {
+  background-color:#dbd7d7;
 }
 
 #answer-img {
@@ -471,11 +484,25 @@ header {
   cursor:pointer;
 }
 
-
-
 .see-more-questions {
   height:25px;
   margin-left:20px;
+  cursor:pointer;
 }
 
+.ask-question-btn {
+  height:28px;
+  width: 30%;
+  cursor: pointer;
+  background-color: transparent;
+  border: 3px solid #E8E8E8;
+  border-radius: 10px;
+  color: black;
+  margin-left: 300px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.ask-question-btn:hover {
+  background-color:rgb(231, 228, 228);
+}
 /* ---------------------- End of Questions & Answers ---------------------- */

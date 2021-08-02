@@ -21,9 +21,9 @@ const Addanswer = (props) => {
     axios
       .post(`http://localhost:3000/hr-rfp/qa/questions/${props.questionId}/answers`, {body: body, name: name, email: email})
       .then((res) => {
-        alert("File Upload success");
+        alert('Answer posted!');
       })
-      .catch((err) => alert("File Upload Error"));
+      .catch((err) => alert('Post failed...'));
   };
 
   return (props.trigger) ? (
@@ -42,10 +42,8 @@ const Addanswer = (props) => {
           <p class='popup-text'>For authentication reasons, you will not be emailed</p>
           <label>Upload your photos:</label>
           <PhotoUploader photo={photo} setPhoto={setPhoto} />
-
+          <button className='close-btn' onClick={() => props.setTrigger()}>Cancel</button>
           <button id='submit-answer-btn' onClick={(e) => { e.preventDefault(); submitForm(); props.setTrigger(); }}>Submit</button>
-          <button className='close-btn' onClick={() => props.setTrigger()}>close</button>
-
         </form>
       </div>
     </div>

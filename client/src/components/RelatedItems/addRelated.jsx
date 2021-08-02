@@ -36,11 +36,11 @@ const AddRelated = (props) => {
       relatedIdsMatch = false;
     } else {
       props.ids.forEach((item, i) => {
-      if (item !== relatedIds[i]) {
-        relatedIdsMatch = false;
+        if (item !== relatedIds[i]) {
+          relatedIdsMatch = false;
+        }
+      });
       }
-     })
-    }
     if (relatedIdsMatch == false) {
       setProductDetails({details:[], styles:[], ratings:[]});
       setRelatedIds(props.ids);
@@ -57,41 +57,31 @@ const AddRelated = (props) => {
             details: prevState.details.concat(productData[0]),
             styles: prevState.styles.concat(productData[1]),
             ratings: prevState.ratings.concat(productData[2].ratings)
-          }))
-        })
-    })
+          }));
+        });
+    });
   }
-  }, [props.ids])
-
+  }, [props.ids]);
 
   const handleClick = () => {
     setClick(click + 1);
   }
 
-  // const handleItemClick = () => {
-  //   setProduct(prevState => ({
-  //     ...prevState,
-  //     product_id: item.product_id
-  //   }))
-  // }
-
   if (productDetails.details.length === 0 ||
     productDetails.styles.length === 0 ||
     productDetails.details.length != productDetails.styles.length) {
     return (
-      <div>Related Items Loading</div>
+      // <div>Related Items Loading</div>
+      <img  src = "https://miro.medium.com/max/880/0*H3jZONKqRuAAeHnG.jpg"></img>
     )
   } else {
-
     return (
       <div>
         <div className="titleRelated">RELATED PRODUCTS </div>
         <div className="relatedItems" >
-
           {(click > 0) ? <FontAwesomeIcon icon={faAngleLeft} className="right-arrow" onClick={() => { setClick(click - 1) }} /> : ""}
 
           {productDetails.details.map((item, i) => {
-
             if (i < click || i > click + 3) {
               return "";
             }
@@ -109,35 +99,18 @@ const AddRelated = (props) => {
               var defaultStyle = productDetails.styles[i].results[0];
             }
 
-            var price_style = {
-              textDecoration: 'line-through'
-            };
-            var sale_style = {
-              color: 'red'
-            };
-
-            if (defaultStyle.sale_price !== null) {
-              var sale_label = <span style={sale_style}>${defaultStyle.sale_price} </span>;
-              var price_label = <span style={price_style}>${defaultStyle.original_price}</span>;
-            } else {
-              var sale_label = "";
-              var price_label = <span>${defaultStyle.original_price}</span>;
-            }
-
             var rating = productDetails.ratings[i];
 
             return (
-
               <div>
-              <RelatedItemsImage url = {defaultStyle.photos[0].url} id = {item.id}  category = {item.category} name = {item.name} sale_label = {sale_label}price_label = {price_label} ratings = {rating} features = {item.features} />
+              <RelatedItemsImage url = {defaultStyle.photos[0].url} id = {item.id}  category = {item.category} name = {item.name} sale_price = {defaultStyle.sale_price} original_price = {defaultStyle.original_price} ratings = {rating} features = {item.features} />
               </div>
             )
-
           })}
           {(click + 3 <= productDetails.details.length - 1) ? <FontAwesomeIcon icon={faAngleRight} className="right-arrow" onClick={handleClick} /> : ""}
         </div>
       </div>
-    )
+    );
   }
 }
 

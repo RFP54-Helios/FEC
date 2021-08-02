@@ -9,10 +9,13 @@ import { getProduct, getFromApi, getStyles } from '../../helperFunctions.js';
 import { FiStar } from 'react-icons/fi';
 import { BsStarFill } from 'react-icons/bs';
 import Stars from '../../Stars.jsx';
+import Modal from './ComparisonModal.jsx';
+
 
 const RelatedItemsImage = (props) => {
 
   const [product, setProduct] = useContext(ProductContext);
+  const [show, setShow] = useState(false);
 
   const handleItemClick = () => {
       setProduct(prevState => ({
@@ -22,9 +25,12 @@ const RelatedItemsImage = (props) => {
       console.log(product.product_id)
   }
 
+
+
   return (
     <div>
-      <div className="img_container" ><FiStar className="openModal" />
+      <div className="img_container" ><FiStar className="openModal" onClick = {() => setShow(true)}  />
+      <Modal relatedItemFeatures = {props.features} relatedItemName = {props.name} onClose = {() => setShow(false)} show = {show}/>
         <div>{props.url ?<img onClick={handleItemClick} src={props.url} className="relatedThumbnail" ></img> : <img onClick={handleItemClick} src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_1jx9qlGd7Sa2fu4OmG39Ygg3O3g31UWsRonvUoXhnxGXtYqd1qavX3lhTs1PhO2eWFI&usqp=CAU"></img>}</div>
         <div>{props.category}</div>
         <div>{props.name}</div>
@@ -33,25 +39,7 @@ const RelatedItemsImage = (props) => {
       </div>
     </div>
   )
-  console.log(product.product_id)
 }
-
-
-/* <div>{defaultStyle.photos[0].url ? <img onClick = {handleItemClick} src = {defaultStyle.photos[0].url} className = "relatedThumbnail" ></img> : <img  src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_1jx9qlGd7Sa2fu4OmG39Ygg3O3g31UWsRonvUoXhnxGXtYqd1qavX3lhTs1PhO2eWFI&usqp=CAU"></img>}</div> */
-
-
-// <div >
-
-// <div className="img_container" ><FontAwesomeIcon icon={faStar} className="openModal" />
-//   <div>{defaultStyle.photos[0].url ? <img onClick={handleItemClick} src={defaultStyle.photos[0].url} className="relatedThumbnail" ></img> : <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_1jx9qlGd7Sa2fu4OmG39Ygg3O3g31UWsRonvUoXhnxGXtYqd1qavX3lhTs1PhO2eWFI&usqp=CAU"></img>}</div> */
-//   <div>{item.category}</div>
-//   <div>{item.name}</div>
-//   <div>{sale_label}{price_label}</div>
-//   <div>★★★★★</div>
-// </div>
-// </div>
-
-
 
 export default RelatedItemsImage;
 

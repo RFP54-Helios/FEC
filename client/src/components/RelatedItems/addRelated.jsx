@@ -129,7 +129,7 @@ const AddRelated = (props) => {
             return (
 
               <div>
-              <RelatedItemsImage url = {defaultStyle.photos[0].url} id = {item.id}  category = {item.category} name = {item.name} sale_label = {sale_label}price_label = {price_label} ratings = {rating} />
+              <RelatedItemsImage url = {defaultStyle.photos[0].url} id = {item.id}  category = {item.category} name = {item.name} sale_label = {sale_label}price_label = {price_label} ratings = {rating} features = {item.features} />
               </div>
             )
 

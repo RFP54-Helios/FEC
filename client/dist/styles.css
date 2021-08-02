@@ -246,10 +246,12 @@ header {
   position: relative;
 }
 .relatedItems{
+  position: relative;
   display:flex;
   flex-direction:row;
   overflow-x: scroll;
   margin-bottom: 40px;
+  overflow-x: hidden;
 
   /* justify-content: space-between; */
   /* width:1000px; */
@@ -305,13 +307,85 @@ header {
 position: absolute;
 margin:5px 5px 310px 200px;
 font-size: 1.3rem;
-
 }
 .relatedThumbnail {
   width:226px;
   height: 230px;
   text-align: center;
   background-color: rgb(187, 187, 187);
+}
+
+.showModal {
+  width:100px;
+  height: 1500px;
+  border: 1px solid black;
+}
+
+
+.modal {
+  position: fixed;
+  z-index:9999;
+  left:0;
+  top:0%;
+  right: 0;
+  bottom: 0;
+  /* background-color: rgba(0,0,0,0.5); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: visible;
+
+}
+
+.modal-content {
+  position: inherit;
+  border:0.1px solid black;
+  width: 500px;
+  height: 400px;
+  /* border-radius: 5px; */
+  /* height: 500px; */
+  background-color:rgba(255, 255, 255, 0.945);
+  overflow-x: visible;
+}
+
+modal-header, modal-footer {
+  padding: 10px;
+
+}
+
+button {
+  align-self: flex-end;
+}
+modal-title {
+  margin: 0;
+}
+
+modal-body {
+  padding: 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+/* td {
+  border:1px solid black;
+  margin:10px;
+} */
+
+tr {
+ border:1px solid black;
+ margin:10px;
+ padding:10px;
+ justify-content: space-evenly;
+}
+td {
+  justify-content: space-evenly;
+}
+table {
+ width: 100%;
+ padding:5px;
+}
+thead td {
+  font-size: 18px;
+  font-weight: bold;
 }
 /*  */
 /*--------------- END of RELATED ITEMS CSS -----------------*/

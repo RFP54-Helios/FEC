@@ -9,7 +9,33 @@ const Addanswer = (props) => {
   const [body, setBody] = useState("");
   const [email, setEmail] = useState("");
   const [photo, setPhoto] = useState([]);
+  const [errors, setErrors] = useState({});
 
+  const handleValidation = () => {
+    let isValid = true;
+    let errors = {};
+    if(name.length === 0) {
+      isValid = false;
+      errors['name'] = 'Please fill out this field'
+    }
+    if(body.length === 0) {
+      isValid = false;
+      errors['body'] = 'Please fill out this field'
+    }
+    if(typeof email !== undefined){
+      let lastAtPos = email.lastIndexOf('@');
+      let lastDotPos = email.lastIndexOf('.');
+      if (!(lastAtPos < lastDotPos && lastAtPos > 0 && email.indexOf('@@') == -1 &&
+         lastDotPos > 2 && (email.length - lastDotPos) > 2)) {
+           isValid = false;
+           errors["email"] = "Email is invalid";
+      }
+    }
+    setErrors(errors);
+    if(isValid) {
+      submitForm(); props.setTrigger();
+    }
+  };
 
   const submitForm = () => {
     // const formData = new FormData();
@@ -19,9 +45,13 @@ const Addanswer = (props) => {
     // formData.append("file", selectedFile);
 
     axios
-      .post(`http://localhost:3000/hr-rfp/qa/questions/${props.questionId}/answers`, {body: body, name: name, email: email})
+      .post(`http://localhost:3000/hr-rfp/qa/questions/${props.questionId}/answers`, {body: body, name: name, email: email, photos: photo})
       .then((res) => {
         alert('Answer posted!');
+        setName('');
+        setBody('');
+        setEmail('');
+        setPhoto([]);
       })
       .catch((err) => alert('Post failed...'));
   };
@@ -33,53 +63,65 @@ const Addanswer = (props) => {
         <h3>{product.currentProduct.name}: {props.questionBody}</h3>
         <form>
           <label><span class='red-star'>*</span>Your Answer:</label>
+          <div>
           <textarea maxlength='1000' id="type-answer" value={body} onChange={(e) => setBody(e.target.value)}></textarea>
+          <span className='error' style={{color: "red"}}>{errors["body"]}</span>
+          </div>
           <label><span class='red-star'>*</span>What is your nickname:</label>
           <input type='text' class='answer-name' value={name} maxlength='60' placeholder="Example: jack543!" onChange={(e) => setName(e.target.value)}></input>
+          <span className='error' style={{color: "red"}}>&nbsp;&nbsp;{errors["name"]}</span>
           <p class='popup-text'>For privacy reasons, do not use your full name or email address</p>
           <label><span class='red-star'>*</span>Your email:</label>
           <input type='text' class='answer-email' value={email} maxlength='60' placeholder="Example: jack@email.com" onChange={(e) => setEmail(e.target.value)}></input>
+          <span className='error' style={{color: "red"}}>&nbsp;&nbsp;{errors["email"]}</span>
           <p class='popup-text'>For authentication reasons, you will not be emailed</p>
           <label>Upload your photos:</label>
           <PhotoUploader photo={photo} setPhoto={setPhoto} />
-          <button className='close-btn' onClick={() => props.setTrigger()}>Cancel</button>
-          <button id='submit-answer-btn' onClick={(e) => { e.preventDefault(); submitForm(); props.setTrigger(); }}>Submit</button>
+          <button className='close-btn' onClick={() => {props.setTrigger();setErrors({}); setName('');
+           setBody('');setEmail('');}}>Cancel</button>
+          <button id='submit-answer-btn' onClick={(e) => { e.preventDefault(); handleValidation()}}>Submit</button>
         </form>
       </div>
     </div>
   ): '';
 };
 
-const PhotoUploader = (props) => {
-  const [photoThumbnail, setPhotoThumbnail] = useState([]);
+const PhotoUploader = ({photo, setPhoto}) => {
   const [alert, setAlert] = useState(false);
+  const [thumbnails, setThumbnails] = useState([]);
 
   const deleteSelected = (pic) => {
-    var index = photoThumbnail.indexOf(pic);
-    const temp = [...photoThumbnail];
+    var index = thumbnails.indexOf(pic);
+    const temp = [...thumbnails];
     temp.splice(index, 1);
-    setPhotoThumbnail(temp);
+    setThumbnails(temp);
     if (alert === true) { setAlert(false); }
   };
 
+  // const handlePhoto = (e) => {
+  //  const reader = new FileReader();
+  //  reader.onload = () => {
+  //    if(reader.readyState === 2) {
+  //      setPhoto(photo => [...photo, reader.result]);
+  //    }
+  //  }
+  //  reader.readAsDataURL(e.target.files[0]);
+  // };
   const handlePhoto = (e) => {
-   const reader = new FileReader();
-   reader.onload = () => {
-     if(reader.readyState === 2) {
-       setPhotoThumbnail(photoThumbnail => [...photoThumbnail, reader.result]);
-     }
-   }
-   reader.readAsDataURL(e.target.files[0]);
+    setPhoto(photo => [...photo, URL.createObjectURL(e.target.files[0])]);
+    setThumbnails(thumbnails => [...thumbnails, URL.createObjectURL(e.target.files[0])]);
   };
-  if (photoThumbnail.length > 5) {
-    setPhotoThumbnail(photoThumbnail.slice(0, 5));
+
+  if (photo.length > 5) {
+    setPhoto(photo.slice(0, 5));
     setAlert(true);
    }
+
 
   return (
     <div className="photo-uploader">
       <input type="file" name="image-upload" id='select-photo' accept=".jpg, .jpeg, .png" onChange={handlePhoto}></input>
-      {photoThumbnail.map(thumbnail => {
+      {thumbnails.map(thumbnail => {
         return (
         <>
         <img src={thumbnail} id='answer-img' onClick={() => {deleteSelected(thumbnail)}}/>
@@ -87,9 +129,6 @@ const PhotoUploader = (props) => {
         )}
       )}
       {alert ? <a id='alert'>Exceeds maximum counts</a>: null}
-
-       <button id='upload-photo'>Upload</button>
-
     </div>
   )
 };

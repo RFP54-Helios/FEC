@@ -395,7 +395,6 @@ margin-top: 7px;
 }
 
 #type-answer {
-  display: block;
   width:80%;
   height: 100px;
   margin: 8px;
@@ -407,7 +406,7 @@ margin-top: 7px;
   height: 20px;
 }
 
-.popup-text, #alert {
+.popup-text, #alert, .error {
   font-size: 15px;
   font-style: italic;
 }
@@ -459,13 +458,16 @@ margin-top: 7px;
   margin-bottom: 5px;
 }
 
-#upload-photo {
-  display: block;
-}
-
 .answerer-info {
   color:rgb(90, 86, 86);
   margin-left: 23px;
+}
+
+#answerer-posted-img {
+  width: 80px;
+  height: 80px;
+  border: 0.5px;
+  border-radius: 3px;
 }
 
 .see-more-answers-click, .question-helpful-click,

@@ -36,6 +36,8 @@ export function getRatings(product_id) {
   return getFromApi(`reviews/meta?product_id=${product_id}`);
 }
 
+
+
 // to be added
 export function postToApi(queryOptions, callback) {
   queryOptions = {

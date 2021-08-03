@@ -75,7 +75,7 @@ let ReviewProgressBars = (props) => {
       <h4>100% of reviewers recommend this product</h4>
       <>
         {progresses.map((progress, index) => (
-          <div className='review-progress'>
+          <div key={index} className='review-progress'>
             <label>{5 - index} stars</label>
             <progress key={index} value={progress} max='100'></progress>
           </div>

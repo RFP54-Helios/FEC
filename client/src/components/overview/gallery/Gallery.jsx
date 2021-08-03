@@ -48,6 +48,7 @@ const Gallery = ({ expandedView, toggleExpandedView, currentStyle }) => {
               <Thumbnails
                 handleClick={handleThumbnailClick}
                 thumbnail={photoUrls.thumbnail_url}
+                galleryImageIndex={galleryImageIndex}
                 index={i}
                 key={i}
               />

@@ -86,6 +86,10 @@ img {
   border: 1px solid black;
 }
 
+#focus-thumbnail {
+  border: 3px solid rgb(131, 86, 131);
+}
+
 #gallery #arrows {
   display: grid;
   grid-template-columns: 30px auto 30px;

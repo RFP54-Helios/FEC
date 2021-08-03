@@ -31,10 +31,9 @@ h6 {
 }
 
 .widget {
-  border: 2px solid black;
   height: 1000px;
   width: 85vw;
-  margin: 60px 7.5%;
+  margin: 0 7.5% 60px 7.5%;
 }
 
 header {
@@ -49,8 +48,7 @@ img {
 /* ---------------------- Overview ---------------------- */
 
 #overview {
-  border: 2px solid black;
-  min-height: 1000px;
+  min-height: 100%;
   width: 97vw;
   padding-right: 15px;
   margin: 0;
@@ -540,7 +538,7 @@ thead td {
   margin: 8px;
 }
 
-.review-helpfulness:hover {
+.review-helpfulness {
   color: blue;
   text-decoration: underline;
 }
@@ -603,7 +601,8 @@ thead td {
 }
 
 .question-head {
-margin-top: 7px;
+  margin-top: 7px;
+  overflow-wrap: break-word;
 }
 
 .popup {

@@ -23,13 +23,13 @@ const AnswerList = (props) => {
 
 
   return (
-    <dt key={'answer'}><a><strong>A:</strong></a>&nbsp;&nbsp;{props.answer.body}
+    <dt key={'answer'}><div><a><strong>A:</strong></a>&nbsp;&nbsp;{props.answer.body}</div>
     {props.answer.photos.map(photo => {
 
       return (
-        <div key={'uploadedPhoto'}>
+        <span key={'uploadedPhoto'}>
         <img src={photo} id='answerer-posted-img'/>
-        </div>
+        </span>
       )}
     )}
     <div>

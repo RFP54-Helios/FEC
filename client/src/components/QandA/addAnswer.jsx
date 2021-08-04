@@ -43,7 +43,7 @@ const Addanswer = (props) => {
     // formData.append("body", body);
     // formData.append("email", email);
     // formData.append("file", selectedFile);
-
+console.log(photo)
     axios
       .post(`http://localhost:3000/hr-rfp/qa/questions/${props.questionId}/answers`, {body: body, name: name, email: email, photos: photo})
       .then((res) => {
@@ -54,7 +54,13 @@ const Addanswer = (props) => {
         setEmail('');
         setPhoto([]);
       })
-      .catch((err) => alert('Post failed...'));
+      .catch((err) => {
+        alert('Post failed...');
+        setName('');
+        setBody('');
+        setEmail('');
+        setPhoto([]);
+      });
   };
 
   return (props.trigger) ? (
@@ -78,8 +84,14 @@ const Addanswer = (props) => {
           <p class='popup-text'>For authentication reasons, you will not be emailed</p>
           <label>Upload your photos:</label>
           <PhotoUploader photo={photo} setPhoto={setPhoto} />
-          <button className='close-btn' onClick={() => {props.setTrigger();setErrors({}); setName('');
-           setBody('');setEmail('');}}>Cancel</button>
+          <span className='upload-option'>Or</span>
+          <label>Your image URL:&nbsp;&nbsp;</label>
+          <input className='answer-url' type='text' onChange={(e) => setPhoto(photo.concat([e.target.value]))}></input>
+          <input className='answer-url' type='text' onChange={(e) => setPhoto(photo.concat([e.target.value]))}></input>
+          <input className='answer-url' type='text' onChange={(e) => setPhoto(photo.concat([e.target.value]))}></input>
+          <input className='answer-url' type='text' onChange={(e) => setPhoto(photo.concat([e.target.value]))}></input>
+          <input className='answer-url' type='text' onChange={(e) => setPhoto(photo.concat([e.target.value]))}></input>
+          <button className='close-btn' onClick={() => {props.setTrigger();setErrors({}); setName(''); setBody(''); setEmail(''); setPhoto([]); }}>Cancel</button>
           <button id='submit-answer-btn' onClick={(e) => { e.preventDefault(); handleValidation()}}>Submit</button>
         </form>
       </div>

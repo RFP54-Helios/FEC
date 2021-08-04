@@ -8,14 +8,41 @@ const Gallery = ({ expandedView, toggleExpandedView, currentStyle }) => {
     'https://i.gifer.com/YCZH.gif'
   );
   const [hasThumbsOverflow, setHasThumbsOverflow] = useState(false);
-
   const [galleryImageIndex, setGalleryImageIndex] = useState(0);
+  const [visibleThumbs, setVisibleThumbs] = useState([]);
 
   useEffect(() => {
-    // update state if the API call has resolved
-    if (!currentStyle.photos.length) return;
-    setCurrentImage(currentStyle.photos[galleryImageIndex].url);
-    if (currentStyle.photos.length > 7) setHasThumbsOverflow(true);
+    // if the API call in app has resolved:
+    if (currentStyle.photos.length) {
+      // update state with current photo when the index state changes
+      setCurrentImage(currentStyle.photos[galleryImageIndex].url);
+      // set the initial list of thumbnails
+      setVisibleThumbs();
+      // and determine if the thumbnails are overflowing their container
+      if (currentStyle.photos.length > 7) setHasThumbsOverflow(true);
+    } else {
+      return undefined;
+    }
+
+    // separate thumbnails into different lists of 7, to fit frame.
+    var photoSets = currentStyle.photos.reduce((acc, cv, index) => {
+      if (index % 7 === 0) {
+        acc.push([]);
+        acc[index / 7].push(cv);
+      } else {
+        acc[Math.floor(index / 7)].push(cv);
+      }
+      return acc;
+    }, []);
+
+    // determine which set to use based on current index
+    if (galleryImageIndex <= 6) {
+      setVisibleThumbs(photoSets[0]);
+    } else if (galleryImageIndex > 6 && galleryImageIndex <= 13) {
+      setVisibleThumbs(photoSets[1]);
+    } else {
+      setVisibleThumbs(photoSets[2]);
+    }
   }, [currentStyle, galleryImageIndex]);
 
   // decrement image index in array
@@ -49,13 +76,13 @@ const Gallery = ({ expandedView, toggleExpandedView, currentStyle }) => {
       >
         <>
           <span id="carousel-thumbnails">
-            {currentStyle.photos.map((photoUrls, i) => {
+            {visibleThumbs.map((photoUrls, i) => {
               return (
                 <Thumbnails
                   handleClick={handleThumbnailClick}
                   thumbnail={photoUrls.thumbnail_url}
                   galleryImageIndex={galleryImageIndex}
-                  listLength={currentStyle.photos.length}
+                  visibleThumbs={visibleThumbs}
                   index={i}
                   key={i}
                 />

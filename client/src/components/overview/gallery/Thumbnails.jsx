@@ -1,26 +1,33 @@
 import React, { useState } from 'react';
 
-const Thumbnails = (props) => {
-
-  const isMatchingThumbnail = () => props.index === props.galleryImageIndex;
+const Thumbnails = ({ index, thumbnail, galleryImageIndex }) => {
+  const isMatchingThumbnail = () => {
+    if (galleryImageIndex <= 6) {
+      return index === galleryImageIndex;
+    } else if (galleryImageIndex >= 7 && galleryImageIndex <= 13) {
+      return index === galleryImageIndex - 7;
+    } else {
+      return index === galleryImageIndex - 14;
+    }
+  };
 
   return isMatchingThumbnail() ? (
     <button
       onClick={() => {
-        props.handleClick(props.index);
+        handleClick(index);
       }}
       className="thumbnail"
-      id='focus-thumbnail'
-      style={{ backgroundImage: `url(${props.thumbnail})` }}
+      id="focus-thumbnail"
+      style={{ backgroundImage: `url(${thumbnail})` }}
       aria-label="imageGalleryThumbnails"
     ></button>
   ) : (
     <button
       onClick={() => {
-        props.handleClick(props.index);
+        handleClick(index);
       }}
       className="thumbnail"
-      style={{ backgroundImage: `url(${props.thumbnail})` }}
+      style={{ backgroundImage: `url(${thumbnail})` }}
       aria-label="imageGalleryThumbnails"
     ></button>
   );

@@ -240,15 +240,9 @@ img {
 }
 
 .thumbnail {
-<<<<<<< HEAD
   min-height: 12.2%;
   min-width: 65px;
   margin: 5px 20px;
-=======
-  height: 65px;
-  width: 65px;
-  margin: 10px 20px;
->>>>>>> main
   border: 1px solid white;
   background-size: cover;
   background-position: center;

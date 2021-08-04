@@ -14,7 +14,8 @@ export const ProductContext = React.createContext([{}, () => {}]);
 let App = () => {
 
   const [product, setProduct] = useState({
-    product_id: 17069,
+    // REVERT POST TEST - REJECT IF THIS IS NOT 17069
+    product_id: 17071,
     currentProduct: {},
     styles: [],
     ratings: []

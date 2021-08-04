@@ -1,10 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 
 const Thumbnails = (props) => {
-
-  useEffect(() => {
-    if (props.list) setThumbnail(props.list[props.index]);
-  });
 
   const isMatchingThumbnail = () => props.index === props.galleryImageIndex;
 

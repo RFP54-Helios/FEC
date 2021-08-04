@@ -52,8 +52,7 @@ const QuestionList = (props) => {
       <a href='url' className='add-answer-click' onClick={(e) =>
         {e.preventDefault(); setAddAnswerPopup(true)}}>Add answer
       </a>
-      <Addanswer questionBody={props.question.question_body} questionId={props.question.question_id}
-      trigger={addAnswerPopup} setTrigger={setAddAnswerPopup}>
+      <Addanswer questionBody={props.question.question_body} questionId={props.question.question_id} trigger={addAnswerPopup} setTrigger={setAddAnswerPopup} helpUpdate={helpUpdate}>
       </Addanswer>
       {sortedAnswerList.slice(0, 2).map(answer =>
       <AnswerList answer={answer} helpUpdate={helpUpdate}/>

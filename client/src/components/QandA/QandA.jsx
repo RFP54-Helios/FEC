@@ -69,7 +69,7 @@ const QandA = (props) => {
       {moreQuestionsBtn}
       </div>
       <button className='ask-question-btn' onClick={(e) => {e.preventDefault(); setAddQuestionPopup(true)}}>Ask your question</button>
-      <AddQuestion trigger={addQuestionPopup} setTrigger={setAddQuestionPopup}>
+      <AddQuestion trigger={addQuestionPopup} setTrigger={setAddQuestionPopup} toggleUpdate={toggleUpdate}>
       </AddQuestion>
     </div>
   )

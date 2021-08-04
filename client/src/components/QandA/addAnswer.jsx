@@ -48,6 +48,7 @@ const Addanswer = (props) => {
       .post(`http://localhost:3000/hr-rfp/qa/questions/${props.questionId}/answers`, {body: body, name: name, email: email, photos: photo})
       .then((res) => {
         alert('Answer posted!');
+        props.helpUpdate();
         setName('');
         setBody('');
         setEmail('');

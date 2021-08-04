@@ -40,6 +40,7 @@ const AddQuestion = (props) => {
       .post(`http://localhost:3000/hr-rfp/qa/questions`, {body: body, name: name, email: email, product_id: product.product_id})
       .then((res) => {
         alert("Question posted!");
+        props.toggleUpdate();
         setName('');
         setBody('');
         setEmail('');

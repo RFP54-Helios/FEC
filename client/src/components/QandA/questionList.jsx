@@ -27,6 +27,14 @@ const QuestionList = (props) => {
     return b.helpfulness - a.helpfulness;
    })
 
+   sortedAnswerList.forEach(answer => {
+     if (answer.answerer_name === 'Seller') {
+       let index = sortedAnswerList.indexOf(answer);
+      sortedAnswerList.unshift(answer);
+      sortedAnswerList.splice(index + 1, 1)
+     }
+   })
+
    const helpUpdate = () => {
      props.toggleUpdate();
    };

@@ -15,16 +15,14 @@ const QandA = (props) => {
   const [update, setUpdate] = useState(false);
   const toggleUpdate = () => setUpdate(!update);
 
-  let moreQuestionsBtn;
-
   let searchResult = questionData.slice(0, counter);
   const increaseByTwo = () => {
     setCounter(counter + 2);
     if(counter >= questionData.length) { toggleMoreQuestions(); }
   };
 
-
-
+  let moreQuestionsBtn;
+  let collapseQuestionsBtn;
   if (questionData.length > 4) {
     moreQuestionsBtn =
     <div><button className='see-more-questions' onClick={() => {increaseByTwo();}}>
@@ -32,6 +30,8 @@ const QandA = (props) => {
   }
   if (seeMoreQuestions===true) {
     moreQuestionsBtn = null;
+    collapseQuestionsBtn = <div><button className='see-more-questions' onClick={() => {setCounter(4); toggleMoreQuestions(); }}>
+    Collapse all Questions</button></div>
   }
 
   if (searching.length >= 3) {
@@ -67,6 +67,7 @@ const QandA = (props) => {
         <QuestionList question={question} toggleUpdate={toggleUpdate}/>
       )}
       {moreQuestionsBtn}
+      {collapseQuestionsBtn}
       </div>
       <button className='ask-question-btn' onClick={(e) => {e.preventDefault(); setAddQuestionPopup(true)}}>Ask your question</button>
       <AddQuestion trigger={addQuestionPopup} setTrigger={setAddQuestionPopup} toggleUpdate={toggleUpdate}>

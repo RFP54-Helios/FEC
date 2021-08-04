@@ -27,23 +27,26 @@ const QuestionList = (props) => {
     return b.helpfulness - a.helpfulness;
    })
 
+   const helpUpdate = () => {
+     props.toggleUpdate();
+   };
 
-    const handleUpdateQuestionHelpfulness = () => {
-      axios
-      .put(`http://localhost:3000/hr-rfp/qa/questions/${props.question.question_id}/helpful`)
-      .then(res => {
-        console.log('add 1')
-      })
-      .catch(err => console.log(err));
-    };
+  const handleUpdateQuestionHelpfulness = () => {
+    axios
+    .put(`http://localhost:3000/hr-rfp/qa/questions/${props.question.question_id}/helpful`)
+    .then(res => {
+      props.toggleUpdate()
+    })
+    .catch(err => console.log(err));
+  };
 
   return (
-      <div className='question-head'><a><strong>Q:</strong></a>&nbsp;&nbsp;{props.question.question_body}
+      <div key={'question'} className='question-head'><a><strong>Q:</strong></a>&nbsp;&nbsp;{props.question.question_body}
       <a>&nbsp;&nbsp;|&nbsp;&nbsp;</a>
       <a>Helpful?&nbsp;</a>
       {questionHelpful ? <a>Yes({props.question.question_helpfulness})</a> :
       <a href='url' className='question-helpful-click' onClick={(e) =>
-      { e.preventDefault(); handleUpdateQuestionHelpfulness(); setQuestionHelpful(true); }}>
+      { e.preventDefault(); handleUpdateQuestionHelpfulness(); setQuestionHelpful(true);}}>
         Yes({props.question.question_helpfulness})</a>}
         <a>&nbsp;&nbsp;|&nbsp;&nbsp;</a>
       <a href='url' className='add-answer-click' onClick={(e) =>
@@ -53,7 +56,7 @@ const QuestionList = (props) => {
       trigger={addAnswerPopup} setTrigger={setAddAnswerPopup}>
       </Addanswer>
       {sortedAnswerList.slice(0, 2).map(answer =>
-      <AnswerList answer={answer} />
+      <AnswerList answer={answer} helpUpdate={helpUpdate}/>
       )}
       {moreAnswersBtn}
       {seeMoreAnswers===true ? <ViewMoreAnswers answers={sortedAnswerList} /> : null}

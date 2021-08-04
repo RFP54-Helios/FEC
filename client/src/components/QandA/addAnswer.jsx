@@ -124,7 +124,7 @@ const PhotoUploader = ({photo, setPhoto}) => {
       {thumbnails.map(thumbnail => {
         return (
         <>
-        <img src={thumbnail} id='answer-img' onClick={() => {deleteSelected(thumbnail)}}/>
+        <img key={'uploadingPhoto'} src={thumbnail} id='answer-img' onClick={() => {deleteSelected(thumbnail)}}/>
         </>
         )}
       )}

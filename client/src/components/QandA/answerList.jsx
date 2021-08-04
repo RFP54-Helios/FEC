@@ -10,7 +10,7 @@ const AnswerList = (props) => {
     axios
     .put(`http://localhost:3000/hr-rfp/qa/answers/${answerId}/helpful`)
     .then(res => {
-      console.log('add 1')
+      props.helpUpdate();
     })
     .catch(err => console.log(err));
   };
@@ -23,11 +23,11 @@ const AnswerList = (props) => {
 
 
   return (
-    <dt><a><strong>A:</strong></a>&nbsp;&nbsp;{props.answer.body}
+    <dt key={'answer'}><a><strong>A:</strong></a>&nbsp;&nbsp;{props.answer.body}
     {props.answer.photos.map(photo => {
 
       return (
-        <div>
+        <div key={'uploadedPhoto'}>
         <img src={photo} id='answerer-posted-img'/>
         </div>
       )}

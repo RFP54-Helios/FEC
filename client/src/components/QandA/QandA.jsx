@@ -12,6 +12,8 @@ const QandA = (props) => {
   const toggleMoreQuestions = () => setSeeMoreQuestions(!seeMoreQuestions);
   const [addQuestionPopup, setAddQuestionPopup] = useState(false);
   const [counter, setCounter] = useState(4);
+  const [update, setUpdate] = useState(false);
+  const toggleUpdate = () => setUpdate(!update);
 
   let moreQuestionsBtn;
 
@@ -54,7 +56,7 @@ const QandA = (props) => {
       setQuestionData(res.data.results)
     })
     .catch(err => console.log(err));
-  }, [product.product_id]);
+  }, [product.product_id, update]);
 
   return(
     <div id='qa'>
@@ -62,7 +64,7 @@ const QandA = (props) => {
       <input className='search' type='text' value={searching} placeholder='Have a question? Search for answers…' onChange={() => setSearching(event.target.value)} />
       <div id='body'>
       {searchResult.map(question =>
-        <QuestionList question={question} />
+        <QuestionList question={question} toggleUpdate={toggleUpdate}/>
       )}
       {moreQuestionsBtn}
       </div>

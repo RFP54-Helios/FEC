@@ -424,17 +424,20 @@ font-size: 1.3rem;
 
 modal-header, modal-footer {
   padding: 10px;
+
 }
 
-button {
-  align-self: flex-end;
+.modal_close {
+  margin-left: 210px;
 }
 
-modal-title {
-  margin: 0;
+.modal-title {
+  margin: 10px;
+  font-weight: lighter;
 }
 
 modal-body {
+
   padding: 10px;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
@@ -448,18 +451,21 @@ tr {
 }
 
 td {
-  justify-content: space-evenly;
+  text-align: center;
+  padding: 5px;
 }
 
 table {
  width: 100%;
  padding:5px;
+ margin:10px;
 }
 
 thead td {
   font-size: 18px;
   font-weight: bold;
 }
+
 
 /*--------------- END of RELATED ITEMS CSS -----------------*/
 

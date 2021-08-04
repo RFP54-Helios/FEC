@@ -13,7 +13,7 @@ const Modal = (props) => {
     <div className="comparison_modal">
       <div className="modal-content">
         <div className="modal-header">
-          <h4 className="modal-title">Comparing</h4>
+          <h4 className="modal-title">COMPARING</h4>
         </div>
         <div className="modal-body">
           <table>
@@ -28,9 +28,9 @@ const Modal = (props) => {
                 if (item.feature === props.relatedItemFeatures[index].feature) {
                   return (
                     <tr>
+                      <td><AiOutlineCheck /></td>
                       <td>{item.value}</td>
-                      <td>{item.feature}</td>
-                      <td>{item.value}</td>
+                      <td><AiOutlineCheck /></td>
                     </tr>
                   );
                 }
@@ -64,7 +64,7 @@ const Modal = (props) => {
           </table>
         </div>
         <div className="modal-footer">
-          <button className="button" onClick={props.onClose}>
+          <button className="modal_close" onClick={props.onClose}>
             Close
           </button>
         </div>

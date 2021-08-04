@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
@@ -11,6 +11,7 @@ import Price from './Price.jsx';
 
 const AddOutfits = (props) => {
   const [product, setProduct] = useContext(ProductContext);
+
 
   const [selectedItem, setSelectedItem] = useState({
     details: []
@@ -30,8 +31,23 @@ const AddOutfits = (props) => {
         ...prevState,
         details: prevState.details.concat({ product: product.currentProduct, style: props.currentStyle, ratings:product.ratings })
       })));
+      // localStorage.setItem('myVal', JSON.stringify(product.currentProduct))
+      // localStorage.setItem('myValueInLocalStorage1',JSON.stringify(selectedItem.details));
     }
   }
+    // useEffect(() => {
+    //   const getProduct = localStorage.getItem('myVal');
+    // if(getProduct) {
+    //   setSelectedItem({
+    //     details:JSON.parse(getProduct)
+    //   })
+    // }
+    // },[selectedItem.details])
+
+
+    // const getSelected = JSON.parse(localStorage.getItem('myValueInLocalStorage1'));
+
+
 
   const handleClickCloseButton = () => {
     const productIdEquals = (productIdtoCompare) => {

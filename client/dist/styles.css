@@ -31,10 +31,9 @@ h6 {
 }
 
 .widget {
-  border: 2px solid black;
   height: 1000px;
   width: 85vw;
-  margin: 60px 7.5%;
+  margin: 0 7.5% 60px 7.5%;
 }
 
 header {
@@ -49,8 +48,7 @@ img {
 /* ---------------------- Overview ---------------------- */
 
 #overview {
-  border: 2px solid black;
-  min-height: 1000px;
+  min-height: 100%;
   width: 97vw;
   padding-right: 15px;
   margin: 0;
@@ -242,9 +240,15 @@ img {
 }
 
 .thumbnail {
+<<<<<<< HEAD
   min-height: 12.2%;
   min-width: 65px;
   margin: 5px 20px;
+=======
+  height: 65px;
+  width: 65px;
+  margin: 10px 20px;
+>>>>>>> main
   border: 1px solid white;
   background-size: cover;
   background-position: center;
@@ -329,7 +333,8 @@ p {
 
 /* ---------------------- Overview - End ---------------------- */
 
-/* RELATED PRODUCTS & COMPARISON */
+
+/*------------ RELATED PRODUCTS & COMPARISON ------------*/
 
 .mainDiv {
   height: 800px;
@@ -337,44 +342,151 @@ p {
 
 .img_container {
   border: 1px solid black;
-  height: 320px;
-  width: 220px;
+  height: 350px;
+  width: 230px;
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
-  margin: 20px;
+  margin:10px;
+  padding-left: 5px;
+  position: relative;
 }
-.relatedItems {
-  display: flex;
-  flex-direction: row;
-
-  /* justify-content: space-between; */
-  /* width:1000px; */
-  /* position: absolute; */
+.relatedItems{
+  position: relative;
+  display:flex;
+  flex-direction:row;
+  overflow-x: scroll;
+  margin-bottom: 40px;
+  overflow-x: hidden;
 }
 .addOutfits {
-  margin-top: 30px;
-  display: flex;
-  flex-direction: row;
-  /* justify-content: space-evenly; */
+  margin-top:30px;
+  margin-top:40px;
+  display:flex;
+  flex-direction:row;
 }
 .titleRelated {
   padding: 0px 0px 30px 51px;
+  margin-top: 20px;
+  margin-bottom: 0px;
 }
+
 .titleOutfit {
-  margin-left: 50px;
-  margin-top: 50px;
+   margin-left: 50px;
+  text-align: center;
 }
-.star {
-  text-align: right;
+
+.star{
+ text-align: right;
 }
 
 .right-arrow {
   align-self: center;
   width: 50px;
+  font-size: 1.3rem;
 }
 
-/* END of RELATED ITEMS CSS */
+.addFavourite {
+  align-self: center;
+  align-content: center;
+  margin-top: 120px;
+}
+
+.addh3 {
+  margin-bottom: 180px;
+  align-self: center;
+}
+
+.removeOutfit {
+  position: absolute;
+  margin:5px 5px 300px 200px;
+  font-size: 1.3rem;
+}
+
+.openModal {
+position: absolute;
+margin:5px 5px 310px 200px;
+font-size: 1.3rem;
+}
+
+.relatedThumbnail {
+  width:226px;
+  height: 230px;
+  text-align: center;
+  background-color: rgb(187, 187, 187);
+}
+
+.showModal {
+  width:100px;
+  height: 1500px;
+  border: 1px solid black;
+}
+
+.comparison_modal {
+  position: fixed;
+  z-index:9999;
+  left:0;
+  top:0%;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: visible;
+}
+
+.modal-content {
+  position: inherit;
+  border:0.1px solid black;
+  width: 500px;
+  height: 400px;
+  background-color:rgba(255, 255, 255, 0.945);
+  overflow-x: visible;
+}
+
+modal-header, modal-footer {
+  padding: 10px;
+}
+
+button {
+  align-self: flex-end;
+}
+
+modal-title {
+  margin: 0;
+}
+
+modal-body {
+  padding: 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+tr {
+ border:1px solid black;
+ margin:10px;
+ padding:10px;
+ justify-content: space-evenly;
+}
+
+td {
+  justify-content: space-evenly;
+}
+
+table {
+ width: 100%;
+ padding:5px;
+}
+
+thead td {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/*--------------- END of RELATED ITEMS CSS -----------------*/
+
+
 /* ---------------------- Ratings & Reviews ---------------------- */
 
 #ratings {
@@ -451,7 +563,7 @@ p {
   margin: 8px;
 }
 
-.review-helpfulness:hover {
+.review-helpfulness {
   color: blue;
   text-decoration: underline;
 }
@@ -485,12 +597,25 @@ p {
 /* ---------------------- Questions & Answers ---------------------- */
 
 #qa {
-  height: 500px;
+  padding: 5px;
+  padding-right: 1px;
+  background-color:white;
+  max-height: 520px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#body {
+  background-color: white;
+  overflow-y: auto;
+  overflow-x:visible;
+  flex: 1;
 }
 
 .search {
   height: 30px;
-  width: 700px;
+  width: 70%;
   font-size: 14px;
   background-image: url(https://cdn2.hubspot.net/hubfs/4004166/bioticresearch_website_assets/images/search_icon.png);
   background-repeat: no-repeat;
@@ -499,3 +624,152 @@ p {
   background-color: #fff;
   border: 1px;
 }
+
+.question-head {
+  margin-top: 7px;
+  overflow-wrap: break-word;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner {
+  position: relative;
+  padding: 32px;
+  width: 100%;
+  max-width: 800px;
+  background-color: #fff;
+}
+
+#answer-modal-title {
+  position: relative;
+  bottom: 10px;
+}
+
+.red-star, #alert {
+  color: red;
+}
+
+#type-answer {
+  width:80%;
+  height: 100px;
+  margin: 8px;
+}
+
+.answer-name, .answer-email {
+  margin-top: 5px;
+  width: 280px;
+  height: 20px;
+}
+
+.popup-text, #alert, .error {
+  font-size: 15px;
+  font-style: italic;
+}
+
+#submit-answer-btn, #submit-question-btn {
+  margin-left: 20px;
+  margin-top:15px;
+  width: 100px;
+  cursor:pointer;
+  height: 30px;
+  background-color: rgb(238, 238, 44);
+  color: black;
+  border: none;
+  border-radius: 10px;
+}
+
+#submit-answer-btn:hover {
+  background-color: rgb(238, 215, 9);
+}
+
+#submit-question-btn:hover {
+  background-color: rgb(238, 215, 9);
+}
+
+.close-btn {
+  margin-left: 570px;
+  width: 100px;
+  height: 30px;
+  background-color: transparent;
+  border: 3px solid #E8E8E8;
+  border-radius: 10px;
+  color: black;
+  cursor:pointer;
+}
+
+.close-btn:hover {
+  background-color:#dbd7d7;
+}
+
+#answer-img {
+  width: 40px;
+  height: 40px;
+  border: 0.5px;
+  border-radius: 3px;
+}
+
+#select-photo {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.answerer-info {
+  color:rgb(90, 86, 86);
+  margin-left: 23px;
+}
+
+#answerer-posted-img {
+  width: 80px;
+  height: 80px;
+  border: 0.5px;
+  border-radius: 3px;
+}
+
+.see-more-answers-click, .question-helpful-click,
+.add-answer-click,.answer-report-click,
+.answer-helpful-link, .see-more-answers-collapse {
+  color:rgb(25, 67, 192);
+}
+
+.see-more-answers-click:hover {
+  color:darkorange;
+  cursor:pointer;
+}
+
+.see-more-answers-collapse:hover {
+  color:darkorange;
+  cursor:pointer;
+}
+
+.see-more-questions {
+  height:25px;
+  margin-left:20px;
+  cursor:pointer;
+}
+
+.ask-question-btn {
+  height:28px;
+  width: 30%;
+  cursor: pointer;
+  background-color: transparent;
+  border: 3px solid #E8E8E8;
+  border-radius: 10px;
+  color: black;
+  margin-left: 300px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.ask-question-btn:hover {
+  background-color:rgb(231, 228, 228);
+}
+/* ---------------------- End of Questions & Answers ---------------------- */

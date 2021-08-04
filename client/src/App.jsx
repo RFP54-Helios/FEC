@@ -2,11 +2,13 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import Overview from './components/overview/Overview.jsx';
 import Outfits from './components/RelatedItems/Outfits.jsx';
+import AddOutfits from './components/RelatedItems/addOutfits.jsx';
+
 import Ratings from './components/Ratings/Ratings.jsx';
 import QandA from './components/QandA/QandA.jsx';
 import { getProduct, getStyles, getRatings, postToApi } from './helperFunctions.js';
 
-import items from './components/RelatedItems/sampleData.json';
+// import items from './components/RelatedItems/sampleData.json';
 import {questionList, answerList} from './components/QandA/sampledata.js';
 
 export const ProductContext = React.createContext([{}, () => {}]);
@@ -38,6 +40,7 @@ let App = () => {
     })
   }, [product.product_id])
 
+
   return (
     <ProductContext.Provider value={[product, setProduct]}>
       <header><h2>Atelier</h2></header>
@@ -47,7 +50,8 @@ let App = () => {
           setCurrentStyle={setCurrentStyle}/>
       </div>
       <div className='widget'>
-        <Outfits items={items}/>
+        <Outfits currentStyle={currentStyle}
+          setCurrentStyle={setCurrentStyle} />
       </div>
       <div className='widget' id='qa'>
         <QandA

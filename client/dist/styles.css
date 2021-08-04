@@ -1,6 +1,7 @@
 body {
   overflow-y: hidden;
   margin: 0;
+  font-family: Papyrus, Georgia, sans-serif;
 }
 
 p,
@@ -31,10 +32,9 @@ h6 {
 }
 
 .widget {
-  border: 2px solid black;
   height: 1000px;
   width: 85vw;
-  margin: 60px 7.5%;
+  margin: 0 7.5% 60px 7.5%;
 }
 
 header {
@@ -49,8 +49,7 @@ img {
 /* ---------------------- Overview ---------------------- */
 
 #overview {
-  border: 2px solid black;
-  min-height: 1000px;
+  min-height: 100%;
   width: 97vw;
   padding-right: 15px;
   margin: 0;
@@ -224,7 +223,7 @@ img {
 
 .thumbnail {
   height: 65px;
-  width: auto;
+  width: 65px;
   margin: 10px 20px;
   border: 1px solid white;
   background-size: cover;
@@ -546,7 +545,7 @@ thead td {
   margin: 8px;
 }
 
-.review-helpfulness:hover {
+.review-helpfulness {
   color: blue;
   text-decoration: underline;
 }
@@ -609,7 +608,8 @@ thead td {
 }
 
 .question-head {
-margin-top: 7px;
+  margin-top: 7px;
+  overflow-wrap: break-word;
 }
 
 .popup {
@@ -755,3 +755,24 @@ margin-top: 7px;
   background-color:rgb(231, 228, 228);
 }
 /* ---------------------- End of Questions & Answers ---------------------- */
+
+/* ---------------------- NavBar ---------------------- */
+
+.nav-bar {
+  background-image: linear-gradient(#ff9100, white);
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+}
+
+.nav-logo {
+  width: 50px;
+  margin: 0 30px;
+}
+
+.nav-title {
+  font-style: italic;
+  font-size: 2.25em;
+  margin: 15px 0;
+}

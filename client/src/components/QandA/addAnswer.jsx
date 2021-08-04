@@ -112,8 +112,8 @@ const PhotoUploader = ({photo, setPhoto}) => {
     setThumbnails(thumbnails => [...thumbnails, URL.createObjectURL(e.target.files[0])]);
   };
 
-  if (photo.length > 5) {
-    setPhoto(photo.slice(0, 5));
+  if (thumbnails.length > 5) {
+    setThumbnails(thumbnails.slice(0, 5));
     setAlert(true);
    }
 

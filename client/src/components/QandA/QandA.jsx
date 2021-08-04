@@ -46,7 +46,7 @@ const QandA = (props) => {
       setQuestionData(res.data.results)
     })
     .catch(err => console.log(err));
-  });
+  }, [product.product_id]);
 
   return(
     <div id='qa'>

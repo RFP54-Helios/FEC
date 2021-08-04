@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
+import NavBar from './components/NavBar.jsx';
 import Overview from './components/overview/Overview.jsx';
 import Outfits from './components/RelatedItems/Outfits.jsx';
 import AddOutfits from './components/RelatedItems/addOutfits.jsx';
@@ -42,7 +43,7 @@ let App = () => {
 
   return (
     <ProductContext.Provider value={[product, setProduct]}>
-      <header><h2>Atelier</h2></header>
+      <NavBar />
       <div id='overview'>
         <Overview
           currentStyle={currentStyle}

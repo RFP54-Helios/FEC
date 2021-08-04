@@ -8,5 +8,13 @@
         }
       }
     ], "@babel/preset-react"
+  ],
+  "plugins": [
+    [
+      "inline-svg",
+      {
+        "exportDataURI": true
+      }
+    ]
   ]
 }

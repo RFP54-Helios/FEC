@@ -1,2 +1,2 @@
-ssh -i helios.pem ubuntu@3.15.166.249
-
+# connect via SSH
+ssh -i secret_key.pem ubuntu@3.15.166.249

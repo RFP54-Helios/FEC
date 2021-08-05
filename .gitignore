@@ -1,7 +1,7 @@
 node_modules
 client/dist/bundle.js
+client/dist/bundle.js.LICENSE.txt
 coverage
 *.DS_Store
 server/config/config.js
-helios.pem
-client/dist/bundle.js.LICENSE.txt
+secret_key.pem

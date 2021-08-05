@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 
-const Thumbnails = ({ index, thumbnail, galleryImageIndex }) => {
+const Thumbnails = ({handleClick, index, thumbnail, galleryImageIndex }) => {
   const isMatchingThumbnail = () => {
     if (galleryImageIndex <= 6) {
       return index === galleryImageIndex;
     } else if (galleryImageIndex >= 7 && galleryImageIndex <= 13) {
-      return index === galleryImageIndex - 7;
+      index += 7;
+      return index === galleryImageIndex;
     } else {
-      return index === galleryImageIndex - 14;
+      index += 14;
+      return index === galleryImageIndex;
     }
   };
 

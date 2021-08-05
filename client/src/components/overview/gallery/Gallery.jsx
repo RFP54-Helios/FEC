@@ -15,7 +15,10 @@ const Gallery = ({ expandedView, toggleExpandedView, currentStyle }) => {
     // if the API call in app has resolved:
     if (currentStyle.photos.length) {
       // update state with current photo when the index state changes
-      setCurrentImage(currentStyle.photos[galleryImageIndex].url);
+      if (currentStyle.photos[0].url) {
+        setCurrentImage(currentStyle.photos[galleryImageIndex].url);
+      }
+
       // set the initial list of thumbnails
       setVisibleThumbs();
       // and determine if the thumbnails are overflowing their container
@@ -71,6 +74,12 @@ const Gallery = ({ expandedView, toggleExpandedView, currentStyle }) => {
           backgroundColor: 'black',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
+          display: 'grid',
+          minHeight: '0',
+          gridTemplateColumns: '10px 100px auto 40px 10px',
+          gridTemplateRows: '10px 30px 40% 50px 20% 20px',
+          maxWidth: '100%',
+          height: '100%',
         }}
         // onClick={() => toggleExpandedView(true)}
       >

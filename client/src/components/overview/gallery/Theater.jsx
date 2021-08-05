@@ -3,19 +3,19 @@ import Arrows from './Arrows.jsx';
 
 const Theater = (props) => {
   const [zoom, toggleZoom] = useState(false);
-  const [scale, setScale] = useState('scale(1)')
+  const [scale, setScale] = useState('scale(1)');
 
   let styling = {
     backgroundPosition: 'center',
     backgroundImage: `url(${props.image})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'contain',
-    transform: scale
+    transform: scale,
   };
 
   useEffect(() => {
     zoom ? setScale('scale(2.5)') : setScale('scale(1)');
-  }, [zoom])
+  }, [zoom]);
 
   return (
     <div className="modal" onClick={() => props.toggleExpandedView(false)}>

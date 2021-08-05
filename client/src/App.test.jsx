@@ -11,9 +11,9 @@ describe('State', () => {
     expect(getByText(/Helios/i)).toBeInTheDocument();
   })
 
-  it('Should display the correct name of the current product', () => {
-    const {getByText} = render(<App />);
+  // it('Should display the correct name of the current product', () => {
+  //   const {getByText} = render(<App />);
 
-    expect(getByText(/Pumped Up Kicks/i)).toBeInTheDocument();
-  })
+  //   expect(getByText(/Pumped Up Kicks/i)).toBeInTheDocument();
+  // })
 })

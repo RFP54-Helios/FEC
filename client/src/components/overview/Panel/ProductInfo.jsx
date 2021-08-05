@@ -13,7 +13,7 @@ const ProductInfo = (props) => {
       </>
     );
   } else {
-    var price = <p>${props.currentStyle.original_price}</p>
+    var price = <p>${props.currentStyle.original_price}</p>;
   }
 
   return (

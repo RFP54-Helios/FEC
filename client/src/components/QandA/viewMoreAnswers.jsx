@@ -5,8 +5,8 @@ const ViewMoreAnswers = (props) => {
 
   return (
     <div>
-    {Object.values(props.answers).slice(2).map(answer =>
-    <AnswerList answer={answer} />
+    {Object.values(props.answers).slice(2).map((answer, index) =>
+    <AnswerList key={index} answer={answer} />
     )}
     </div>
   )

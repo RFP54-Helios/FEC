@@ -30,7 +30,6 @@ const AddRelated = (props) => {
     if (props.ids.length === 0) {
       return;
     }
-
     var relatedIdsMatch = true;
     if (props.ids.length != relatedIds.length) {
       relatedIdsMatch = false;
@@ -71,8 +70,7 @@ const AddRelated = (props) => {
     productDetails.styles.length === 0 ||
     productDetails.details.length != productDetails.styles.length) {
     return (
-      // <div>Related Items Loading</div>
-      <img  src = "https://miro.medium.com/max/880/0*H3jZONKqRuAAeHnG.jpg"></img>
+      <img src = "https://miro.medium.com/max/880/0*H3jZONKqRuAAeHnG.jpg"></img>
     )
   } else {
     return (
@@ -102,9 +100,7 @@ const AddRelated = (props) => {
             var rating = productDetails.ratings[i];
 
             return (
-              <div>
-              <RelatedItemsImage url = {defaultStyle.photos[0].url} id = {item.id}  category = {item.category} name = {item.name} sale_price = {defaultStyle.sale_price} original_price = {defaultStyle.original_price} ratings = {rating} features = {item.features} />
-              </div>
+              <RelatedItemsImage key = {i} index = {i}  url = {defaultStyle.photos[0].url} id = {item.id}  category = {item.category} name = {item.name} sale_price = {defaultStyle.sale_price} original_price = {defaultStyle.original_price} ratings = {rating} features = {item.features}/>
             )
           })}
           {(click + 3 <= productDetails.details.length - 1) ? <FontAwesomeIcon icon={faAngleRight} className="right-arrow" onClick={handleClick} /> : ""}

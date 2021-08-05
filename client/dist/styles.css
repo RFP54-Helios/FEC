@@ -1,7 +1,7 @@
 body {
   overflow-y: hidden;
   margin: 0;
-  font-family: Papyrus, Georgia, sans-serif;
+  font-family: 'Overlock', cursive;
 }
 
 p,
@@ -600,6 +600,7 @@ thead td {
 .search {
   height: 30px;
   width: 70%;
+  margin-top: 5px;
   font-size: 14px;
   background-image: url(https://cdn2.hubspot.net/hubfs/4004166/bioticresearch_website_assets/images/search_icon.png);
   background-repeat: no-repeat;
@@ -649,10 +650,16 @@ thead td {
   margin: 8px;
 }
 
-.answer-name, .answer-email {
-  margin-top: 5px;
+.answer-name, .answer-email{
   width: 280px;
   height: 20px;
+}
+
+.answer-url {
+  display: block;
+  height: 20px;
+  width:60%;
+  margin-top: 5px;
 }
 
 .popup-text, #alert, .error {
@@ -660,9 +667,13 @@ thead td {
   font-style: italic;
 }
 
+.upload-option {
+  display: block;
+  margin-left: 35px;
+}
+
 #submit-answer-btn, #submit-question-btn {
   margin-left: 20px;
-  margin-top:15px;
   width: 100px;
   cursor:pointer;
   height: 30px;
@@ -717,6 +728,8 @@ thead td {
   height: 80px;
   border: 0.5px;
   border-radius: 3px;
+  margin-left: 20px;
+  margin-top: 5px;
 }
 
 .see-more-answers-click, .question-helpful-click,
@@ -739,6 +752,7 @@ thead td {
   height:25px;
   margin-left:20px;
   cursor:pointer;
+  margin-top: 6px;
 }
 
 .ask-question-btn {

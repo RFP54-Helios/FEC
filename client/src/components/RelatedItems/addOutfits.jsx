@@ -31,19 +31,22 @@ const AddOutfits = (props) => {
         ...prevState,
         details: prevState.details.concat({ product: product.currentProduct, style: props.currentStyle, ratings:product.ratings })
       })));
-      // localStorage.setItem('myVal', JSON.stringify(product.currentProduct))
-      // localStorage.setItem('myValueInLocalStorage1',JSON.stringify(selectedItem.details));
     }
   }
-    // useEffect(() => {
-    //   const getProduct = localStorage.getItem('myVal');
-    // if(getProduct) {
-    //   setSelectedItem({
-    //     details:JSON.parse(getProduct)
-    //   })
-    // }
-    // },[selectedItem.details])
+    useEffect(() => {
+      const outfitDetails = localStorage.getItem('outfitDetails');
+    if(outfitDetails) {
+      setSelectedItem({
+        details:JSON.parse(outfitDetails)
+      })
+    }
+    },[])
 
+    useEffect(() => {
+      if (selectedItem.details.length != 0) {
+        localStorage.setItem('outfitDetails',JSON.stringify(selectedItem.details));
+      }
+    },[selectedItem.details])
 
     // const getSelected = JSON.parse(localStorage.getItem('myValueInLocalStorage1'));
 
@@ -83,13 +86,12 @@ const AddOutfits = (props) => {
 
           return (
             <div className="img_container">
-              <FontAwesomeIcon icon={faTimesCircle} className="removeOutfit" onClick={handleClickCloseButton} data-id={item.product.id} />
-              <img src={item.style.photos[0].thumbnail_url} className="relatedThumbnail"></img>
-              <div>{item.product.category}</div>
-              <div>{item.product.name}</div>
-              <div>Style : {item.style.name}</div>
+              <FontAwesomeIcon   icon={faTimesCircle} className="removeOutfit" onClick={handleClickCloseButton} data-id={item.product.id} />
+              <img  src={item.style.photos[0].thumbnail_url} className="relatedThumbnail"></img>
+              <div>  {item.product.name}</div>
+              <div>  Style : {item.style.name}</div>
               {/* <div>{sale_label} {price_label}</div> */}
-              <Price sale_price = {item.style.sale_price} original_price = {item.style.original_price} />
+              <Price  sale_price = {item.style.sale_price} original_price = {item.style.original_price} />
               <div><Stars ratings = {item.ratings} /></div>
             </div>
           );

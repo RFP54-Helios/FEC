@@ -33,32 +33,16 @@ const Modal = (props) => {
                       <td><AiOutlineCheck /></td>
                     </tr>
                   );
-                }
-                if (
-                  typeof item.feature === "boolean" &&
-                  item.feature === true &&
-                  props.relatedItemFeatures[index].feature === true
-                ) {
+                } else {
                   return (
                     <tr>
-                      <td>
-                        <AiOutlineCheck />
-                      </td>
-                      <td>
-                        <AiOutlineCheck />
-                        {item.feature}
-                      </td>
-                      <td>
-                        <AiOutlineCheck />
-                      </td>
+                      <td><AiOutlineCheck /></td>
+                      <td>{item.value}</td>
+                      <td><AiOutlineCheck /></td>
                     </tr>
-                  );
-                } else {
-                  return;
-                  <tr>
-                    <td></td>
-                  </tr>;
+                  )
                 }
+
               })}
             </tbody>
           </table>

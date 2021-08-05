@@ -317,7 +317,7 @@ p {
 }
 
 .img_container {
-  border: 1px solid black;
+  border: 1px solid rgb(153, 152, 152);
   height: 350px;
   width: 230px;
   display: flex;
@@ -336,20 +336,20 @@ p {
   overflow-x: hidden;
 }
 .addOutfits {
-  margin-top:30px;
-  margin-top:40px;
+  margin-top:10px;
+  /* margin-top:40px; */
   display:flex;
   flex-direction:row;
 }
 .titleRelated {
-  padding: 0px 0px 30px 51px;
-  margin-top: 20px;
+  padding: 0px 0px 10px 10px;
+  margin-top: 0px;
   margin-bottom: 0px;
 }
 
 .titleOutfit {
-   margin-left: 50px;
-  text-align: center;
+   /* margin-left: 10px; */
+   padding: 0px 0px 0px 10px;
 }
 
 .star{
@@ -358,8 +358,8 @@ p {
 
 .right-arrow {
   align-self: center;
-  width: 50px;
-  font-size: 1.3rem;
+  /* width: 50px; */
+  font-size: 1.5rem;
 }
 
 .addFavourite {
@@ -415,9 +415,9 @@ font-size: 1.3rem;
 .modal-content {
   position: inherit;
   border:0.1px solid black;
-  width: 500px;
-  height: 400px;
-  background-color:rgba(255, 255, 255, 0.945);
+  width: 450px;
+  height: 360px;
+  background-color:rgb(236, 236, 236);
   overflow-x: visible;
 }
 
@@ -435,7 +435,7 @@ modal-header, modal-footer {
   font-weight: lighter;
 }
 
-modal-body {
+.modal-body {
 
   padding: 10px;
   border-top: 1px solid #eee;
@@ -464,6 +464,8 @@ thead td {
   font-size: 18px;
   font-weight: bold;
 }
+
+
 
 
 /*--------------- END of RELATED ITEMS CSS -----------------*/

@@ -3,3 +3,5 @@ client/dist/bundle.js
 coverage
 *.DS_Store
 server/config/config.js
+helios.pem
+client/dist/bundle.js.LICENSE.txt

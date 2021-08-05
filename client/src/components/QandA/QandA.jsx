@@ -11,28 +11,38 @@ const QandA = (props) => {
   const [seeMoreQuestions, setSeeMoreQuestions] = useState(false);
   const toggleMoreQuestions = () => setSeeMoreQuestions(!seeMoreQuestions);
   const [addQuestionPopup, setAddQuestionPopup] = useState(false);
+  const [counter, setCounter] = useState(4);
+  const [update, setUpdate] = useState(false);
+  const toggleUpdate = () => setUpdate(!update);
+
+  let searchResult = questionData.slice(0, counter);
+  const increaseByTwo = () => {
+    setCounter(counter + 2);
+    if(counter >= questionData.length) { toggleMoreQuestions(); }
+  };
 
   let moreQuestionsBtn;
+  let collapseQuestionsBtn;
   if (questionData.length > 4) {
     moreQuestionsBtn =
-    <div><button className='see-more-questions' onClick={() => {toggleMoreQuestions();}}>
+    <div><button className='see-more-questions' onClick={() => {increaseByTwo();}}>
     More Answered Questions</button></div>
   }
   if (seeMoreQuestions===true) {
     moreQuestionsBtn = null;
+    collapseQuestionsBtn = <div><button className='see-more-questions' onClick={() => {setCounter(4); toggleMoreQuestions(); }}>
+    Collapse all Questions</button></div>
   }
 
-  let searchResult;
-  if (searching.length < 3) {
-    searchResult = questionData;
-  } else {
+  if (searching.length >= 3) {
     moreQuestionsBtn = null;
     searchResult = questionData.filter((question) => {
       const questionContent = question.question_body.toLowerCase();
       return questionContent.includes(searching);
     });
   }
-  let moreQuestions = searchResult.slice(4);
+
+
   // let sortedQuestionList;
   // sortedQuestionList= Object.values(questionData).sort(function(a, b) {
   //   return b.question_helpfulness - a.question_helpfulness;
@@ -46,44 +56,23 @@ const QandA = (props) => {
       setQuestionData(res.data.results)
     })
     .catch(err => console.log(err));
-  }, [product.product_id]);
+  }, [product.product_id, update]);
 
   return(
     <div id='qa'>
       <h3>Customer questions & answers</h3>
       <input className='search' type='text' value={searching} placeholder='Have a question? Search for answers…' onChange={() => setSearching(event.target.value)} />
       <div id='body'>
-      {searchResult.slice(0, 4).map(question =>
-        <QuestionList question={question} />
+      {searchResult.map((question,index) =>
+        <QuestionList key={index} question={question} toggleUpdate={toggleUpdate}/>
       )}
       {moreQuestionsBtn}
-      {seeMoreQuestions===true ? <ViewMoreQuestions questions={moreQuestions} /> : null}
+      {collapseQuestionsBtn}
       </div>
       <button className='ask-question-btn' onClick={(e) => {e.preventDefault(); setAddQuestionPopup(true)}}>Ask your question</button>
-      <AddQuestion trigger={addQuestionPopup} setTrigger={setAddQuestionPopup}>
+      <AddQuestion trigger={addQuestionPopup} setTrigger={setAddQuestionPopup} toggleUpdate={toggleUpdate}>
       </AddQuestion>
     </div>
-  )
-};
-
-
-const ViewMoreQuestions = (props) => {
-  const [evenMore, setEvenMore] = useState(false);
-  const toggleEvenMore = ()=> {setEvenMore(!evenMore)};
-  const [moreQBtn, setMoreQBtn] = useState(false);
-  const toggleMoreQBtn = () => { setMoreQBtn(!moreQBtn) };
-  let twoQuestions = props.questions.splice(0, 2);
-
-  return (
-    <>
-    <div>
-    {props.questions.map(question =>
-      <QuestionList question={question}/>
-    )}
-    </div>
-    {moreQBtn ? <button onClick={() => { toggleMoreQBtn(); }}>See more questions</button> : null}
-    {/* {evenMore ? <EvenMoreQ questions={props.questions} /> : null} */}
-    </>
   )
 };
 

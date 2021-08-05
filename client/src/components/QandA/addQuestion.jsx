@@ -40,6 +40,7 @@ const AddQuestion = (props) => {
       .post(`http://localhost:3000/hr-rfp/qa/questions`, {body: body, name: name, email: email, product_id: product.product_id})
       .then((res) => {
         alert("Question posted!");
+        props.toggleUpdate();
         setName('');
         setBody('');
         setEmail('');
@@ -54,20 +55,33 @@ const AddQuestion = (props) => {
         <h4 id='answer-modal-title'>Ask Your Question</h4>
         <h3>About the {product.currentProduct.name}</h3>
         <form>
-          <label><span class='red-star'>*</span>Your Question:</label>
+          <label><span className='red-star'>*</span>Your Question:</label>
           <div>
           <textarea maxlength='1000' id="type-answer" value={body} onChange={(e) => setBody(e.target.value)}></textarea>
           <span className='error' style={{color: "red"}}>{errors["body"]}</span>
           </div>
-          <label><span class='red-star'>*</span>What is your nickname:</label>
-          <input type='text' class='answer-name' value={name} maxlength='60' placeholder="Example: jackson11!" onChange={(e) => setName(e.target.value)}></input>
+          <label><span className='red-star'>*</span>What is your nickname:</label>
+          <input
+            type='text'
+            className='answer-name'
+            value={name} maxlength='60'
+            placeholder="Example: jackson11!"
+            onChange={(e) => setName(e.target.value)}>
+          </input>
           <span className='error' style={{color: "red"}}>&nbsp;&nbsp;{errors["name"]}</span>
-          <p class='popup-text'>For privacy reasons, do not use your full name or email address
+          <p className='popup-text'>For privacy reasons, do not use your full name or email address
           </p>
-          <label><span class='red-star'>*</span>Your email:</label>
-          <input type='text' class='answer-email' value={email} maxlength='60' placeholder='Why did you like the product or not?' onChange={(e) => setEmail(e.target.value)}></input>
+          <label><span className='red-star'>*</span>Your email:</label>
+          <input
+            type='text'
+            className='answer-email'
+            value={email}
+            maxlength='60'
+            placeholder='Why did you like the product or not?'
+            onChange={(e) => setEmail(e.target.value)}>
+          </input>
           <span className='error' style={{color: "red"}}>&nbsp;&nbsp;{errors["email"]}</span>
-          <p class='popup-text'>For authentication reasons, you will not be emailed</p>
+          <p className='popup-text'>For authentication reasons, you will not be emailed</p>
           <button className='close-btn' onClick={() => {props.setTrigger(); setErrors({}); setName('');
           setBody(''); setEmail('');}}>Cancel</button>
           <button id='submit-question-btn' onClick={(e) => { e.preventDefault(); handleValidation(); }}>Post</button>

@@ -4,6 +4,7 @@ import Arrows from './Arrows.jsx';
 const Theater = (props) => {
   const [zoom, toggleZoom] = useState(false);
   const [scale, setScale] = useState('scale(1)');
+  const [zoomCursor, setZoomCursor] = useState('zoom-in');
 
   let styling = {
     backgroundPosition: 'center',
@@ -11,10 +12,17 @@ const Theater = (props) => {
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'contain',
     transform: scale,
+    cursor: zoomCursor,
   };
 
   useEffect(() => {
-    zoom ? setScale('scale(2.5)') : setScale('scale(1)');
+    if (zoom) {
+      setScale('scale(2.5)');
+      setZoomCursor('zoom-out');
+    } else {
+      setScale('scale(1)');
+      setZoomCursor('zoom-in');
+    }
   }, [zoom]);
 
   return (

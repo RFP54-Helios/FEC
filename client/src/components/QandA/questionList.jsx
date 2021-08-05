@@ -31,7 +31,7 @@ const QuestionList = (props) => {
      if (answer.answerer_name === 'Seller') {
        let index = sortedAnswerList.indexOf(answer);
       sortedAnswerList.unshift(answer);
-      sortedAnswerList.splice(index + 1, 1)
+      sortedAnswerList.splice(index + 1, 1);
      }
    })
 

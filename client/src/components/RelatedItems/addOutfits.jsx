@@ -92,7 +92,7 @@ const AddOutfits = (props) => {
           }
 
           return (
-            <div className="img_container">
+            <div key = {i} className="img_container">
               <FontAwesomeIcon icon={faTimesCircle}
               className="removeOutfit"
               onClick={handleClickCloseButton}

@@ -34,10 +34,18 @@ const AnswerList = ({answer, helpUpdate}) => {
     )}
     <div>
       <span className='answerer-info'>By {answerer_name} on {Moment(answer.date).utc().format('MM/DD/YYYY')}</span>
-    <a className='answer-helpful-click'>&nbsp;&nbsp;|&nbsp;&nbsp;Helpful?&nbsp;</a>
-    {answerHelpful ? <a href='url' className='answer-helpful-link' onClick={(e) => { e.preventDefault(); handleUpdateAnswerHelpfulness(answer.id); setAnswerHelpful(false);}}>Yes({answer.helpfulness})</a> : <a>Yes({answer.helpfulness})</a>}
-       <a>&nbsp;&nbsp;|&nbsp;&nbsp;</a>
-       {!reported ? <a href='url' className='answer-report-click' onClick={(e) => { e.preventDefault(); setReported(true); }}>Report</a> : <a>Reported</a>}
+      <a className='answer-helpful-click'>&nbsp;&nbsp;|&nbsp;&nbsp;Helpful?&nbsp;</a>
+      {answerHelpful ?
+        <a href='url'
+          className='answer-helpful-link'
+          onClick={(e) => {
+            e.preventDefault(); handleUpdateAnswerHelpfulness(answer.id); setAnswerHelpful(false);}
+          }>Yes({answer.helpfulness})</a> : <a>Yes({answer.helpfulness})</a>}
+      <a>&nbsp;&nbsp;|&nbsp;&nbsp;</a>
+      {!reported ?
+        <a href='url'
+          className='answer-report-click'
+            onClick={(e) => { e.preventDefault(); setReported(true); }}>Report</a> :    <a>Reported</a>}
     </div>
     </dt>
   )

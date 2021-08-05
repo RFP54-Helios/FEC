@@ -61,12 +61,25 @@ const AddQuestion = (props) => {
           <span className='error' style={{color: "red"}}>{errors["body"]}</span>
           </div>
           <label><span className='red-star'>*</span>What is your nickname:</label>
-          <input type='text' className='answer-name' value={name} maxlength='60' placeholder="Example: jackson11!" onChange={(e) => setName(e.target.value)}></input>
+          <input
+            type='text'
+            className='answer-name'
+            value={name} maxlength='60'
+            placeholder="Example: jackson11!"
+            onChange={(e) => setName(e.target.value)}>
+          </input>
           <span className='error' style={{color: "red"}}>&nbsp;&nbsp;{errors["name"]}</span>
           <p className='popup-text'>For privacy reasons, do not use your full name or email address
           </p>
           <label><span className='red-star'>*</span>Your email:</label>
-          <input type='text' className='answer-email' value={email} maxlength='60' placeholder='Why did you like the product or not?' onChange={(e) => setEmail(e.target.value)}></input>
+          <input
+            type='text'
+            className='answer-email'
+            value={email}
+            maxlength='60'
+            placeholder='Why did you like the product or not?'
+            onChange={(e) => setEmail(e.target.value)}>
+          </input>
           <span className='error' style={{color: "red"}}>&nbsp;&nbsp;{errors["email"]}</span>
           <p className='popup-text'>For authentication reasons, you will not be emailed</p>
           <button className='close-btn' onClick={() => {props.setTrigger(); setErrors({}); setName('');

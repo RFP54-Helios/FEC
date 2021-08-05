@@ -53,12 +53,17 @@ const QuestionList = (props) => {
       <a>&nbsp;&nbsp;|&nbsp;&nbsp;</a>
       <a>Helpful?&nbsp;</a>
       {questionHelpful ? <a>Yes({props.question.question_helpfulness})</a> :
-      <a href='url' className='question-helpful-click' onClick={(e) =>
-      { e.preventDefault(); handleUpdateQuestionHelpfulness(); setQuestionHelpful(true);}}>
-        Yes({props.question.question_helpfulness})</a>}
-        <a>&nbsp;&nbsp;|&nbsp;&nbsp;</a>
-      <a href='url' className='add-answer-click' onClick={(e) =>
-        {e.preventDefault(); setAddAnswerPopup(true)}}>Add answer
+      <a href='url'
+        className='question-helpful-click'
+        onClick={(e) =>
+          { e.preventDefault(); handleUpdateQuestionHelpfulness(); setQuestionHelpful(true);}}>
+           Yes({props.question.question_helpfulness})
+      </a>}
+      <a>&nbsp;&nbsp;|&nbsp;&nbsp;</a>
+      <a href='url'
+        className='add-answer-click'
+        onClick={(e) => {
+          e.preventDefault(); setAddAnswerPopup(true)}}>Add answer
       </a>
       <Addanswer questionBody={props.question.question_body} questionId={props.question.question_id} trigger={addAnswerPopup} setTrigger={setAddAnswerPopup} helpUpdate={helpUpdate}>
       </Addanswer>

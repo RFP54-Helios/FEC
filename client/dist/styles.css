@@ -119,7 +119,7 @@ img {
 
 #modal-content {
   display: grid;
-  grid-template-columns: 1fr 55px;
+  grid-template-columns: 30px 1fr 30px;
   grid-template-rows: 30px 1fr 30px 1fr;
   height: 90%;
   width: 90%;
@@ -152,7 +152,7 @@ img {
 
 #modal-img {
   grid-row: 1 / 5;
-  grid-column: 1 / 3;
+  grid-column: 2 / 3;
 }
 
 #left-arrow {

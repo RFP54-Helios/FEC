@@ -1,6 +1,7 @@
 body {
   overflow-y: hidden;
   margin: 0;
+  font-family: Papyrus, Georgia, sans-serif;
 }
 
 p,
@@ -767,3 +768,24 @@ thead td {
   background-color:rgb(231, 228, 228);
 }
 /* ---------------------- End of Questions & Answers ---------------------- */
+
+/* ---------------------- NavBar ---------------------- */
+
+.nav-bar {
+  background-image: linear-gradient(#ff9100, white);
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+}
+
+.nav-logo {
+  width: 50px;
+  margin: 0 30px;
+}
+
+.nav-title {
+  font-style: italic;
+  font-size: 2.25em;
+  margin: 15px 0;
+}

@@ -8,7 +8,7 @@ describe('State', () => {
 
   it('Should render', () => {
     const { getByText } = render(<App />);
-    expect(getByText(/Atelier/i)).toBeInTheDocument();
+    expect(getByText(/Helios/i)).toBeInTheDocument();
   })
 
   it('Should display the correct name of the current product', () => {

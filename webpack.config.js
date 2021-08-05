@@ -15,6 +15,17 @@ module.exports = {
         test:/\.(js|jsx)$/,
         exclude: /node_modules/,
         use: 'babel-loader'
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192
+            }
+          }
+        ]
       }
     ]
   },

@@ -63,8 +63,8 @@ const QandA = (props) => {
       <h3>Customer questions & answers</h3>
       <input className='search' type='text' value={searching} placeholder='Have a question? Search for answers…' onChange={() => setSearching(event.target.value)} />
       <div id='body'>
-      {searchResult.map(question =>
-        <QuestionList question={question} toggleUpdate={toggleUpdate}/>
+      {searchResult.map((question,index) =>
+        <QuestionList key={index} question={question} toggleUpdate={toggleUpdate}/>
       )}
       {moreQuestionsBtn}
       {collapseQuestionsBtn}

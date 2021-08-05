@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, {useState, useContext} from 'react';
 import Moment from 'moment';
 
-const AnswerList = (props) => {
+const AnswerList = ({answer, helpUpdate}) => {
   const [reported, setReported] = useState(false);
   const [answerHelpful, setAnswerHelpful] = useState(true);
 
@@ -10,34 +10,34 @@ const AnswerList = (props) => {
     axios
     .put(`http://localhost:3000/hr-rfp/qa/answers/${answerId}/helpful`)
     .then(res => {
-      props.helpUpdate();
+      helpUpdate();
     })
     .catch(err => console.log(err));
   };
 
   let answerer_name;
-  if (props.answer.answerer_name === 'Seller') {
-    answerer_name = <a><strong>{props.answer.answerer_name}</strong></a>
-  } else { answerer_name = <a>{props.answer.answerer_name}</a>}
+  if (answer.answerer_name === 'Seller') {
+    answerer_name = <a><strong>{answer.answerer_name}</strong></a>
+  } else { answerer_name = <a>{answer.answerer_name}</a>}
 
 
 
   return (
-    <dt key={'answer'}><div><a><strong>A:</strong></a>&nbsp;&nbsp;{props.answer.body}</div>
-    {props.answer.photos.map(photo => {
+    <dt key={'answer'}><div><a><strong>A:</strong></a>&nbsp;&nbsp;{answer.body}</div>
+    {answer.photos.map((photo, index) => {
 
       return (
-        <span key={'uploadedPhoto'}>
+        <span key={index}>
         <img src={photo} id='answerer-posted-img'/>
         </span>
       )}
     )}
     <div>
-      <a className='answerer-info'>By {answerer_name} on {Moment(props.answer.date).utc().format('MM/DD/YYYY')}</a>
-    <a class='answer-helpful-click'>&nbsp;&nbsp;|&nbsp;&nbsp;Helpful?&nbsp;</a>
-    {answerHelpful ? <a href='url' className='answer-helpful-link' onClick={(e) => { e.preventDefault(); handleUpdateAnswerHelpfulness(props.answer.id); setAnswerHelpful(false);}}>Yes({props.answer.helpfulness})</a> : <a>Yes({props.answer.helpfulness})</a>}
+      <span className='answerer-info'>By {answerer_name} on {Moment(answer.date).utc().format('MM/DD/YYYY')}</span>
+    <a className='answer-helpful-click'>&nbsp;&nbsp;|&nbsp;&nbsp;Helpful?&nbsp;</a>
+    {answerHelpful ? <a href='url' className='answer-helpful-link' onClick={(e) => { e.preventDefault(); handleUpdateAnswerHelpfulness(answer.id); setAnswerHelpful(false);}}>Yes({answer.helpfulness})</a> : <a>Yes({answer.helpfulness})</a>}
        <a>&nbsp;&nbsp;|&nbsp;&nbsp;</a>
-       {!reported ? <a href='url' class='answer-report-click' onClick={(e) => { e.preventDefault(); setReported(true); }}>Report</a> : <a>Reported</a>}
+       {!reported ? <a href='url' className='answer-report-click' onClick={(e) => { e.preventDefault(); setReported(true); }}>Report</a> : <a>Reported</a>}
     </div>
     </dt>
   )

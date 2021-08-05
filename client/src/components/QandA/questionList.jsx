@@ -62,8 +62,8 @@ const QuestionList = (props) => {
       </a>
       <Addanswer questionBody={props.question.question_body} questionId={props.question.question_id} trigger={addAnswerPopup} setTrigger={setAddAnswerPopup} helpUpdate={helpUpdate}>
       </Addanswer>
-      {sortedAnswerList.slice(0, 2).map(answer =>
-      <AnswerList answer={answer} helpUpdate={helpUpdate}/>
+      {sortedAnswerList.slice(0, 2).map((answer,index) =>
+      <AnswerList key={index} answer={answer} helpUpdate={helpUpdate}/>
       )}
       {moreAnswersBtn}
       {seeMoreAnswers===true ? <ViewMoreAnswers answers={sortedAnswerList} /> : null}

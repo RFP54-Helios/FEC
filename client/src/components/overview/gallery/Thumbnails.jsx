@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 
 const Thumbnails = ({handleClick, index, thumbnail, galleryImageIndex }) => {
   const isMatchingThumbnail = () => {
+    // if this is the first set, the focused thumbnail is accurate
     if (galleryImageIndex <= 6) {
       return index === galleryImageIndex;
+      // if this is the second set, we need to offset the index by -7
     } else if (galleryImageIndex >= 7 && galleryImageIndex <= 13) {
       index += 7;
       return index === galleryImageIndex;

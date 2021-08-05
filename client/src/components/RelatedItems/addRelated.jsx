@@ -77,7 +77,11 @@ const AddRelated = (props) => {
       <div>
         <div className="titleRelated">RELATED PRODUCTS </div>
         <div className="relatedItems" >
-          {(click > 0) ? <FontAwesomeIcon icon={faAngleLeft} className="right-arrow" onClick={() => { setClick(click - 1) }} /> : ""}
+          {(click > 0) ?
+          <FontAwesomeIcon icon={faAngleLeft}
+          className="right-arrow"
+          onClick={() => { setClick(click - 1) }}/>
+           : ""}
 
           {productDetails.details.map((item, i) => {
             if (i < click || i > click + 3) {
@@ -100,10 +104,23 @@ const AddRelated = (props) => {
             var rating = productDetails.ratings[i];
 
             return (
-              <RelatedItemsImage key = {i} index = {i}  url = {defaultStyle.photos[0].url} id = {item.id}  category = {item.category} name = {item.name} sale_price = {defaultStyle.sale_price} original_price = {defaultStyle.original_price} ratings = {rating} features = {item.features}/>
+              <RelatedItemsImage key = {i}
+              index = {i}
+              url = {defaultStyle.photos[0].url}
+              id = {item.id}
+              category = {item.category}
+              name = {item.name}
+              sale_price = {defaultStyle.sale_price}
+              original_price = {defaultStyle.original_price}
+              ratings = {rating}
+              features = {item.features}/>
             )
           })}
-          {(click + 3 <= productDetails.details.length - 1) ? <FontAwesomeIcon icon={faAngleRight} className="right-arrow" onClick={handleClick} /> : ""}
+          {(click + 3 <= productDetails.details.length - 1) ?
+           <FontAwesomeIcon icon={faAngleRight}
+           className="right-arrow"
+           onClick={handleClick} />
+           : ""}
         </div>
       </div>
     );

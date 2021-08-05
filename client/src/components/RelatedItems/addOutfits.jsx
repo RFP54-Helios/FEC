@@ -48,10 +48,6 @@ const AddOutfits = (props) => {
       }
     },[selectedItem.details])
 
-    // const getSelected = JSON.parse(localStorage.getItem('myValueInLocalStorage1'));
-
-
-
   const handleClickCloseButton = () => {
     const productIdEquals = (productIdtoCompare) => {
       return function (item) {

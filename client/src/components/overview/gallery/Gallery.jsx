@@ -26,9 +26,14 @@ const Gallery = ({ expandedView, toggleExpandedView, currentStyle }) => {
 
     // separate thumbnails into different lists of 7, to fit frame.
     var photoSets = currentStyle.photos.reduce((acc, cv, index) => {
+      // if the index is divisible by 7
       if (index % 7 === 0) {
+        // push an empty array into the accumulator
         acc.push([]);
-        acc[index / 7].push(cv);
+        // and push the current photos object into the array for that breakpoint
+        // ie index 13 / 7 = 1 (rounded down), which would be the second array
+        // which represents the second set of images (set 1 = 0 - 6, set 2 = 7 - 13, etc)
+        acc[Math.floor(index / 7)].push(cv);
       } else {
         acc[Math.floor(index / 7)].push(cv);
       }

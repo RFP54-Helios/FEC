@@ -1,8 +1,10 @@
 const axios = require('axios');
 const express = require('express');
+const compression = require('compression');
 const app = express();
 const path = __dirname + '/../client/dist';
 app.use(express.static(path));
+app.use(compression());
 const port = 3000
 
 // forward requests to API

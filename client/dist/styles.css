@@ -337,7 +337,6 @@ p {
 }
 .addOutfits {
   margin-top:10px;
-  /* margin-top:40px; */
   display:flex;
   flex-direction:row;
 }
@@ -348,7 +347,6 @@ p {
 }
 
 .titleOutfit {
-   /* margin-left: 10px; */
    padding: 0px 0px 0px 10px;
 }
 
@@ -358,7 +356,6 @@ p {
 
 .right-arrow {
   align-self: center;
-  /* width: 50px; */
   font-size: 1.5rem;
 }
 

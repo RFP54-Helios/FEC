@@ -30,7 +30,7 @@ const Modal = (props) => {
                 for(var results of props.relatedItemFeatures) {
                   if(item.feature === results.feature) {
                     return (
-                      <tr>
+                      <tr key = {index}>
                       <td><AiOutlineCheck /></td>
                       <td>{item.value}</td>
                       <td><AiOutlineCheck /></td>
@@ -39,7 +39,7 @@ const Modal = (props) => {
                   }
                 }
                 return  (
-                  <tr>
+                  <tr key = {index}>
                   <td><AiOutlineCheck /></td>
                   <td>{item.value}</td>
                   <td></td>

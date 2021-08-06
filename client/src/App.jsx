@@ -17,7 +17,8 @@ export const ProductContext = React.createContext([{}, () => {}]);
 let App = () => {
 
   const [product, setProduct] = useState({
-    product_id: 17069,
+    // DO NOT APPROVE REVIEW IF THE product_id HAS NOT BEEN DISCUSSED
+    product_id: 17072,
     currentProduct: {},
     styles: [],
     ratings: []

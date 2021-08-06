@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { ProductContext } from '../../../App.jsx';
 
 const DescriptionText = () => {
@@ -9,14 +9,14 @@ const DescriptionText = () => {
       {product.currentProduct.slogan ? (
         <>
           <h3>{product.currentProduct.slogan}</h3>
-          <br></br>
+          <br />
           <p>{product.currentProduct.description}</p>
         </>
       ) : (
         <>
           <h3>Thinking of a slogan...</h3>
-          <br></br>
-          <p>Fetching some juicy details...</p>
+          <br />
+          <p>Dreaming of some details...</p>
         </>
       )}
     </div>

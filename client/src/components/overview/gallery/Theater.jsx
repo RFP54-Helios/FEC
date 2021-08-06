@@ -1,36 +1,47 @@
 import React, { useState, useEffect } from 'react';
 import Arrows from './Arrows.jsx';
-import addZoom from './addZoom';
 
 const Theater = (props) => {
-  // inline styling to handle url from props, API call
-  let style = {
-    backgroundSize: 'contain',
+  const [zoom, toggleZoom] = useState(false);
+  const [scale, setScale] = useState('scale(1)');
+  const [zoomCursor, setZoomCursor] = useState('zoom-in');
+
+  let styling = {
     backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
     backgroundImage: `url(${props.image})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'contain',
+    transform: scale,
+    cursor: zoomCursor,
   };
 
+  useEffect(() => {
+    if (zoom) {
+      setScale('scale(2.5)');
+      setZoomCursor('zoom-out');
+    } else {
+      setScale('scale(1)');
+      setZoomCursor('zoom-in');
+    }
+  }, [zoom]);
+
   return (
-    <div className="modal">
+    <div className="modal" onClick={() => props.toggleExpandedView(false)}>
       <div id="modal-content">
-        <div
-          style={style}
-          id="zoom-img"
-          onClick={(e) => addZoom('zoom-img')}
-        ></div>
-        <button
-          id="modal-close"
-          onClick={() => props.toggleExpandedView(false)}
-        >
-          Close
-        </button>
         <Arrows
           handleLeftClick={props.handleLeftClick}
           handleRightClick={props.handleRightClick}
           imageIndex={props.imageIndex}
           lastIndex={props.currentStyle.photos.length - 1}
         />
+        <div
+          style={styling}
+          id="modal-img"
+          onClick={(e) => {
+            e.stopPropagation();
+            toggleZoom(!zoom);
+          }}
+        ></div>
       </div>
     </div>
   );

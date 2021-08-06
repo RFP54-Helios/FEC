@@ -8,7 +8,7 @@ import DescriptionText from './Description/DescriptionText.jsx';
 import Features from './Description/Features.jsx';
 import { ProductContext } from '../../App.jsx';
 
-const Overview = ({currentStyle, setCurrentStyle, ratingsRef}) => {
+const Overview = ({ currentStyle, setCurrentStyle, ratingsRef }) => {
   const [product, setProduct] = useContext(ProductContext);
   const [expandedView, toggleExpandedView] = useState(false);
 

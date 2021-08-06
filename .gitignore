@@ -3,3 +3,4 @@ client/dist/bundle.js
 coverage
 *.DS_Store
 server/config/config.js
+Helios.pem

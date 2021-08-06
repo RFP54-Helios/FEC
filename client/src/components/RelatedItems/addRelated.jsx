@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleRight } from '@fortawesome/free-solid-svg-icons'
-import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
+import { GrCaretNext } from 'react-icons/gr';
+import { GrCaretPrevious } from 'react-icons/gr';
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import RelatedItemsImage from './RelatedItemsImage.jsx';
 import AddOutfits from './addOutfits.jsx';
@@ -78,7 +78,7 @@ const AddRelated = (props) => {
         <div className="titleRelated">RELATED PRODUCTS </div>
         <div className="relatedItems" >
           {(click > 0) ?
-          <FontAwesomeIcon icon={faAngleLeft}
+          <GrCaretPrevious
           className="right-arrow"
           onClick={() => { setClick(click - 1) }}/>
            : ""}
@@ -117,7 +117,7 @@ const AddRelated = (props) => {
             )
           })}
           {(click + 3 <= productDetails.details.length - 1) ?
-           <FontAwesomeIcon icon={faAngleRight}
+           <GrCaretNext
            className="right-arrow"
            onClick={handleClick} />
            : ""}

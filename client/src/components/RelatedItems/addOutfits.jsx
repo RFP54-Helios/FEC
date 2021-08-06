@@ -1,6 +1,8 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
+// import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { GrCaretNext } from 'react-icons/gr';
+import { GrCaretPrevious } from 'react-icons/gr';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
@@ -81,13 +83,13 @@ const AddOutfits = (props) => {
         </div>
 
         {(click > 0) ?
-        <FontAwesomeIcon icon={faAngleLeft}
+        <GrCaretPrevious
         className="right-arrow"
         onClick={() => { setClick(click - 1) }}/>
         : ""}
 
         {selectedItem.details.map((item, i) => {
-           if (i < click || i > click + 3) {
+           if (i < click || i > click + 2) {
             return "";
           }
 
@@ -108,8 +110,8 @@ const AddOutfits = (props) => {
           );
         })}
 
-        {(click + 2 <= selectedItem.details.length - 1) ?
-         <FontAwesomeIcon icon={faAngleRight}
+        {(click + 3 <= selectedItem.details.length - 1) ?
+         <GrCaretNext
           className="right-arrow"
           onClick={handleClick} /> : ""}
       </div>

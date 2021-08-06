@@ -32,7 +32,8 @@ const Outfits = (props) => {
   return (
     <div>
       <AddRelated ids={relatedId.ids} />
-      <AddOutfits currentStyle={props.currentStyle} setCurrentStyle={props.setCurrentStyle} />
+      <AddOutfits currentStyle={props.currentStyle}
+      setCurrentStyle={props.setCurrentStyle} />
     </div>
   );
 }

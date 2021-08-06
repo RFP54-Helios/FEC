@@ -1,6 +1,8 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
+// import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { GrCaretNext } from 'react-icons/gr';
+import { GrCaretPrevious } from 'react-icons/gr';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
@@ -11,6 +13,7 @@ import Price from './Price.jsx';
 
 const AddOutfits = (props) => {
   const [product, setProduct] = useContext(ProductContext);
+
 
   const [selectedItem, setSelectedItem] = useState({
     details: []
@@ -28,10 +31,28 @@ const AddOutfits = (props) => {
     if (productExists === false) {
       setSelectedItem((prevState => ({
         ...prevState,
-        details: prevState.details.concat({ product: product.currentProduct, style: props.currentStyle, ratings:product.ratings })
+        details: prevState.details.concat({
+           product: product.currentProduct,
+           style: props.currentStyle,
+           ratings:product.ratings
+          })
       })));
     }
   }
+    useEffect(() => {
+      const outfitDetails = localStorage.getItem('outfitDetails');
+    if(outfitDetails) {
+      setSelectedItem({
+        details:JSON.parse(outfitDetails)
+      })
+    }
+    },[])
+
+    useEffect(() => {
+      if (selectedItem.details.length != 0) {
+        localStorage.setItem('outfitDetails',JSON.stringify(selectedItem.details));
+      }
+    },[selectedItem.details])
 
   const handleClickCloseButton = () => {
     const productIdEquals = (productIdtoCompare) => {
@@ -55,32 +76,44 @@ const AddOutfits = (props) => {
       <span className="titleOutfit">YOUR OUTFIT</span>
       <div className="addOutfits">
         <div className="img_container">
-          <FontAwesomeIcon icon={faPlus} className="addFavourite" onClick={addOutfitsClick} /><h3 className="addh3">Add Outfits</h3>
+          <FontAwesomeIcon icon={faPlus}
+          className="addFavourite"
+          onClick={addOutfitsClick}/>
+           <h3 className="addh3">Add Outfits</h3>
         </div>
 
-        {(click > 0) ? <FontAwesomeIcon icon={faAngleLeft} className="right-arrow" onClick={() => { setClick(click - 1) }} /> : ""}
+        {(click > 0) ?
+        <GrCaretPrevious
+        className="right-arrow"
+        onClick={() => { setClick(click - 1) }}/>
+        : ""}
 
         {selectedItem.details.map((item, i) => {
-           if (i < click || i > click + 3) {
+           if (i < click || i > click + 2) {
             return "";
           }
 
           return (
-            <div className="img_container">
-              <FontAwesomeIcon icon={faTimesCircle} className="removeOutfit" onClick={handleClickCloseButton} data-id={item.product.id} />
-              <img src={item.style.photos[0].thumbnail_url} className="relatedThumbnail"></img>
-              <div>{item.product.category}</div>
+            <div key = {i} className="img_container">
+              <FontAwesomeIcon icon={faTimesCircle}
+              className="removeOutfit"
+              onClick={handleClickCloseButton}
+              data-id={item.product.id}/>
+              <img src={item.style.photos[0].thumbnail_url}
+              className="relatedThumbnail"></img>
               <div>{item.product.name}</div>
               <div>Style : {item.style.name}</div>
-              {/* <div>{sale_label} {price_label}</div> */}
-              <Price sale_price = {item.style.sale_price} original_price = {item.style.original_price} />
+              <Price  sale_price = {item.style.sale_price}
+               original_price = {item.style.original_price}/>
               <div><Stars ratings = {item.ratings} /></div>
             </div>
           );
         })}
 
-
-        {(click + 2 <= selectedItem.details.length - 1) ? <FontAwesomeIcon icon={faAngleRight} className="right-arrow" onClick={handleClick} /> : ""}
+        {(click + 3 <= selectedItem.details.length - 1) ?
+         <GrCaretNext
+          className="right-arrow"
+          onClick={handleClick} /> : ""}
       </div>
     </div>
   );

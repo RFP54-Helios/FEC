@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleRight } from '@fortawesome/free-solid-svg-icons'
-import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
+import { GrCaretNext } from 'react-icons/gr';
+import { GrCaretPrevious } from 'react-icons/gr';
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import RelatedItemsImage from './RelatedItemsImage.jsx';
 import AddOutfits from './addOutfits.jsx';
@@ -30,7 +30,6 @@ const AddRelated = (props) => {
     if (props.ids.length === 0) {
       return;
     }
-
     var relatedIdsMatch = true;
     if (props.ids.length != relatedIds.length) {
       relatedIdsMatch = false;
@@ -71,15 +70,18 @@ const AddRelated = (props) => {
     productDetails.styles.length === 0 ||
     productDetails.details.length != productDetails.styles.length) {
     return (
-      // <div>Related Items Loading</div>
-      <img  src = "https://miro.medium.com/max/880/0*H3jZONKqRuAAeHnG.jpg"></img>
+      <img src = "https://miro.medium.com/max/880/0*H3jZONKqRuAAeHnG.jpg"></img>
     )
   } else {
     return (
       <div>
         <div className="titleRelated">RELATED PRODUCTS </div>
         <div className="relatedItems" >
-          {(click > 0) ? <FontAwesomeIcon icon={faAngleLeft} className="right-arrow" onClick={() => { setClick(click - 1) }} /> : ""}
+          {(click > 0) ?
+          <GrCaretPrevious
+          className="right-arrow"
+          onClick={() => { setClick(click - 1) }}/>
+           : ""}
 
           {productDetails.details.map((item, i) => {
             if (i < click || i > click + 3) {
@@ -102,12 +104,23 @@ const AddRelated = (props) => {
             var rating = productDetails.ratings[i];
 
             return (
-              <div>
-              <RelatedItemsImage url = {defaultStyle.photos[0].url} id = {item.id}  category = {item.category} name = {item.name} sale_price = {defaultStyle.sale_price} original_price = {defaultStyle.original_price} ratings = {rating} features = {item.features} />
-              </div>
+              <RelatedItemsImage key = {i}
+              index = {i}
+              url = {defaultStyle.photos[0].url}
+              id = {item.id}
+              category = {item.category}
+              name = {item.name}
+              sale_price = {defaultStyle.sale_price}
+              original_price = {defaultStyle.original_price}
+              ratings = {rating}
+              features = {item.features}/>
             )
           })}
-          {(click + 3 <= productDetails.details.length - 1) ? <FontAwesomeIcon icon={faAngleRight} className="right-arrow" onClick={handleClick} /> : ""}
+          {(click + 3 <= productDetails.details.length - 1) ?
+           <GrCaretNext value={{ color: 'blue'}}
+           className="right-arrow"
+           onClick={handleClick} />
+           : ""}
         </div>
       </div>
     );

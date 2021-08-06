@@ -13,58 +13,44 @@ const Modal = (props) => {
     <div className="comparison_modal">
       <div className="modal-content">
         <div className="modal-header">
-          <h4 className="modal-title">Comparing</h4>
+          <h4 className="modal-title">COMPARING</h4>
         </div>
         <div className="modal-body">
           <table>
             <thead className="tableHead">
+              <tr>
               <td>{product.currentProduct.name}</td>
               <td></td>
               <td>{props.relatedItemName}</td>
+              </tr>
+
             </thead>
             <tbody>
               {product.currentProduct.features.map((item, index) => {
-                console.log(item.value);
-                if (item.feature === props.relatedItemFeatures[index].feature) {
-                  return (
-                    <tr>
+                for(var results of props.relatedItemFeatures) {
+                  if(item.feature === results.feature) {
+                    return (
+                      <tr key = {index}>
+                      <td><AiOutlineCheck /></td>
                       <td>{item.value}</td>
-                      <td>{item.feature}</td>
-                      <td>{item.value}</td>
+                      <td><AiOutlineCheck /></td>
                     </tr>
-                  );
+                    )
+                  }
                 }
-                if (
-                  typeof item.feature === "boolean" &&
-                  item.feature === true &&
-                  props.relatedItemFeatures[index].feature === true
-                ) {
-                  return (
-                    <tr>
-                      <td>
-                        <AiOutlineCheck />
-                      </td>
-                      <td>
-                        <AiOutlineCheck />
-                        {item.feature}
-                      </td>
-                      <td>
-                        <AiOutlineCheck />
-                      </td>
-                    </tr>
-                  );
-                } else {
-                  return;
-                  <tr>
-                    <td></td>
-                  </tr>;
-                }
+                return  (
+                  <tr key = {index}>
+                  <td><AiOutlineCheck /></td>
+                  <td>{item.value}</td>
+                  <td></td>
+                </tr>
+                )
               })}
             </tbody>
           </table>
         </div>
         <div className="modal-footer">
-          <button className="button" onClick={props.onClose}>
+          <button className="modal_close" onClick={props.onClose}>
             Close
           </button>
         </div>

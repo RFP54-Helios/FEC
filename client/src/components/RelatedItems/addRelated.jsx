@@ -117,7 +117,7 @@ const AddRelated = (props) => {
             )
           })}
           {(click + 3 <= productDetails.details.length - 1) ?
-           <GrCaretNext
+           <GrCaretNext value={{ color: 'blue'}}
            className="right-arrow"
            onClick={handleClick} />
            : ""}

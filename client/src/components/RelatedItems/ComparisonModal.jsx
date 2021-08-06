@@ -18,31 +18,33 @@ const Modal = (props) => {
         <div className="modal-body">
           <table>
             <thead className="tableHead">
+              <tr>
               <td>{product.currentProduct.name}</td>
               <td></td>
               <td>{props.relatedItemName}</td>
+              </tr>
+
             </thead>
             <tbody>
               {product.currentProduct.features.map((item, index) => {
-                console.log(item.value);
-                if (item.feature === props.relatedItemFeatures[index].feature) {
-                  return (
-                    <tr>
+                for(var results of props.relatedItemFeatures) {
+                  if(item.feature === results.feature) {
+                    return (
+                      <tr>
                       <td><AiOutlineCheck /></td>
                       <td>{item.value}</td>
                       <td><AiOutlineCheck /></td>
                     </tr>
-                  );
-                } else {
-                  return (
-                    <tr>
-                      <td><AiOutlineCheck /></td>
-                      <td>{item.value}</td>
-                      <td><AiOutlineCheck /></td>
-                    </tr>
-                  )
+                    )
+                  }
                 }
-
+                return  (
+                  <tr>
+                  <td><AiOutlineCheck /></td>
+                  <td>{item.value}</td>
+                  <td></td>
+                </tr>
+                )
               })}
             </tbody>
           </table>

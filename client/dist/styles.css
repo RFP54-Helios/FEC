@@ -376,6 +376,7 @@ p {
 .right-arrow {
   align-self: center;
   font-size: 1.5rem;
+
 }
 
 .addFavourite {
@@ -392,13 +393,15 @@ p {
 .removeOutfit {
   position: absolute;
   margin:5px 5px 300px 200px;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
 }
 
 .openModal {
 position: absolute;
 margin:5px 5px 310px 200px;
-font-size: 1.3rem;
+font-size: 1.4rem;
+fill: black;
+
 }
 
 .relatedThumbnail {

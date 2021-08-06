@@ -85,7 +85,7 @@ const Addanswer = (props) => {
           <PhotoUploader photo={photo} setPhoto={setPhoto} />
           <span className='upload-option'>Or</span>
           <label>Your image URL:&nbsp;&nbsp;</label>
-          <input className='answer-url' type='text' onChange={(e) => setPhoto(photo.concat([e.target.value]))}></input>
+          <input className='answer-url' type='text' value={photo} onChange={(e) => setPhoto(photo.concat([e.target.value]))}></input>
           <input className='answer-url' type='text' onChange={(e) => setPhoto(photo.concat([e.target.value]))}></input>
           <input className='answer-url' type='text' onChange={(e) => setPhoto(photo.concat([e.target.value]))}></input>
           <input className='answer-url' type='text' onChange={(e) => setPhoto(photo.concat([e.target.value]))}></input>
@@ -100,13 +100,13 @@ const Addanswer = (props) => {
 
 const PhotoUploader = ({photo, setPhoto}) => {
   const [alert, setAlert] = useState(false);
-  const [thumbnails, setThumbnails] = useState([]);
+
 
   const deleteSelected = (pic) => {
-    var index = thumbnails.indexOf(pic);
-    const temp = [...thumbnails];
+    var index = photo.indexOf(pic);
+    const temp = [...photo];
     temp.splice(index, 1);
-    setThumbnails(temp);
+    setPhoto(temp);
     if (alert === true) { setAlert(false); }
   };
 
@@ -121,11 +121,10 @@ const PhotoUploader = ({photo, setPhoto}) => {
   // };
   const handlePhoto = (e) => {
     setPhoto(photo => [...photo, URL.createObjectURL(e.target.files[0])]);
-    setThumbnails(thumbnails => [...thumbnails, URL.createObjectURL(e.target.files[0])]);
   };
 
-  if (thumbnails.length > 5) {
-    setThumbnails(thumbnails.slice(0, 5));
+  if (photo.length > 5) {
+    setPhoto(photo.slice(0, 5));
     setAlert(true);
    }
 
@@ -133,7 +132,7 @@ const PhotoUploader = ({photo, setPhoto}) => {
   return (
     <div className="photo-uploader">
       <input type="file" name="image-upload" id='select-photo' accept=".jpg, .jpeg, .png" onChange={handlePhoto}></input>
-      {thumbnails.map((thumbnail,index) => {
+      {photo.map((thumbnail,index) => {
         return (
         <>
         <img key={index} src={thumbnail} id='answer-img' onClick={() => {deleteSelected(thumbnail)}}/>

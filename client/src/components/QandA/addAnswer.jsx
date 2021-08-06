@@ -43,17 +43,23 @@ const Addanswer = (props) => {
     // formData.append("body", body);
     // formData.append("email", email);
     // formData.append("file", selectedFile);
-
     axios
       .post(`http://localhost:3000/hr-rfp/qa/questions/${props.questionId}/answers`, {body: body, name: name, email: email, photos: photo})
       .then((res) => {
         alert('Answer posted!');
+        props.helpUpdate();
         setName('');
         setBody('');
         setEmail('');
         setPhoto([]);
       })
-      .catch((err) => alert('Post failed...'));
+      .catch((err) => {
+        alert('Post failed...');
+        setName('');
+        setBody('');
+        setEmail('');
+        setPhoto([]);
+      });
   };
 
   return (props.trigger) ? (
@@ -62,23 +68,29 @@ const Addanswer = (props) => {
         <h4 id='answer-modal-title'>Submit your Answer</h4>
         <h3>{product.currentProduct.name}: {props.questionBody}</h3>
         <form>
-          <label><span class='red-star'>*</span>Your Answer:</label>
+          <label><span className='red-star'>*</span>Your Answer:</label>
           <div>
           <textarea maxlength='1000' id="type-answer" value={body} onChange={(e) => setBody(e.target.value)}></textarea>
           <span className='error' style={{color: "red"}}>{errors["body"]}</span>
           </div>
-          <label><span class='red-star'>*</span>What is your nickname:</label>
-          <input type='text' class='answer-name' value={name} maxlength='60' placeholder="Example: jack543!" onChange={(e) => setName(e.target.value)}></input>
+          <label><span className='red-star'>*</span>What is your nickname:</label>
+          <input type='text' className='answer-name' value={name} maxlength='60' placeholder="Example: jack543!" onChange={(e) => setName(e.target.value)}></input>
           <span className='error' style={{color: "red"}}>&nbsp;&nbsp;{errors["name"]}</span>
-          <p class='popup-text'>For privacy reasons, do not use your full name or email address</p>
-          <label><span class='red-star'>*</span>Your email:</label>
-          <input type='text' class='answer-email' value={email} maxlength='60' placeholder="Example: jack@email.com" onChange={(e) => setEmail(e.target.value)}></input>
+          <p className='popup-text'>For privacy reasons, do not use your full name or email address</p>
+          <label><span className='red-star'>*</span>Your email:</label>
+          <input type='text' className='answer-email' value={email} maxlength='60' placeholder="Example: jack@email.com" onChange={(e) => setEmail(e.target.value)}></input>
           <span className='error' style={{color: "red"}}>&nbsp;&nbsp;{errors["email"]}</span>
-          <p class='popup-text'>For authentication reasons, you will not be emailed</p>
+          <p className='popup-text'>For authentication reasons, you will not be emailed</p>
           <label>Upload your photos:</label>
           <PhotoUploader photo={photo} setPhoto={setPhoto} />
-          <button className='close-btn' onClick={() => {props.setTrigger();setErrors({}); setName('');
-           setBody('');setEmail('');}}>Cancel</button>
+          <span className='upload-option'>Or</span>
+          <label>Your image URL:&nbsp;&nbsp;</label>
+          <input className='answer-url' type='text' onChange={(e) => setPhoto(photo.concat([e.target.value]))}></input>
+          <input className='answer-url' type='text' onChange={(e) => setPhoto(photo.concat([e.target.value]))}></input>
+          <input className='answer-url' type='text' onChange={(e) => setPhoto(photo.concat([e.target.value]))}></input>
+          <input className='answer-url' type='text' onChange={(e) => setPhoto(photo.concat([e.target.value]))}></input>
+          <input className='answer-url' type='text' onChange={(e) => setPhoto(photo.concat([e.target.value]))}></input>
+          <button className='close-btn' onClick={() => {props.setTrigger();setErrors({}); setName(''); setBody(''); setEmail(''); setPhoto([]); }}>Cancel</button>
           <button id='submit-answer-btn' onClick={(e) => { e.preventDefault(); handleValidation()}}>Submit</button>
         </form>
       </div>
@@ -121,10 +133,10 @@ const PhotoUploader = ({photo, setPhoto}) => {
   return (
     <div className="photo-uploader">
       <input type="file" name="image-upload" id='select-photo' accept=".jpg, .jpeg, .png" onChange={handlePhoto}></input>
-      {thumbnails.map(thumbnail => {
+      {thumbnails.map((thumbnail,index) => {
         return (
         <>
-        <img src={thumbnail} id='answer-img' onClick={() => {deleteSelected(thumbnail)}}/>
+        <img key={index} src={thumbnail} id='answer-img' onClick={() => {deleteSelected(thumbnail)}}/>
         </>
         )}
       )}

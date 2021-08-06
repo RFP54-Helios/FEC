@@ -27,33 +27,48 @@ const QuestionList = (props) => {
     return b.helpfulness - a.helpfulness;
    })
 
+   sortedAnswerList.forEach(answer => {
+     if (answer.answerer_name === 'Seller') {
+       let index = sortedAnswerList.indexOf(answer);
+      sortedAnswerList.unshift(answer);
+      sortedAnswerList.splice(index + 1, 1);
+     }
+   })
 
-    const handleUpdateQuestionHelpfulness = () => {
-      axios
-      .put(`http://localhost:3000/hr-rfp/qa/questions/${props.question.question_id}/helpful`)
-      .then(res => {
-        console.log('add 1')
-      })
-      .catch(err => console.log(err));
-    };
+   const helpUpdate = () => {
+     props.toggleUpdate();
+   };
+
+  const handleUpdateQuestionHelpfulness = () => {
+    axios
+    .put(`http://localhost:3000/hr-rfp/qa/questions/${props.question.question_id}/helpful`)
+    .then(res => {
+      props.toggleUpdate()
+    })
+    .catch(err => console.log(err));
+  };
 
   return (
-      <div className='question-head'><a><strong>Q:</strong></a>&nbsp;&nbsp;{props.question.question_body}
+      <div key={'question'} className='question-head'><a><strong>Q:</strong></a>&nbsp;&nbsp;{props.question.question_body}
       <a>&nbsp;&nbsp;|&nbsp;&nbsp;</a>
       <a>Helpful?&nbsp;</a>
       {questionHelpful ? <a>Yes({props.question.question_helpfulness})</a> :
-      <a href='url' className='question-helpful-click' onClick={(e) =>
-      { e.preventDefault(); handleUpdateQuestionHelpfulness(); setQuestionHelpful(true); }}>
-        Yes({props.question.question_helpfulness})</a>}
-        <a>&nbsp;&nbsp;|&nbsp;&nbsp;</a>
-      <a href='url' className='add-answer-click' onClick={(e) =>
-        {e.preventDefault(); setAddAnswerPopup(true)}}>Add answer
+      <a href='url'
+        className='question-helpful-click'
+        onClick={(e) =>
+          { e.preventDefault(); handleUpdateQuestionHelpfulness(); setQuestionHelpful(true);}}>
+           Yes({props.question.question_helpfulness})
+      </a>}
+      <a>&nbsp;&nbsp;|&nbsp;&nbsp;</a>
+      <a href='url'
+        className='add-answer-click'
+        onClick={(e) => {
+          e.preventDefault(); setAddAnswerPopup(true)}}>Add answer
       </a>
-      <Addanswer questionBody={props.question.question_body} questionId={props.question.question_id}
-      trigger={addAnswerPopup} setTrigger={setAddAnswerPopup}>
+      <Addanswer questionBody={props.question.question_body} questionId={props.question.question_id} trigger={addAnswerPopup} setTrigger={setAddAnswerPopup} helpUpdate={helpUpdate}>
       </Addanswer>
-      {sortedAnswerList.slice(0, 2).map(answer =>
-      <AnswerList answer={answer} />
+      {sortedAnswerList.slice(0, 2).map((answer,index) =>
+      <AnswerList key={index} answer={answer} helpUpdate={helpUpdate}/>
       )}
       {moreAnswersBtn}
       {seeMoreAnswers===true ? <ViewMoreAnswers answers={sortedAnswerList} /> : null}

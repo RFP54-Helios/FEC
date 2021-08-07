@@ -59,7 +59,7 @@ How did we implement it to meet that challenge?
 How to host this single page application on your local machine.
 
 1. Make sure you've pulled the version you want to run (see Git Workflow)
-1. Make a copy of the file 'server/config/config.example.js` and rename to 'config.js'
+1. Make a copy of the file `server/config/config.example.js` and rename to `config.js`
 1. Assign the `API_KEY` variable to your GitHub token
 1. Install dependencies
 

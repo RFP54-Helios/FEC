@@ -89,6 +89,10 @@ How to host this single page application on your local machine.
 
 ![Overview component screenshot](docs/img/overview.png)
 
+The Overview module rests at the top of the page and is responsible for delivering relevant information for a product in the catalogue. A single product can be associated to many styles, whose details and associated photos must be intuitively displayed.
+
+It was a challene to display this information to be viewed at a glance while also giving a prospective shopper the means to view the full details. This flexibility expressed in the business requirements made space a precious resource, so using Grid to create an image control overlay, and using CSS to create a modal to remove detailed image viewing from the page flow were vital.
+
 ### [Related Products](client/src/components/RelatedItems/)
 
 ![Related Products component screenshot](docs/img/related.png)

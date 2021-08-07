@@ -4,9 +4,6 @@ Front End Capstone repository for RFP54's Team Helios!
 
 This capstone project tasked Team Helios with the challenge of redesigning an outdated retail portal. The redesign implemented a new user interface, and introduced significant client experience functionality.
 
-What challenge called for the use of this technology
-How did we implement it to meet that challenge?
-
 ---
 
 ## Tech Stack and Challenges

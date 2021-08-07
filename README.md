@@ -101,4 +101,10 @@ How to host this single page application on your local machine.
 
 ### [Ratings & Reviews](client/src/components/Ratings/)
 
+View and submit reviews for the selected product.
+
+Reviews loaded two at a time for improved initial page load performance.
+
+Display progress bars visualizing a breakdown of the amount of each star rating received.
+
 ![Ratings & Reviews component screenshot](docs/img/ratings.png)

@@ -1,6 +1,6 @@
-# FEC
+# Project Catwalk
 
-Front End Capstone repository for RFP54's Team Helios!
+Front End Capstone repository for HackReactor RFP54's Team Helios!
 
 This capstone project tasked Team Helios with the challenge of redesigning an outdated retail portal. The redesign implemented a new user interface, and introduced significant client experience functionality.
 
@@ -18,14 +18,13 @@ This capstone project tasked Team Helios with the challenge of redesigning an ou
 
 ### Nodejs
 
-- Despite being a front-end capstone that explicitly placed back-end implementation out of scope, used Nodejs to utilize Express
+- Despite being a front-end capstone that explicitly placed back-end implementation out of scope, used Nodejs to utilize Express.
 
 <code><img width="15%" src="https://www.vectorlogo.zone/logos/expressjs/expressjs-ar21.svg"></code>
 
 ### Express
 
-- Simplified API requests by implementing a proxy server in Express.js to an existing RESTful API
-- http-proxy-middleware
+- Simplified API requests by implementing a proxy server in Express.js that adds authentication while forwarding requests to an existing RESTful API.
 
 <code><img width="15%" src="https://www.vectorlogo.zone/logos/netlifyapp_watercss/netlifyapp_watercss-ar21.svg"></code>
 
@@ -88,7 +87,7 @@ How to host this single page application on your local machine.
 
 The Overview module rests at the top of the page and is responsible for delivering relevant information for a product in the catalogue. A single product can be associated to many styles, whose details and associated photos must be intuitively displayed.
 
-It was a challene to display this information to be viewed at a glance while also giving a prospective shopper the means to view the full details. This flexibility expressed in the business requirements made space a precious resource, so using Grid to create an image control overlay, and using CSS to create a modal to remove detailed image viewing from the page flow were vital.
+It was a challenge to display this information to be viewed at a glance while also giving a prospective shopper the means to view the full details. This flexibility expressed in the business requirements made space a precious resource, so using Grid to create an image control overlay, and using CSS to create a modal to remove detailed image viewing from the page flow were vital.
 
 ### [Related Products](client/src/components/RelatedItems/)
 
@@ -102,10 +101,10 @@ It was a challene to display this information to be viewed at a glance while als
 
 ### [Ratings & Reviews](client/src/components/Ratings/)
 
+![Ratings & Reviews component screenshot](docs/img/ratings.png)
+
 View and submit reviews for the selected product.
 
 Reviews loaded two at a time for improved initial page load performance.
 
 Display progress bars visualizing a breakdown of the amount of each star rating received.
-
-![Ratings & Reviews component screenshot](docs/img/ratings.png)

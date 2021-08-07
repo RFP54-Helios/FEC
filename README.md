@@ -85,20 +85,20 @@ How to host this single page application on your local machine.
 
 ## App Components
 
-### Overview
+### [Overview](client/src/components/overview/Overview.jsx)
 
 ![Overview component screenshot](docs/img/overview.png)
 
-### Related Products
+### [Related Products](client/src/components/RelatedItems/Outfits.jsx)
 
 ![Related Products component screenshot](docs/img/related.png)
 
-### Questions & Answers
+### [Questions & Answers](client/src/components/QandA/QandA.jsx)
 
 ![Questions & Answers component screenshot](docs/img/qa.png)
 
 ![Questions & Answers Add Answer component screenshot](docs/img/qa-modal.png)
 
-### Ratings & Reviews
+### [Ratings & Reviews](client/src/components/Ratings/Ratings.jsx)
 
 ![Ratings & Reviews component screenshot](docs/img/ratings.png)

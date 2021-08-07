@@ -83,6 +83,8 @@ How to host this single page application on your local machine.
 
 ### [Overview](client/src/components/overview/)
 
+Developed by Darion Williams
+
 ![Overview component screenshot](docs/img/overview.png)
 
 The Overview module rests at the top of the page and is responsible for delivering relevant information for a product in the catalogue. A single product can be associated to many styles, whose details and associated photos must be intuitively displayed.
@@ -91,15 +93,21 @@ It was a challenge to display this information to be viewed at a glance while al
 
 ### [Related Products](client/src/components/RelatedItems/)
 
+Developed by Lakshmy Mohan
+
 ![Related Products component screenshot](docs/img/related.png)
 
 ### [Questions & Answers](client/src/components/QandA/)
+
+Developed by Emily Liu
 
 ![Questions & Answers component screenshot](docs/img/qa.png)
 
 ![Questions & Answers Add Answer component screenshot](docs/img/qa-modal.png)
 
 ### [Ratings & Reviews](client/src/components/Ratings/)
+
+Developed by Matt Heindel
 
 ![Ratings & Reviews component screenshot](docs/img/ratings.png)
 

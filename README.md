@@ -97,6 +97,24 @@ Developed by Lakshmy Mohan
 
 ![Related Products component screenshot](docs/img/related.png)
 
+The Related Products presents the user with products similar to the currently selected product, provided by the external API.
+
+This section shows four product cards at a time. They sit on a horizontally scrolling carousel that allows the user to scroll and view additional cards.
+
+On each product card, essential information such as the category, name, price, image, and ratings are displayed. Selecting the name of a product will take the user to the overview page of the selected product.
+
+When a user clicks on the star icon in the upper righthand corner of the card, a modal will pop up comparing the current product and the selected product. The modal displays a table with the features lined up for both products in a table, allowing the user to easily compare the two products.
+
+### **My Outfit**
+
+My Outfit provides the user a way to keep track of their favorite products. If the user wants to add the current product to their outfit, they can select the "+" button, adding the products card to the outfit.
+
+To remove an outfit item, the user can click the  "X" on the upper righthand corner of the card. The change will remove the selected product from the outfit list.
+
+The user can also view the sale price in red followed by the original price
+
+My Outfit is also persistent, allowing the user to navigate around and even away from the application and maintain their list of saved products.
+
 ### [Questions & Answers](client/src/components/QandA/)
 
 Developed by Emily Liu

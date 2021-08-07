@@ -30,8 +30,7 @@ How did we implement it to meet that challenge?
 - Simplified API requests by implementing a proxy server in Express.js to an existing RESTful API
 - http-proxy-middleware
 
-<code><img width="15%" src="https://www.vectorlogo.zone/logos/netlifyapp_watercss/netlifyapp_watercss-ar21.svg
-"></code>
+<code><img width="15%" src="https://www.vectorlogo.zone/logos/netlifyapp_watercss/netlifyapp_watercss-ar21.svg"></code>
 
 ### CSS
 

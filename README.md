@@ -87,8 +87,18 @@ How to host this single page application on your local machine.
 
 ### Overview
 
+![Overview component screenshot](docs/img/overview.png)
+
 ### Related Products
+
+![Related Products component screenshot](docs/img/related.png)
 
 ### Questions & Answers
 
+![Questions & Answers component screenshot](docs/img/qa.png)
+
+![Questions & Answers Add Answer component screenshot](docs/img/qa-modal.png)
+
 ### Ratings & Reviews
+
+![Ratings & Reviews component screenshot](docs/img/ratings.png)

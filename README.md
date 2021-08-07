@@ -1,11 +1,61 @@
-# FEC
+# Project Catwalk
 
-Front End Capstone repository for RFP54's Team Helios!
+Front End Capstone repository for HackReactor RFP54's Team Helios!
 
-## Running the App Locally
+This capstone project tasked Team Helios with the challenge of redesigning an outdated retail portal. The redesign implemented a new user interface, and introduced significant client experience functionality.
+
+---
+
+## Tech Stack and Challenges
+
+<code><img width="15%" src="https://www.vectorlogo.zone/logos/reactjs/reactjs-ar21.svg"></code>
+
+### React
+
+- In order to implement a responsive, single-page application capable of dynamically rendering with third-party API data, we utilized React Context and Hooks.
+
+<code><img width="15%" src="https://www.vectorlogo.zone/logos/nodejs/nodejs-ar21.svg"></code>
+
+### Nodejs
+
+- Despite being a front-end capstone that explicitly placed back-end implementation out of scope, used Nodejs to utilize Express.
+
+<code><img width="15%" src="https://www.vectorlogo.zone/logos/expressjs/expressjs-ar21.svg"></code>
+
+### Express
+
+- Simplified API requests by implementing a proxy server in Express.js that adds authentication while forwarding requests to an existing RESTful API.
+
+<code><img width="15%" src="https://www.vectorlogo.zone/logos/netlifyapp_watercss/netlifyapp_watercss-ar21.svg"></code>
+
+### CSS
+
+- Aside from being the sole technology used for the aesthetic styling of this application:
+  - All styling, including functional implementations like the modals and image gallery, were written solely with CSS.
+  - The use of Grid made the overlay button functionality and precise placement of static assets accessible and simple.
+  - Flexbox was instrumental in handling the wealth of dynamic data being delivered to the page.
+
+<code><img width="15%" src="https://www.vectorlogo.zone/logos/jestjsio/jestjsio-ar21.svg"></code>
+
+### Jest
+
+- Each of the 4 contributors took independent ownership over the development of each module present in the application, which introduced the need for rigorous, automated testing.
+- React Testing Library kept our efforts and tests focused on the user experience while making it possible to test the vast amount of interactions and dynamic components in our application.
+
+<code><img width="15%" src="https://www.vectorlogo.zone/logos/js_webpack/js_webpack-ar21.svg"></code>
+
+### Webpack
+
+- Webpack was our solution to elegantly handle our numerous static assets, implement JSX, and harness ES6 in this project.
+
+---
+
+## Set up Instructions
+
+How to host this single page application on your local machine.
 
 1. Make sure you've pulled the version you want to run (see Git Workflow)
-1. Make a copy of the file 'server/config/config.example.js` and rename to 'config.js'
+1. Make a copy of the file `server/config/config.example.js` and rename to `config.js`
 1. Assign the `API_KEY` variable to your GitHub token
 1. Install dependencies
 
@@ -27,81 +77,60 @@ Front End Capstone repository for RFP54's Team Helios!
 
 1. Visit [localhost:3000](http://localhost:3000) in the browser
 
-## Git Workflow
+---
 
-How to contribute to this project.
+## App Components
 
-![Git Workflow Diagram](docs/img/gitflow.png)
+### [Overview](client/src/components/overview/)
 
-[Lucid Chart](https://lucid.app/lucidchart/invitations/accept/inv_c4244f5b-aff7-4e56-9dfc-1a72d5248c76?viewport_loc=-635%2C558%2C2994%2C1437%2C0_0)
+Developed by Darion Williams
 
-### General Rules
+![Overview component screenshot](docs/img/overview.png)
 
-- Never work directly on the `main` branch
-- Create a branch for each new feature
-- Handle merge conflicts on local clone in VS Code
-- Pull requests must be reviewed by another team member before closing
-- If any changes are accidentally made before checking out run:
-  1. Stash changes: `git stash`
-  2. Check out into the new branch: `git checkout -b <feature_name>`
-  3. Apply those changes to the new branch: `git stash pop`
+The Overview module rests at the top of the page and is responsible for delivering relevant information for a product in the catalogue. A single product can be associated to many styles, whose details and associated photos must be intuitively displayed.
 
-### Creating a new Feature Branch
+It was a challenge to display this information to be viewed at a glance while also giving a prospective shopper the means to view the full details. This flexibility expressed in the business requirements made space a precious resource, so using Grid to create an image control overlay, and using CSS to create a modal to remove detailed image viewing from the page flow were vital.
 
-1. Clone from [organization repo](https://github.com/RFP54-Helios/FEC)
+### [Related Products](client/src/components/RelatedItems/)
 
-    ```bash
-    git clone https://github.com/RFP54-Helios/FEC
-    ```
+Developed by Lakshmy Mohan
 
-1. Make sure you are on branch `main`
-1. Create a branch with a name descriptive of the feature you are developing
+![Related Products component screenshot](docs/img/related.png)
 
-    ```bash
-    git checkout main
-    git checkout -b feature-name
-    # alternative
-    git checkout -b <feature-name> main
-    ```
+The Related Products presents the user with products similar to the currently selected product, provided by the external API.
 
-1. Make changes, commit frequently
+This section shows four product cards at a time. They sit on a horizontally scrolling carousel that allows the user to scroll and view additional cards.
 
-### Syncing changes with `main`
+On each product card, essential information such as the category, name, price, image, and ratings are displayed. Selecting the name of a product will take the user to the overview page of the selected product.
 
-Avoid conflicts in PR
+When a user clicks on the star icon in the upper righthand corner of the card, a modal will pop up comparing the current product and the selected product. The modal displays a table with the features lined up for both products in a table, allowing the user to easily compare the two products.
 
-1. Switch to branch `main`
-1. Pull changes made to main by others
-1. Handle any merge conflicts in VS Code
-1. Switch to `feature-branch`
-1. Merge changes from `main` -> `feature-branch`
-1. Push up to GitHub `feature-branch`
+### **My Outfit**
 
-    ```bash
-    git checkout main
-    git pull
-    # handle merge conflicts
-    git checkout feature-branch
-    git merge main
-    git push origin feature-branch
-    ```
+My Outfit provides the user a way to keep track of their favorite products. If the user wants to add the current product to their outfit, they can select the "+" button, adding the products card to the outfit.
 
-### Adding Features from Branches to `main`
+To remove an outfit item, the user can click the  "X" on the upper righthand corner of the card. The change will remove the selected product from the outfit list.
 
-1. Submit Pull Request
-    1. base:main <- feature-name
-    1. reference Trello ticket with link
-1. Have a team member complete a Code Review according to [Code Review Guidlines](https://learn-2.galvanize.com/cohorts/2778/blocks/94/content_files/Front%20End%20Capstone/exercises/code_reviews.md)
-    1. reviewer will look for errors
-    1. reviewer should test the code according to the below workflow
+The user can also view the sale price in red followed by the original price
 
-### Pulling Features for Testing
+My Outfit is also persistent, allowing the user to navigate around and even away from the application and maintain their list of saved products.
 
-1. create new branch locally
-1. checkout new branch
-1. pull from origin feature-branch
+### [Questions & Answers](client/src/components/QandA/)
 
-```bash
-git checkout -b feature-branch
-git pull origin feature-branch
-```
+Developed by Emily Liu
+
+![Questions & Answers component screenshot](docs/img/qa.png)
+
+![Questions & Answers Add Answer component screenshot](docs/img/qa-modal.png)
+
+### [Ratings & Reviews](client/src/components/Ratings/)
+
+Developed by Matt Heindel
+
+![Ratings & Reviews component screenshot](docs/img/ratings.png)
+
+View and submit reviews for the selected product.
+
+Reviews loaded two at a time for improved initial page load performance.
+
+Display progress bars visualizing a breakdown of the amount of each star rating received.

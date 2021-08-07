@@ -11,34 +11,40 @@ How did we implement it to meet that challenge?
 <code><img width="15%" src="https://www.vectorlogo.zone/logos/reactjs/reactjs-ar21.svg"></code>
 <br />
 React
-  - In order to implement a responsive, single-page application capable of dynamically rendering with third-party API data, we utilized React Context and Hooks.
+- In order to implement a responsive, single-page application capable of dynamically rendering with third-party API data, we utilized React Context and Hooks.
 <br />
 
 <code><img width="15%" src="https://www.vectorlogo.zone/logos/nodejs/nodejs-ar21.svg"></code>
 <br />
 Nodejs
-  - Despite being a front-end capstone that explicitly placed back-end implementation out of scope, used Nodejs to utilize Express
+- Despite being a front-end capstone that explicitly placed back-end implementation out of scope, used Nodejs to utilize Express
 <br />
 
 <code><img width="15%" src="https://www.vectorlogo.zone/logos/expressjs/expressjs-ar21.svg"></code>
 <br />
-Express - http-proxy-middleware
-  - Simplified API requests by implementing a proxy server in Express.js to an existing RESTful API
+Express
+- Simplified API requests by implementing a proxy server in Express.js to an existing RESTful API
 <br />
 
 <br />
 <code><img width="15%" src="https://www.vectorlogo.zone/logos/netlifyapp_watercss/netlifyapp_watercss-ar21.svg
 "></code>
 <br />
-CSS - Flexbox, Grid
-  - Aside from aesthetic styling, the use of Grid made the overlay button functionality in the Gallery simple. Flexbox was instrumental in handling the dynamic data being delivered to the page.
+CSS
+
+- Aside from being the sole technology used for the aesthetic styling of this application:
+  - All styling, including functional implementations like the modals and image gallery, were written solely with CSS.
+  - The use of Grid made the overlay button functionality and precise placement of static assets accessible and simple.
+  - Flexbox was instrumental in handling the wealth of dynamic data being delivered to the page.
 <br />
 
 <br />
 <code><img width="15%" src="https://www.vectorlogo.zone/logos/jestjsio/jestjsio-ar21.svg"></code>
 <br />
-Jest - react/testing-library
-  - Each of the contributors took ownership over one of the 4 widgets present on the page. Integrating these components called for rigorous, automated testing.
+Jest
+
+- Each of the 4 contributors took independent ownership over the development of each module present in the application, which introduced the need for rigorous, automated testing.
+- React Testing Library kept our efforts and tests focused on the user experience while making it possible to test the vast amount of interactions and dynamic components in our application.
 <br />
 
 
@@ -46,9 +52,9 @@ Jest - react/testing-library
 <code><img width="15%" src="https://www.vectorlogo.zone/logos/js_webpack/js_webpack-ar21.svg"></code>
 <br />
 webpack
-  - Webpack was our solution to elegantly handle our numerous static assets, implement JSX, and harness ES6 in this project.
+- Webpack was our solution to elegantly handle our numerous static assets, implement JSX, and harness ES6 in this project.
 <br />
-
+<br />
 ## Running the App Locally
 
 1. Make sure you've pulled the version you want to run (see Git Workflow)

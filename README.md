@@ -83,7 +83,7 @@ How to host this single page application on your local machine.
 
 ### [Overview](client/src/components/overview/)
 
-Developed by Darion Williams
+Developed by [Darion Williams](https://github.com/darionbuilds)
 
 ![Overview component screenshot](docs/img/overview.png)
 
@@ -93,7 +93,7 @@ It was a challenge to display this information to be viewed at a glance while al
 
 ### [Related Products](client/src/components/RelatedItems/)
 
-Developed by Lakshmy Mohan
+Developed by [Lakshmy Mohan](https://github.com/lakshmyErakandath)
 
 ![Related Products component screenshot](docs/img/related.png)
 
@@ -117,7 +117,7 @@ My Outfit is also persistent, allowing the user to navigate around and even away
 
 ### [Questions & Answers](client/src/components/QandA/)
 
-Developed by Emily Liu
+Developed by [Emily Liu](https://github.com/yyliu11)
 
 ![Questions & Answers component screenshot](docs/img/qa.png)
 
@@ -133,7 +133,7 @@ The inline models also allow user to submit questions and post answers to the ex
 
 ### [Ratings & Reviews](client/src/components/Ratings/)
 
-Developed by Matt Heindel
+Developed by [Matt Heindel](https://github.com/matt-heindel)
 
 ![Ratings & Reviews component screenshot](docs/img/ratings.png)
 
